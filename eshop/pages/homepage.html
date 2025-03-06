@@ -5,33 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Včelárske potrebee</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../improvised_logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <!-- Navbar -->
     <header>
         <nav>
             <div class="top-nav">
-                <div class="logo">
-                    <a href='#'><img src="https://e7.pngegg.com/pngimages/358/516/png-clipart-bee-honey-honeycomb.png" alt="Logo"></a>
+                <div class="menu">
+                    <div class="logo">
+                        <a href='#'><img src="../improvised_logo.png" alt="Logo"></a>
+                    </div>
+                    <div class="nav-links">
+                        <a href="#">O nás</a>
+                        <a href="#">Kamenné predajne</a>
+                        <a href="#">Zákaznícky servis</a>
+                    </div>
                 </div>
-                <div class="nav-links">
-                    <a href="#">Karta</a>
-                    <a href="#">Karta</a>
-                    <a href="#">Karta</a>
+                <div class="contact-section">
+                    <i class="fa-solid fa-phone phone-icon"></i> 
+                    <div class="contact-info">
+                        <span class="phone-number">+421 816 526 113</span>
+                        <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                    </div>
                 </div>
                 <div class="user-actions">
-                    <a href="#"><img src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"></a>
-                    <a href="#"><img src = "https://www.svgrepo.com/show/438844/shopping-cart-round.svg"></a>
+                    <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
+                    <a href="#" class="bag">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="bag-count">0</div>
+                    </a>
                 </div>
             </div>
             <div class="bottom-nav">
                 <div class="categories">
-                    <a href="#">Kategória</a>
-                    <a href="#">Kategória</a>
-                    <a href="#">Kategória</a>
-                    <a href="#">Kategória</a>
+                    <a href="#">VYBAVENIE</a>
+                    <a href="#">KRMIVO A DOPLNKY</a>
+                    <a href="#">ZDRAVIE VČIEL</a>
+                    <a href="#">VAŠE PRODUKTY</a>
+                    <div class="search-container">
+                        <input type="text" placeholder="Hľadať..." class="searchbar">
+                        <span class="search-icon">&#128269;</span> 
+                    </div>
                 </div>
-                <input type="text" placeholder="Hľadať..." class="searchbar">
+                
             </div>
         </nav>
     </header>
@@ -44,14 +62,14 @@
         <div class="hero-text">
             <h1>Máme všetko pre váš včelí úľ!</h1>
             <p>Krátky popis, ktorý upúta užívateľa.</p>
-            <button>Prezrieť produkty</button>
+            <button class="shop_but">Prezrieť produkty</button>
         </div>
         
     </section>
 
     <!-- Sekcia O nás -->
     <section class="about">
-        <h2>O nás</h2>
+        <h2>Náš príbeh</h2>
         <p>Informácie o obchode.</p>
     </section>
 
@@ -70,7 +88,34 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 WTECH Tuptová, Žiarovská</p>
+        <div class="newsletter-container">
+            <h3>Aktuálne novinky a akcie na váš e-mail</h3>
+            <div class="newsletter-form">
+                <form action="#" method="POST">
+                    <input type="email" name="email" placeholder="tvoj@email.sk">
+                    <button type="submit">Potvrdiť</button>
+                </form>
+                <p class="regulations">*vložením e-mailu súhlasíte s podmienkami ochrany osobných údajov</p>
+            </div>
+        </div>
+        <div class="footer-text-container">
+            <div class="contact-us">
+                <div class="text-container">
+                    <h3>Pomôžeme Vám s výberom</h3>
+                    <p>Potrebujete poradiť? Neváhajte, sme tu pre Vás!</p>
+                </div>
+                <div class="information">
+                    <p><i class="fa-solid fa-phone"></i> +421 816 526 113</p>
+                    <p><i class="fa-solid fa-envelope"></i> nasemail@gmail.com</p>
+                </div>
+            </div>
+            <div class="socials">
+                <h3>Sledujte nás</h3>
+                <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 WTECH Tuptová, Žiarovská</p>
     </footer>
 </body>
 </html>
