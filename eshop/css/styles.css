@@ -1,6 +1,6 @@
 :root {
-    --dark: #e3cb8f;
-    --light:#edd087;
+    --dark: #f8b61F;
+    --light:#ffd472;
     --background:#fffae7;
 }
 
@@ -10,6 +10,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -206,11 +207,12 @@ header {
 /* Hero */
 .hero {
     padding-top: 130px;
-    height: 100vh ;
+    height: auto ;
     display: flex;
     flex-direction: column;
     background-color: var(--background);
     justify-content: center;
+    padding-bottom: 50px;
 }
 
 .hero-upper {
@@ -344,7 +346,7 @@ header {
 {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .info-circle {
@@ -373,41 +375,93 @@ header {
 
 /* About */
 .about {
-    min-height: 100vh;
+    min-height: auto;
     background-color: var(--light);
     margin-top: -30px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .about h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: 20px;
     padding-top: 1em;
     margin: 1em;
 }
 
+.about p{
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 20px;
+    padding: 0 1em;
+}
+
+.about img {
+    width: auto;
+    height: 400px;
+    object-fit: cover;
+    padding-bottom: 20px;
+}
+
 /* Recommended */
 .recommended {
-    height: 40vh;
-    background-color: var(--dark);
+    margin-top: -30px;
+    height: auto;
+    background-color: var(--background);
     display: flex;
     flex-direction: column;
     justify-content: end;
+    padding-top: 80px;
 }
 
 .recommended h2 {
     margin: 1em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-top: 1em;
 }
 
 .product-list {
-    background-color: var(--light);
+    background-color: var(--background);
     height: 80%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .product {
-    width: 100px;
-    height: 100px;
-    background-color: var(--dark);
+    padding: 20px;
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+    background-color: var(--light);
 }
 
 /* Footer */

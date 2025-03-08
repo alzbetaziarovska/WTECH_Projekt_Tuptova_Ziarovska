@@ -15,11 +15,12 @@
             <div class="top-nav">
                 <div class="menu">
                     <div class="logo">
-                        <a href='#'><img src="../improvised_logo.png" alt="Logo"></a>
+                        <a href='../pages/homepage.html'><img src="../improvised_logo.png" alt="Logo"></a>
                     </div>
                     <div class="nav-links">
-                        <a href="#">O nás</a>
-                        <a href="#">E-shop</a>
+                        <a href="#about">O nás</a>
+                        <a href="../pages/shop.html">E-shop</a>
+                        <a href="../pages/homepage.html#recommended">Odporúčané produkty</a>
                         <a href="#">Kamenné predajne</a>
                         <a href="#">Zákaznícky servis</a>
                     </div>
@@ -76,7 +77,7 @@
                     <p>Ponúkame overené produkty, rýchle dodanie a odborné poradenstvo, aby váš úľ prekypoval zdravím a medom.</p>
                 </div>
                 <div class="button-container">
-                    <a class="shop_but">NAKUPOVAŤ</a>
+                    <a class="shop_but" href = '../pages/shop.html'>NAKUPOVAŤ</a>
                 </div>
             </div>
         </div>
@@ -123,13 +124,30 @@
     </section>
 
     <!-- Sekcia O nás -->
-    <section class="about">
+    <section class="about" id="about">
         <h2>Náš príbeh</h2>
-        <p>Informácie o obchode.</p>
+        <div class = 'about-content'>
+        <p>
+            Ahojte! 🐝 <br><br>
+            Sme dve mladé študentky informatiky, ktoré spája netradičná vášeň - včely.
+            Kvôli tomuto spojeniu sme sa rozhodli založiť e-shop s včelárskymi potrebami, ktorého
+            cieľom je uľahčiť prístup ku kvalitným produktom, ktoré vám pomôžu rozvíjať
+            vaše včelstvo. Naša ponuka je zameraná na kvalitu, preto spolupracujeme s overenými
+            dodávateľmi a výrobcami. Medzi produktami, ktoré ponúkame nájdete naozaj všetko
+            potrebné pre vaše úle.<br>
+            V rámci rozvoja včelárskej komunity a podpory začínajúcich včelárov organizujeme
+            workshopy a školenia, kde sa môžete dozvedieť viac o starostlivosti o včely, výrobe
+            medu a propolisu a mnoho ďalšieho. Na našej stránke nájdete aj rôzne články
+            a príspevky, z ktorých sa dozviete mnoho tipov, trikov a zaujímvostí. <br>
+            V prípade akýchkoľvek otázok nás neváhajte kontaktovať, radi vám poradíme.<br><br>
+            Ďakujeme za podporu a dôveru! 🐝
+        </p>
+        <img src = '../images/our_story.webp'></img>
+        </div>
     </section>
 
     <!-- Sekcia Odporúčané produkty -->
-    <section class="recommended">
+    <section class="recommended" id="recommended">
         <h2>Odporúčané produkty</h2>
         <div class="product-list">
             <!-- Zoznam produktov -->
