@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Včelárske potrebee</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="icon" type="image/x-icon" href="../improvised_logo.png">
+    <link rel="icon" type="image/x-icon" href="../images/logo_final.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -20,7 +20,6 @@
                     <div class="nav-links">
                         <a href="#about">O nás</a>
                         <a href="../pages/shop.html">E-shop</a>
-                        <a href="../pages/homepage.html#recommended">Odporúčané produkty</a>
                         <a href="#">Kamenné predajne</a>
                         <a href="#">Zákaznícky servis</a>
                     </div>
@@ -61,16 +60,20 @@
         <div class="hero-upper">
             <div class="hero-banner">
                 <div class="place4img">
-                    <img src = "../images/happy_bee.jpg" alt="Banner"></img>
+                    <img src="../images/one.png" alt="Banner" class="banner-img" id="img-1">
+                    <img src="../images/two.png" alt="Banner" class="banner-img" id="img-2">
+                    <img src="../images/three.png" alt="Banner" class="banner-img" id="img-3">
+                    <img src="../images/four.png" alt="Banner" class="banner-img" id="img-4">
+                    <img src="../images/five.png" alt="Banner" class="banner-img" id="img-5">
                 </div>
                 <div class="place4links">
-                    <div class="link"><a href="#">Jar v znamení zliav</a></div>
-                    <div class="link"><a href="#">Limitka: Ručne vyrábané úle</a></div>
-                    <div class="link"><a href="#">Ako na zdravé včelstvá</a></div>
-                    <div class="link"><a href="#">Propolis</a></div>
-                    <div class="link"><a href="#">Workshop pre včelárov</a></div>
+                    <div class="link" data-target="img-1"><a href="#">Jar v znamení zliav</a></div>
+                    <div class="link" data-target="img-2"><a href="#">Limitka: Ručne vyrábané úle</a></div>
+                    <div class="link" data-target="img-3"><a href="#">Ako na zdravé včelstvá</a></div>
+                    <div class="link" data-target="img-4"><a href="#">Propolis</a></div>
+                    <div class="link" data-target="img-5"><a href="#">Workshop pre včelárov</a></div>
                 </div>
-            </div>
+            </div>            
             <div class="hero-text">
                 <div class="text-container">
                     <h1>Váš partner vo svete <span>včelárstva!</span></h1>
@@ -115,49 +118,127 @@
         </div>
     </section>
 
-    <!-- Otváracie hodiny -->
     <section class="opened-info">
-        <div class = "info-circle opened"> <!-- Opened or closed -->
-            <i class="fa fa-shop"></i>
-            <!-- <i class="fa-solid fa-shop-slash"></i>-->
-        </div> 
+        <div class="info-circle" id="status-icon">
+            <i class="fa fa-shop" id="open-icon"></i>
+            <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
+            <div class="text-info-container" id="text-container">
+                <p id="open-text">Kamenné predajne otvorené</p>
+                <p id="closed-text">Kamenné predajne zatvorené</p>
+                <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
+            </div>
+            <i class="fa fa-chevron-up" id="toggle-arrow"></i> <!-- Šípka pre zbalenie -->
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="togglePopup()">&times;</span>
+                <h3>Návštivte nás osobne</h3>
+                <table>
+                    <tr><th>Deň</th><th>Čas</th></tr>
+                    <tr><td>Po - Pi</td><td>9:00 - 17:30</td></tr>
+                    <tr><td>So</td><td>Zatvorené</td></tr>
+                    <tr><td>Ne</td><td>Zatvorené</td></tr>
+                </table>
+                <p class="stores-list"><a class="our-store" href="#">Bratislava</a> | <a class="our-store" href="#">Nitra</a> | <a class="our-store" href="#">Prešov</a></p>
+                <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
+            </div>
+        </div>
     </section>
+    
+    
+    <!-- Sekcia Odporúčané produkty -->
+    <section class="recommended" id="recommended">
+        <h2>Odporúčame</h2>
+        <div class="carousel-wrapper">
+            <button id="prevBtn" class="carousel-btn left">&#10094;</button>
+            <div class="carousel-container">
+                <div class="product-carousel">
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <p>Popis 1</p>
+                        <p>Cena 1€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 2">
+                        <p>Popis 2</p>
+                        <p>Cena 2€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 3">
+                        <p>Popis 3</p>
+                        <p>Cena 3€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 4">
+                        <p>Popis 4</p>
+                        <p>Cena 4€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 5</p>
+                        <p>Cena 5€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 6</p>
+                        <p>Cena 6€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 7</p>
+                        <p>Cena 7€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 8</p>
+                        <p>Cena 8€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 9</p>
+                        <p>Cena 9€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 10</p>
+                        <p>Cena 10€</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <button id="nextBtn" class="carousel-btn right">&#10095;</button>
+        </div>
+    </section>
+    
 
     <!-- Sekcia O nás -->
     <section class="about" id="about">
-        <h2>Náš príbeh</h2>
         <div class = 'about-content'>
-        <p>
-            Ahojte! 🐝 <br><br>
-            Sme dve mladé študentky informatiky, ktoré spája netradičná vášeň - včely.
-            Kvôli tomuto spojeniu sme sa rozhodli založiť e-shop s včelárskymi potrebami, ktorého
-            cieľom je uľahčiť prístup ku kvalitným produktom, ktoré vám pomôžu rozvíjať
-            vaše včelstvo. Naša ponuka je zameraná na kvalitu, preto spolupracujeme s overenými
-            dodávateľmi a výrobcami. Medzi produktami, ktoré ponúkame nájdete naozaj všetko
-            potrebné pre vaše úle.<br>
-            V rámci rozvoja včelárskej komunity a podpory začínajúcich včelárov organizujeme
-            workshopy a školenia, kde sa môžete dozvedieť viac o starostlivosti o včely, výrobe
-            medu a propolisu a mnoho ďalšieho. Na našej stránke nájdete aj rôzne články
-            a príspevky, z ktorých sa dozviete mnoho tipov, trikov a zaujímvostí. <br>
-            V prípade akýchkoľvek otázok nás neváhajte kontaktovať, radi vám poradíme.<br><br>
-            Ďakujeme za podporu a dôveru! 🐝
-        </p>
-        <img src = '../images/our_story.webp'></img>
+            <div class="about-text">
+                <h2>Náš príbeh</h2>
+                <p>
+                    Ahojte!<br><br>
+                    Sme dve mladé študentky informatiky, ktoré spája netradičná vášeň - včely.
+                    Kvôli tomuto spojeniu sme sa rozhodli založiť e-shop s včelárskymi potrebami, ktorého
+                    cieľom je uľahčiť prístup ku kvalitným produktom, ktoré vám pomôžu rozvíjať
+                    vaše včelstvo. Naša ponuka je zameraná na kvalitu, preto spolupracujeme s overenými
+                    dodávateľmi a výrobcami. Medzi produktami, ktoré ponúkame nájdete naozaj všetko
+                    potrebné pre vaše úle.<br>
+                    V rámci rozvoja včelárskej komunity a podpory začínajúcich včelárov organizujeme
+                    workshopy a školenia, kde sa môžete dozvedieť viac o starostlivosti o včely, výrobe
+                    medu a propolisu a mnoho ďalšieho. Na našej stránke nájdete aj rôzne články
+                    a príspevky, z ktorých sa dozviete mnoho tipov, trikov a zaujímvostí. <br>
+                    V prípade akýchkoľvek otázok nás neváhajte kontaktovať, radi vám poradíme.<br><br>
+                    Ďakujeme za podporu a dôveru! 🐝
+                </p>
+            </div>
+            <div class="img_container">
+                <img src = '../images/our_story.webp'></img>
+            </div>
         </div>
     </section>
 
-    <!-- Sekcia Odporúčané produkty -->
-    <section class="recommended" id="recommended">
-        <h2>Odporúčané produkty</h2>
-        <div class="product-list">
-            <!-- Zoznam produktov -->
-             <div class="product"></div>
-             <div class="product"></div>
-             <div class="product"></div>
-             <div class="product"></div>
-             <div class="product"></div>
-        </div>
-    </section>
+    
 
     <!-- Footer -->
     <footer>
@@ -178,7 +259,7 @@
                     <p>Potrebujete poradiť? Neváhajte, sme tu pre Vás!</p>
                 </div>
                 <div class="information">
-                    <p><i class="fa-solid fa-phone"></i> +421 816 526 113</p>
+                    <p class="phone-info"><i class="fa-solid fa-phone"></i> +421 816 526 113</p>
                     <p><i class="fa-solid fa-envelope"></i> nasemail@gmail.com</p>
                 </div>
             </div>
@@ -191,5 +272,6 @@
         </div>
         <p class="copyright">&copy; 2025 WTECH Tuptová, Žiarovská</p>
     </footer>
+    <script src="../javascript/script.js"></script>
 </body>
 </html>

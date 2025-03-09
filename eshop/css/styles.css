@@ -1,6 +1,6 @@
 :root {
     --dark: #f8b61F;
-    --light:#ffd472;
+    --light:#ffe8b2;
     --background:#fffae7;
 }
 
@@ -220,10 +220,12 @@ header {
     justify-content: center;
     align-items: center;
     flex-basis: 80%;
+    margin: 20px 0px;
 }
 
 .hero-lower {
     flex-basis: 20%;
+    margin-bottom: 20px;
 }
 
 .why-shop-list {
@@ -255,14 +257,13 @@ header {
     gap: 10px;
 }
 
-.hero-banner 
-{
+.hero-banner {
     display: flex;
     align-items: center;
-    flex-basis: 60%;
     justify-content: center;
     height: 80%;
     text-align: right;
+    margin-right: 60px;
 }
 
 .place4links {
@@ -274,25 +275,41 @@ header {
     font-size: 14px;
     color: #333;
     text-align: left;
+    color: #333;
     margin-left: 40px;
 }
 
-
 .link {
     padding: 10px 20px;
-    color: #333;
     height: 80px;
     border: 1px solid #b88c00;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
-.hero-banner img { 
+.link.active {
+    background-color: #b88d0085; 
+}
+
+.link.active a {
+    color: var(--background);
+}
+
+.hero-banner img {
     width: 100%;
+    max-width: 400px;
     height: 400px;
     object-fit: cover;
     margin-left: 20px;
+    border-radius: 8px;
+    display: none; /* Skryté pred zobrazením */
 }
+
+.hero-banner img:first-child {
+    display: block; /* Počiatočne zobraziť prvý obrázok */
+}
+
 
 .hero-text {
     display: flex;
@@ -350,10 +367,10 @@ header {
 }
 
 .info-circle {
-    width: 50px;
-    height: 50px;
+    width: auto;
+    height: auto;
     background-color: #000000;
-    border-radius: 50%;
+    border-radius: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -363,32 +380,115 @@ header {
     z-index: 1;
     bottom: 20px;
     left: 20px;
+    padding: 10px;
+    gap: 10px;
 }
 
-.opened {
-    background-color: #36a12a;
+.text-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
 }
 
-.closed {
-    background-color: #e45937;
+#text-to-open-popup, #open-icon, #closed-icon {
+    cursor: pointer;
+}
+
+.info-circle p {
+    font-size: 12px; /* Menší text pre paragrafy */
+    color: var(--background); /* Farba textu podľa pozadia */
+    margin: 0; /* Zrušenie výchozích marginov */
+    text-align: center; /* Zarovnanie textu na stred */
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    z-index: 1000;
+    font-size: 14px;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close-btn {
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 8px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.popup table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+.popup table, th, td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.popup th {
+    background-color: #f4f4f4;
+}
+
+.stores-list {
+    margin-bottom: 5px;
+}
+
+.eshop-link {
+    color: #b88c00;
+    font-weight: bold;
+}
+.our-store {
+    color: #666;
+}
+
+#toggle-arrow {
+    rotate: -90deg;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--background);
+    transition: transform 0.3s ease;
+}
+
+.text-info-container.collapsed {
+    display: none; /* Skryjeme text, keď je kontajner zbalený */
 }
 
 /* About */
 .about {
-    min-height: auto;
-    background-color: var(--light);
+    height: auto;
+    background-color: var(--background);
     margin-top: -30px;
-    padding-top: 80px;
-    padding-bottom: 30px;
+
 }
 
 .about-content {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 50px 0;
+    gap: 60px;
+    margin: 0 60px;
 }
 
 .about h2 {
@@ -401,40 +501,47 @@ header {
     line-height: 1.4;
     text-align: left;
     margin-bottom: 20px;
-    padding-top: 1em;
-    margin: 1em;
 }
 
-.about p{
+.about p {
     font-size: 16px;
     font-weight: 400;
     color: #666;
     line-height: 1.6;
     text-align: justify;
-    margin-bottom: 20px;
-    padding: 0 1em;
+    flex-basis: 50%;
+}
+
+.about-text {
+    flex-basis: 70%;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 30%;
 }
 
 .about img {
-    width: auto;
-    height: 400px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    min-height: 200px;
     object-fit: cover;
-    padding-bottom: 20px;
+    border-radius: 8px;
 }
 
 /* Recommended */
 .recommended {
-    margin-top: -30px;
     height: auto;
-    background-color: var(--background);
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding-top: 80px;
+    background-color: var(--light);
+    margin-top: -30px;
+    padding: 30px 0px;
+    margin-bottom: 20px;
 }
 
 .recommended h2 {
-    margin: 1em;
     font-family: 'Poppins', sans-serif;
     font-size: 30px;
     font-weight: 400;
@@ -443,25 +550,64 @@ header {
     letter-spacing: 2px;
     line-height: 1.4;
     text-align: left;
-    margin-bottom: 20px;
-    padding-top: 1em;
+    margin: 0 0 20px 60px;
 }
 
-.product-list {
-    background-color: var(--background);
-    height: 80%;
+.carousel-wrapper {
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0px;
 }
+
+.carousel-container {
+    overflow: hidden;
+    max-width: 1000px;
+}
+
+.product-carousel {
+    display: flex;
+    overflow-x: auto; 
+    scroll-behavior: smooth; 
+    white-space: nowrap;
+    gap: 10px; 
+    padding-bottom: 20px;
+}
+
 
 .product {
-    padding: 20px;
-    margin: 10px;
-    width: 150px;
-    height: 150px;
-    background-color: var(--light);
+    background: rgba(255, 255, 255, 0.424);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+/* Šípky na posúvanie */
+.carousel-btn {
+    background-color: transparent;
+    border: none;
+    color: #b88c00;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.product img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
 }
 
 /* Footer */
@@ -496,6 +642,7 @@ footer {
 }
 
 .newsletter-container h3 {
+    font-weight: 400;
     font-size: 20px;
     margin-right: 30px;
 }
@@ -573,6 +720,7 @@ footer {
 
 .text-container h3, .socials h3 {
     font-size: 20px;
+    font-weight: 400;
 }
 
 .copyright, .regulations {
@@ -592,12 +740,16 @@ footer {
 
 .information {
     text-align: left;
+    font-size: 20px;
 }
 
 .information p {
-    margin: 5px 0;
-    font-size: 20px;
+    margin: 5px;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
 }
+
 
 /* Social Media */
 .socials {
@@ -611,7 +763,6 @@ footer {
     font-size: 20px;
     width: 30px;
     height: 30px;
-
 }
 
 .socials a:hover {
@@ -622,8 +773,6 @@ footer {
     width: 100%;
     border-radius: 50%;
 }
-
-
 
 .socials a {
     display: inline-flex;
