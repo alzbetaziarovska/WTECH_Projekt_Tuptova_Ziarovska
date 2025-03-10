@@ -121,3 +121,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
     setActive(0); // defalut zacni na prvy obrazok
 });
+
+
+
+// zobrazenie alebo skrytie pop-up okna celeho
+function toggleAuthPopup() {
+    const popup = document.getElementById('auth-popup');
+    popup.style.display = (popup.style.display === 'flex') ? 'none' : 'flex';
+}
+
+// prepnutie medzi prihlasovacím a registračným formulárom
+function toggleRegisterForm() {
+    const signinForm = document.getElementById('signin-form');
+    const registerForm = document.getElementById('register-form');
+
+    if (signinForm.style.display === 'none') {
+        signinForm.style.display = 'block';
+        registerForm.style.display = 'none';
+    } else {
+        signinForm.style.display = 'none';
+        registerForm.style.display = 'block';
+    }
+}
+
+//zatvorenie popupu pri kliknutí mimo formulára
+window.addEventListener('click', function(event) {
+    const popup = document.getElementById('auth-popup');
+    const formContainer = document.querySelector('.popup-form');
+    if (event.target === popup) {
+        popup.style.display = 'none';
+    }
+});
+document.querySelector('.user-icon').addEventListener('click', toggleAuthPopup);
+// zatvorenie popup ked klik mimo kontajner
+window.addEventListener('click', function(event) {
+    const popup = document.getElementById('auth-popup');
+    if (popup && event.target === popup) {
+        popup.style.display = 'none';
+    }
+});

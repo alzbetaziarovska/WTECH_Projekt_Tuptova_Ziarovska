@@ -145,6 +145,35 @@
         </div>
     </section>
     
+    <!-- Popup for Sign In / Register -->
+    <div id="auth-popup" class="popup-container">
+        <div class="popup-form">
+            <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
+            <!-- Sign In Form -->
+            <div id="signin-form" class="form-content">
+                <h3>Prihlásenie</h3>
+                <form action="#" method="POST">
+                    <input type="email" placeholder="E-mail" required><br>
+                    <input type="password" placeholder="Heslo" required><br>
+                    <button type="submit">Prihlásiť sa</button>
+                </form>
+                <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="form-content" style="display:none;">
+                <h3>Registrácia</h3>
+                <form action="#" method="POST">
+                    <input type="text" placeholder="Meno a Priezvisko" required><br>
+                    <input type="email" placeholder="E-mail" required><br>
+                    <input type="password" placeholder="Heslo" required><br>
+                    <button type="submit">Registrovať sa</button>
+                </form>
+                <p>Máte už účet? <a href="#" onclick="toggleRegisterForm()">Prihláste sa!</a></p>
+            </div>
+        </div>
+    </div>
+
     
     <!-- Sekcia Odporúčané produkty -->
     <section class="recommended" id="recommended">
@@ -229,7 +258,7 @@
                     medu a propolisu a mnoho ďalšieho. Na našej stránke nájdete aj rôzne články
                     a príspevky, z ktorých sa dozviete mnoho tipov, trikov a zaujímvostí. <br>
                     V prípade akýchkoľvek otázok nás neváhajte kontaktovať, radi vám poradíme.<br><br>
-                    Ďakujeme za podporu a dôveru! 🐝
+                    Ďakujeme za podporu a dôveru! 🐝 <a href="#"><u>Viac...</u></a>
                 </p>
             </div>
             <div class="img_container">
