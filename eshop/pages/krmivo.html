@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Včelárske potrebee</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../improvised_logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div class="top-nav">
+                <div class="menu">
+                    <div class="logo">
+                        <a href='../pages/homepage.html'><img src="../images/logo_final.png" alt="Logo"></a>
+                    </div>
+                    <div class="nav-links">
+                        <a href="../pages/homepage.html#about">O nás</a>
+                        <a href="../pages/shop.html">E-shop</a>
+                        <a href="../pages/homepage.html#recommended">Odporúčané produkty</a>
+                        <a href="#">Kamenné predajne</a>
+                        <a href="#">Zákaznícky servis</a>
+                    </div>
+                </div>
+                <div class="contact-section">
+                    <i class="fa-solid fa-phone phone-icon"></i> 
+                    <div class="contact-info">
+                        <span class="phone-number">+421 816 526 113</span>
+                        <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                    </div>
+                </div>
+                <div class="user-actions">
+                    <a href="#"><i class="fa-solid fa-circle-user user-icon" onclick="toggleAuthPopup()"></i></a>
+                    <a href="../pages/shopping_cart.html" class="bag">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="bag-count">0</div>
+                    </a>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <div class="categories">
+                    <a href="../pages/vybavenie.html">VYBAVENIE</a>
+                    <a href="../pages/krmivo.html">KRMIVO A DOPLNKY</a>
+                    <a href="../pages/zdravie.html">ZDRAVIE VČIEL</a>
+                    <a href="../pages/vase.html">VAŠE PRODUKTY</a>
+                    <div class="search-container">
+                        <input type="text" placeholder="Hľadať..." class="searchbar">
+                        <span class="search-icon">&#128269;</span> 
+                    </div>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Popup for Sign In / Register -->
+    <div id="auth-popup" class="popup-container">
+        <div class="popup-form">
+            <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
+            <!-- Sign In Form -->
+            <div id="signin-form" class="form-content">
+                <h3>Prihlásenie</h3>
+                <form action="#" method="POST">
+                    <input type="email" placeholder="E-mail" required><br>
+                    <input type="password" placeholder="Heslo" required><br>
+                    <button type="submit">Prihlásiť sa</button>
+                </form>
+                <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="form-content" style="display:none;">
+                <h3>Registrácia</h3>
+                <form action="#" method="POST">
+                    <input type="text" placeholder="Meno a Priezvisko" required><br>
+                    <input type="email" placeholder="E-mail" required><br>
+                    <input type="password" placeholder="Heslo" required><br>
+                    <button type="submit">Registrovať sa</button>
+                </form>
+                <p>Máte už účet? <a href="#" onclick="toggleRegisterForm()">Prihláste sa!</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class = "filter-product-container">
+        <!-- Products -->
+        <div class="products">
+            <div class="product-shop">
+                    <img src="../images/happy_bee.jpg" alt="Product1">
+                <div class="product-info">    
+                    <h3>Produkt 1</h3>
+                    <p>Popis produktu 1</p>
+                    <p class="price">Cena: 10€</p>
+                    <button type="button">Pridať do košíka</button>
+                    <p>V košíku: 0</p>
+                </div>
+            </div>
+            <div class="product-shop">
+                    <img src="../images/happy_bee.jpg" alt="Product2">
+                <div class="product-info">
+                    <h3>Produkt 2</h3>
+                    <p>Popis produktu 2</p>
+                    <p class="price">Cena: 20€</p>
+                    <button type="button">Pridať do košíka</button>
+                    <p>V košíku: 0</p>
+                </div>
+            </div>
+            <div class="product-shop">
+                <img src="../images/happy_bee.jpg" alt="Product2">
+                <div class="product-info">
+                    <h3>Produkt 3</h3>
+                    <p>Popis produktu 3</p>
+                    <p class="price">Cena: 30€</p>
+                    <button type="button">Pridať do košíka</button>
+                    <p>V košíku: 0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter -->
+            <div class="filter">
+                <h2>Krmivo a doplnky</h2>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <h3>Typ</h3>
+                        <ul>
+                            <li><input type="checkbox" name="type" value="1"> Typ 1</li>
+                            <li><input type="checkbox" name="type" value="2"> Typ 2</li>
+                            <li><input type="checkbox" name="type" value="3"> Typ 3</li>
+                        </ul>
+                    </div>
+                    <div class="filter-option">
+                        <h3>Farba</h3>
+                        <ul>
+                            <li><input type="checkbox" name="color" value="1"> Farba 1</li>
+                            <li><input type="checkbox" name="color" value="2"> Farba 2</li>
+                            <li><input type="checkbox" name="color" value="3"> Farba 3</li>
+                        </ul>
+                    </div>
+                    <div class="filter-option">
+                        <h3>Veľkosť</h3>
+                        <ul>
+                            <li><input type="checkbox" name="size" value="1"> Veľkosť 1</li>
+                            <li><input type="checkbox" name="size" value="2"> Veľkosť 2</li>
+                            <li><input type="checkbox" name="size" value="3"> Veľkosť 3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+     </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="newsletter-container">
+            <h3>Aktuálne novinky a akcie na váš e-mail</h3>
+            <div class="newsletter-form">
+                <form action="#" method="POST">
+                    <input type="email" name="email" placeholder="tvoj@email.sk">
+                    <button type="submit">Potvrdiť</button>
+                </form>
+                <p class="regulations">*vložením e-mailu súhlasíte s podmienkami ochrany osobných údajov</p>
+            </div>
+        </div>
+        <div class="footer-text-container">
+            <div class="contact-us">
+                <div class="text-container">
+                    <h3>Pomôžeme Vám s výberom</h3>
+                    <p>Potrebujete poradiť? Neváhajte, sme tu pre Vás!</p>
+                </div>
+                <div class="information">
+                    <p><i class="fa-solid fa-phone"></i> +421 816 526 113</p>
+                    <p><i class="fa-solid fa-envelope"></i> nasemail@gmail.com</p>
+                </div>
+            </div>
+            <div class="socials">
+                <h3>Sledujte nás</h3>
+                <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 WTECH Tuptová, Žiarovská</p>
+    </footer>
+    <script src="../javascript/script.js"></script>
+</body>
+</html>

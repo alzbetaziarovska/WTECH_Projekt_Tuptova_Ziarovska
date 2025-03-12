@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Včelárske potrebee</title>
-    <link rel="stylesheet" href="../css/shop_style.css">
-    <link rel="icon" type="image/x-icon" href="../improvised_logo.png">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../images/logo_final.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -18,9 +18,8 @@
                         <a href='../pages/homepage.html'><img src="../images/logo_final.png" alt="Logo"></a>
                     </div>
                     <div class="nav-links">
-                        <a href="../pages/homepage.html#about">O nás</a>
+                        <a href="#about">O nás</a>
                         <a href="../pages/shop.html">E-shop</a>
-                        <a href="../pages/homepage.html#recommended">Odporúčané produkty</a>
                         <a href="#">Kamenné predajne</a>
                         <a href="#">Zákaznícky servis</a>
                     </div>
@@ -33,8 +32,8 @@
                     </div>
                 </div>
                 <div class="user-actions">
-                    <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
-                    <a href="#" class="bag">
+                    <a href="#"><i class="fa-solid fa-circle-user user-icon" onclick="toggleAuthPopup()"></i></a>
+                    <a href="../pages/shopping_cart.html" class="bag">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="bag-count">0</div>
                     </a>
@@ -42,13 +41,13 @@
             </div>
             <div class="bottom-nav">
                 <div class="categories">
-                    <a href="#">VYBAVENIE</a>
-                    <a href="#">KRMIVO A DOPLNKY</a>
-                    <a href="#">ZDRAVIE VČIEL</a>
-                    <a href="#">VAŠE PRODUKTY</a>
+                    <a href="../pages/vybavenie.html">VYBAVENIE</a>
+                    <a href="../pages/krmivo.html">KRMIVO A DOPLNKY</a>
+                    <a href="../pages/zdravie.html">ZDRAVIE VČIEL</a>
+                    <a href="../pages/vase.html">VAŠE PRODUKTY</a>
                     <div class="search-container">
                         <input type="text" placeholder="Hľadať..." class="searchbar">
-                        <span class="search-icon">&#128269;</span> 
+                        <i class="search-icon fa fa-magnifying-glass"></i>
                     </div>
                 </div>
                 
@@ -56,52 +55,330 @@
         </nav>
     </header>
 
-    <!-- Products -->
-    <section class="products">
-        <div class="product">
-                <img src="../images/happy_bee.jpg" alt="Product1">
-            <div class="product-info">    
-                <h3>Produkt 1</h3>
-                <p>Popis produktu 1</p>
-                <p class="price">Cena: 10€</p>
-                <button type="button">Pridať do košíka</button>
-                <p>V košíku: 0</p>
+    <!-- <section class="opened-info">
+        <div class="info-circle" id="status-icon">
+            <i class="fa fa-shop" id="open-icon"></i>
+            <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
+            <div class="text-info-container" id="text-container">
+                <p id="open-text">Kamenné predajne otvorené</p>
+                <p id="closed-text">Kamenné predajne zatvorené</p>
+                <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
+            </div>
+            <i class="fa fa-chevron-up" id="toggle-arrow"></i>
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="togglePopup()">&times;</span>
+                <h3>Návštivte nás osobne</h3>
+                <table>
+                    <tr><th>Deň</th><th>Čas</th></tr>
+                    <tr><td>Po - Pi</td><td>9:00 - 17:30</td></tr>
+                    <tr><td>So</td><td>Zatvorené</td></tr>
+                    <tr><td>Ne</td><td>Zatvorené</td></tr>
+                </table>
+                <p class="stores-list"><a class="our-store" href="#">Bratislava</a> | <a class="our-store" href="#">Nitra</a> | <a class="our-store" href="#">Prešov</a></p>
+                <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
             </div>
         </div>
-        <div class="product">
-                <img src="../images/happy_bee.jpg" alt="Product2">
-            <div class="product-info">
-                <h3>Produkt 2</h3>
-                <p>Popis produktu 2</p>
-                <p class="price">Cena: 20€</p>
-                <button type="button">Pridať do košíka</button>
-                <p>V košíku: 0</p>
+    </section> -->
+    
+    <!-- Popup for Sign In / Register -->
+    <div id="auth-popup" class="popup-container">
+        <div class="popup-form">
+            <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
+            <!-- Sign In Form -->
+            <div id="signin-form" class="form-content">
+                <h3>Prihlásenie</h3>
+                <form action="#" method="POST">
+                    <input type="email" placeholder="E-mail" required><br>
+                    <input type="password" placeholder="Heslo" required><br>
+                    <button type="submit">Prihlásiť sa</button>
+                </form>
+                <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="form-content" style="display:none;">
+                <h3>Registrácia</h3>
+                <form action="#" method="POST">
+                    <input type="text" placeholder="Meno a Priezvisko" required><br>
+                    <input type="email" placeholder="E-mail" required><br>
+                    <input type="password" placeholder="Heslo" required><br>
+                    <button type="submit">Registrovať sa</button>
+                </form>
+                <p>Máte už účet? <a href="#" onclick="toggleRegisterForm()">Prihláste sa!</a></p>
             </div>
         </div>
-        <div class="product">
-            <img src="../images/happy_bee.jpg" alt="Product2">
-            <div class="product-info">
-                <h3>Produkt 3</h3>
-                <p>Popis produktu 3</p>
-                <p class="price">Cena: 30€</p>
-                <button type="button">Pridať do košíka</button>
-                <p>V košíku: 0</p>
+    </div>
+
+    
+    <!-- Sekcia KAT1 -->
+    <section class="category" id="category1">
+        <a href = "vybavenie.html"><h2>Vybavenie</h2></a>
+        <div class="carousel-wrapper">
+            <button id="prevBtn" class="carousel-btn left">&#10094;</button>
+            <div class="carousel-container">
+                <div class="product-carousel">
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <p>Popis 1</p>
+                        <p>Cena 1€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 2">
+                        <p>Popis 2</p>
+                        <p>Cena 2€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 3">
+                        <p>Popis 3</p>
+                        <p>Cena 3€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 4">
+                        <p>Popis 4</p>
+                        <p>Cena 4€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 5</p>
+                        <p>Cena 5€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 6</p>
+                        <p>Cena 6€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 7</p>
+                        <p>Cena 7€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 8</p>
+                        <p>Cena 8€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 9</p>
+                        <p>Cena 9€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 10</p>
+                        <p>Cena 10€</p>
+                    </div>
+                    
+                </div>
             </div>
+            <button id="nextBtn" class="carousel-btn right">&#10095;</button>
         </div>
     </section>
-        
 
+    <!-- Sekcia KAT2 -->
+    <section class="category" id="category2">
+        <a href="../pages/krmivo.html"><h2>Krmivo a doplnky</h2></a>
+        <div class="carousel-wrapper">
+            <button id="prevBtn" class="carousel-btn left">&#10094;</button>
+            <div class="carousel-container">
+                <div class="product-carousel">
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <p>Popis 1</p>
+                        <p>Cena 1€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 2">
+                        <p>Popis 2</p>
+                        <p>Cena 2€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 3">
+                        <p>Popis 3</p>
+                        <p>Cena 3€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 4">
+                        <p>Popis 4</p>
+                        <p>Cena 4€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 5</p>
+                        <p>Cena 5€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 6</p>
+                        <p>Cena 6€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 7</p>
+                        <p>Cena 7€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 8</p>
+                        <p>Cena 8€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 9</p>
+                        <p>Cena 9€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 10</p>
+                        <p>Cena 10€</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <button id="nextBtn" class="carousel-btn right">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Sekcia KAT3 -->
+    <section class="category" id="category3">
+        <a href="../pages/zdravie.html"><h2>Zdravie včiel</h2></a>
+        <div class="carousel-wrapper">
+            <button id="prevBtn" class="carousel-btn left">&#10094;</button>
+            <div class="carousel-container">
+                <div class="product-carousel">
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <p>Popis 1</p>
+                        <p>Cena 1€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 2">
+                        <p>Popis 2</p>
+                        <p>Cena 2€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 3">
+                        <p>Popis 3</p>
+                        <p>Cena 3€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 4">
+                        <p>Popis 4</p>
+                        <p>Cena 4€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 5</p>
+                        <p>Cena 5€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 6</p>
+                        <p>Cena 6€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 7</p>
+                        <p>Cena 7€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 8</p>
+                        <p>Cena 8€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 9</p>
+                        <p>Cena 9€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 10</p>
+                        <p>Cena 10€</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <button id="nextBtn" class="carousel-btn right">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Sekcia KAT4 -->
+    <section class="category" id="category4">
+        <a href = '../pages/vase.html'><h2>Vaše produkty</h2></a>
+        <div class="carousel-wrapper">
+            <button id="prevBtn" class="carousel-btn left">&#10094;</button>
+            <div class="carousel-container">
+                <div class="product-carousel">
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <p>Popis 1</p>
+                        <p>Cena 1€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 2">
+                        <p>Popis 2</p>
+                        <p>Cena 2€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 3">
+                        <p>Popis 3</p>
+                        <p>Cena 3€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 4">
+                        <p>Popis 4</p>
+                        <p>Cena 4€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 5</p>
+                        <p>Cena 5€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 6</p>
+                        <p>Cena 6€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 7</p>
+                        <p>Cena 7€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 8</p>
+                        <p>Cena 8€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 9</p>
+                        <p>Cena 9€</p>
+                    </div>
+                    <div class="product">
+                        <img src="../images/logo_final.png" alt="Produkt 5">
+                        <p>Popis 10</p>
+                        <p>Cena 10€</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <button id="nextBtn" class="carousel-btn right">&#10095;</button>
+        </div>
+    </section>
+    
 
     <!-- Footer -->
     <footer>
         <div class="newsletter-container">
-            <h3>Aktuálne novinky a akcie na váš e-mail</h3>
+            <h3>Aktuálne novinky a akcie na Váš e-mail</h3>
             <div class="newsletter-form">
                 <form action="#" method="POST">
                     <input type="email" name="email" placeholder="tvoj@email.sk">
                     <button type="submit">Potvrdiť</button>
                 </form>
-                <p class="regulations">*vložením e-mailu súhlasíte s podmienkami ochrany osobných údajov</p>
+                <p class="regulations">*Vložením e-mailu súhlasíte s podmienkami ochrany osobných údajov</p>
             </div>
         </div>
         <div class="footer-text-container">
@@ -111,10 +388,11 @@
                     <p>Potrebujete poradiť? Neváhajte, sme tu pre Vás!</p>
                 </div>
                 <div class="information">
-                    <p><i class="fa-solid fa-phone"></i> +421 816 526 113</p>
+                    <p class="phone-info"><i class="fa-solid fa-phone"></i> +421 816 526 113</p>
                     <p><i class="fa-solid fa-envelope"></i> nasemail@gmail.com</p>
                 </div>
             </div>
+            <div class="delimeter"></div>
             <div class="socials">
                 <h3>Sledujte nás</h3>
                 <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
@@ -123,5 +401,6 @@
         </div>
         <p class="copyright">&copy; 2025 WTECH Tuptová, Žiarovská</p>
     </footer>
+    <script src="../javascript/script.js"></script>
 </body>
 </html>

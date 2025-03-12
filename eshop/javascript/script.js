@@ -144,7 +144,13 @@ function toggleRegisterForm() {
     }
 }
 
-//zatvorenie popupu pri kliknutí mimo formulára
+window.addEventListener('click', function(event) {
+    const popup = document.getElementById('auth-popup');
+    if (popup && event.target === popup) {
+        popup.style.display = 'none';
+    }
+});
+// zatvorenie popupu pri kliknutí mimo formulára
 window.addEventListener('click', function(event) {
     const popup = document.getElementById('auth-popup');
     const formContainer = document.querySelector('.popup-form');
@@ -152,11 +158,6 @@ window.addEventListener('click', function(event) {
         popup.style.display = 'none';
     }
 });
+
+
 document.querySelector('.user-icon').addEventListener('click', toggleAuthPopup);
-// zatvorenie popup ked klik mimo kontajner
-window.addEventListener('click', function(event) {
-    const popup = document.getElementById('auth-popup');
-    if (popup && event.target === popup) {
-        popup.style.display = 'none';
-    }
-});
