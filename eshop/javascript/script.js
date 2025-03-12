@@ -122,6 +122,48 @@ document.addEventListener("DOMContentLoaded", function() {
     setActive(0); // defalut zacni na prvy obrazok
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    // všetky odkazy a obrazky
+    const links = document.querySelectorAll(".place4links-product .link");
+    const images = document.querySelectorAll(".place4img-product .banner-img");
+    let currentIndex = 0; // na aktualny index obrazka
+    let autoSwitchInterval; // interva timer
+
+    // zmena aktivneho odkazu a obrazku
+    function setActive(index) {
+        images.forEach(image => image.style.display = "none"); // skry obrazky 
+        // zobraz vybrany obrazok
+        const activeImage = document.getElementById(`img-${index + 1}`);
+        activeImage.style.display = "block";
+        // odstran titul aktivny z predchadzajuceho
+        links.forEach(link => link.classList.remove("active"));
+        // pridaj titul aktivny aktualnemu
+        links[index].classList.add("active");
+        currentIndex = index; // uloz index, dalsi aktivny +1 alebo co si user vyberie
+    }
+
+    // ked klikne user sam
+    links.forEach((link, index) => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            setActive(index);
+            // musi nastavit novy na 8 sekund lebo bolo prepnute
+            clearInterval(autoSwitchInterval); // zrus predchadzajuci interval
+            autoSwitchInterval = setInterval(function() {
+                let nextIndex = (currentIndex + 1) % links.length;
+                setActive(nextIndex);
+            }, 8000); 
+        });
+    });
+    // prepni kazdych 8 sekund 
+    autoSwitchInterval = setInterval(function() {
+        let nextIndex = (currentIndex + 1) % links.length;
+        setActive(nextIndex);
+    }, 8000);
+
+    setActive(0); // defalut zacni na prvy obrazok
+});
+
 
 
 // zobrazenie alebo skrytie pop-up okna celeho
