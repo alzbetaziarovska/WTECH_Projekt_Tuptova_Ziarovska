@@ -122,49 +122,60 @@ document.addEventListener("DOMContentLoaded", function() {
     setActive(0); // defalut zacni na prvy obrazok
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    // všetky odkazy a obrazky
-    const links = document.querySelectorAll(".place4links-product .link");
+// zmena obrazkov a v detaile produktu
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".place4links-product .link-shop");
     const images = document.querySelectorAll(".place4img-product .banner-img");
-    let currentIndex = 0; // na aktualny index obrazka
-    let autoSwitchInterval; // interva timer
+    const productBanner = document.querySelector(".product-banner");
 
-    // zmena aktivneho odkazu a obrazku
-    function setActive(index) {
-        images.forEach(image => image.style.display = "none"); // skry obrazky 
-        // zobraz vybrany obrazok
-        const activeImage = document.getElementById(`img-${index + 1}`);
-        activeImage.style.display = "block";
-        // odstran titul aktivny z predchadzajuceho
-        links.forEach(link => link.classList.remove("active"));
-        // pridaj titul aktivny aktualnemu
-        links[index].classList.add("active");
-        currentIndex = index; // uloz index, dalsi aktivny +1 alebo co si user vyberie
+    if (!links.length || !images.length || !productBanner) {
+        console.error("Error: One or more elements not found in the DOM!");
+        return;
     }
 
-    // ked klikne user sam
+    let currentIndex = 0;
+    let autoSwitchInterval;
+
+    function setActive(index) {
+        images.forEach(image => image.style.display = "none");
+
+        const activeImage = document.getElementById(`img-${index + 1}`);
+        if (activeImage) {
+            activeImage.style.display = "block";
+
+            console.log("Active Image:", activeImage.src);
+
+            productBanner.style.backgroundImage = "none"; // Force repaint
+            setTimeout(() => {
+                productBanner.style.backgroundImage = `url('${activeImage.src}')`;
+                productBanner.style.backgroundSize = 0;
+                productBanner.style.backgroundPosition = "center";
+            }, 50);
+        }
+
+        currentIndex = index;
+    }
+
     links.forEach((link, index) => {
-        link.addEventListener("click", function(event) {
+        link.addEventListener("click", function (event) {
             event.preventDefault();
             setActive(index);
-            // musi nastavit novy na 8 sekund lebo bolo prepnute
-            clearInterval(autoSwitchInterval); // zrus predchadzajuci interval
-            autoSwitchInterval = setInterval(function() {
+
+            clearInterval(autoSwitchInterval);
+            autoSwitchInterval = setInterval(function () {
                 let nextIndex = (currentIndex + 1) % links.length;
                 setActive(nextIndex);
-            }, 8000); 
+            }, 8000);
         });
     });
-    // prepni kazdych 8 sekund 
-    autoSwitchInterval = setInterval(function() {
+
+    autoSwitchInterval = setInterval(function () {
         let nextIndex = (currentIndex + 1) % links.length;
         setActive(nextIndex);
     }, 8000);
 
-    setActive(0); // defalut zacni na prvy obrazok
+    setActive(0);
 });
-
-
 
 // zobrazenie alebo skrytie pop-up okna celeho
 function toggleAuthPopup() {

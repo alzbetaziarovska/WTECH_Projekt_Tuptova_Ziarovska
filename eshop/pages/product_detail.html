@@ -18,7 +18,7 @@
                         <a href='../pages/homepage.html'><img src="../images/logo_final.png" alt="Logo"></a>
                     </div>
                     <div class="nav-links">
-                        <a href="#about">O nás</a>
+                        <a href="../pages/homepage.html#about">O nás</a>
                         <a href="../pages/shop.html">E-shop</a>
                         <a href="#">Kamenné predajne</a>
                         <a href="#">Zákaznícky servis</a>
@@ -55,64 +55,64 @@
         </nav>
     </header>
 
-        <!-- Popup for Sign In / Register -->
-        <div id="auth-popup" class="popup-container">
-            <div class="popup-form">
-                <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
-                <!-- Sign In Form -->
-                <div id="signin-form" class="form-content">
-                    <h3>Prihlásenie</h3>
-                    <form action="#" method="POST">
-                        <input type="email" placeholder="E-mail" required><br>
-                        <input type="password" placeholder="Heslo" required><br>
-                        <button type="submit">Prihlásiť sa</button>
-                    </form>
-                    <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
-                </div>
-    
-                <!-- Register Form -->
-                <div id="register-form" class="form-content" style="display:none;">
-                    <h3>Registrácia</h3>
-                    <form action="#" method="POST">
-                        <input type="text" placeholder="Meno a Priezvisko" required><br>
-                        <input type="email" placeholder="E-mail" required><br>
-                        <input type="password" placeholder="Heslo" required><br>
-                        <button type="submit">Registrovať sa</button>
-                    </form>
-                    <p>Máte už účet? <a href="#" onclick="toggleRegisterForm()">Prihláste sa!</a></p>
-                </div>
+    <section class="opened-info">
+        <div class="info-circle" id="status-icon">
+            <i class="fa fa-shop" id="open-icon"></i>
+            <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
+            <div class="text-info-container" id="text-container">
+                <p id="open-text">Kamenné predajne otvorené</p>
+                <p id="closed-text">Kamenné predajne zatvorené</p>
+                <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
+            </div>
+            <i class="fa fa-chevron-up" id="toggle-arrow"></i> <!-- Šípka pre zbalenie -->
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="togglePopup()">&times;</span>
+                <h3>Návštivte nás osobne</h3>
+                <table>
+                    <tr><th>Deň</th><th>Čas</th></tr>
+                    <tr><td>Po - Pi</td><td>9:00 - 17:30</td></tr>
+                    <tr><td>So</td><td>Zatvorené</td></tr>
+                    <tr><td>Ne</td><td>Zatvorené</td></tr>
+                </table>
+                <p class="stores-list"><a class="our-store" href="#">Bratislava</a> | <a class="our-store" href="#">Nitra</a> | <a class="our-store" href="#">Prešov</a></p>
+                <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
             </div>
         </div>
+    </section>
+
+         <!-- Popup for Sign In / Register -->
+    <div id="auth-popup" class="popup-container">
+        <div class="popup-form">
+            <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
+            <!-- Sign In Form -->
+            <div id="signin-form" class="form-content">
+                <h3>Prihlásenie</h3>
+                <form action="#" method="POST">
+                    <input type="email" placeholder="E-mail" required><br>
+                    <input type="password" placeholder="Heslo" required><br>
+                    <button type="submit">Prihlásiť sa</button>
+                </form>
+                <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="form-content" style="display:none;">
+                <h3>Registrácia</h3>
+                <form action="#" method="POST">
+                    <input type="text" placeholder="Meno a Priezvisko" required><br>
+                    <input type="email" placeholder="E-mail" required><br>
+                    <input type="password" placeholder="Heslo" required><br>
+                    <button type="submit">Registrovať sa</button>
+                </form>
+                <p>Máte už účet? <a href="#" onclick="toggleRegisterForm()">Prihláste sa!</a></p>
+            </div>
+        </div>
+    </div>
 
     <!-- Product Details -->
     <section class="product-detail">
-        <!-- <div class="product-detail-upper">
-            <div class="product-banner">
-                <div class="place4img">
-                    <img src="../images/one.png" alt="Banner" class="banner-img" id="img-1">
-                    <img src="../images/two.png" alt="Banner" class="banner-img" id="img-2">
-                    <img src="../images/three.png" alt="Banner" class="banner-img" id="img-3">
-                    <img src="../images/four.png" alt="Banner" class="banner-img" id="img-4">
-                    <img src="../images/five.png" alt="Banner" class="banner-img" id="img-5">
-                </div>
-                <div class="place4links">
-                    <div class="link" data-target="img-1"><a href="#"><img src = "../images/one.png"></a></div>
-                    <div class="link" data-target="img-2"><a href="#"><img src = "../images/two.png"></div>
-                    <div class="link" data-target="img-3"><a href="#"><img src = "../images/three.png"></a></div>
-                    <div class="link" data-target="img-4"><a href="#"><img src = "../images/four.png"><img></a></div>
-                    <div class="link" data-target="img-5"><a href="#"><img src = "../images/five.png"><img></a></div>
-                </div>
-            </div>            
-            <div class="product-text">
-                <div class="text-container">
-                    <h1>Váš partner vo svete <span>včelárstva!</span></h1>
-                    <p>Ponúkame overené produkty, rýchle dodanie a odborné poradenstvo, aby váš úľ prekypoval zdravím a medom.</p>
-                </div>
-                <div class="button-container">
-                    <a class="shop_but" href = '#'>Do košíka</a>
-                </div>
-            </div>
-        </div> -->
         <div class="product-detail-upper">
             <div class="product-banner">
                 <div class="place4img-product">
@@ -123,27 +123,28 @@
                     <img src="../images/five.png" alt="Banner" class="banner-img" id="img-5">
                 </div>
                 <div class="place4links-product">
-                    <div class="link" data-target="img-1">
-                        <a href="#"><img src="../images/one.png" class="link-img" alt="Thumbnail"></a>
+                    <div class="link-shop" data-target="img-1">
+                        <a href=""><img src="../images/one.png" class="link-img" alt="Thumbnail"></a>
                     </div>
-                    <div class="link" data-target="img-2">
-                        <a href="#"><img src="../images/two.png" class="link-img" alt="Thumbnail"></a>
+                    <div class="link-shop" data-target="img-2">
+                        <a href=""><img src="../images/two.png" class="link-img" alt="Thumbnail"></a>
                     </div>
-                    <div class="link" data-target="img-3">
-                        <a href="#"><img src="../images/three.png" class="link-img" alt="Thumbnail"></a>
+                    <div class="link-shop" data-target="img-3">
+                        <a href=""><img src="../images/three.png" class="link-img" alt="Thumbnail"></a>
                     </div>
-                    <div class="link" data-target="img-4">
-                        <a href="#"><img src="../images/four.png" class="link-img" alt="Thumbnail"></a>
+                    <div class="link-shop" data-target="img-4">
+                        <a href=""><img src="../images/four.png" class="link-img" alt="Thumbnail"></a>
                     </div>
-                    <div class="link" data-target="img-5">
-                        <a href="#"><img src="../images/five.png" class="link-img" alt="Thumbnail"></a>
+                    <div class="link-shop" data-target="img-5">
+                        <a href=""><img src="../images/five.png" class="link-img" alt="Thumbnail"></a>
                     </div>
                 </div>
             </div>            
             <div class="product-text">
                 <div class="text-container">
-                    <h1>Váš partner vo svete <span>včelárstva!</span></h1>
-                    <p>Ponúkame overené produkty, rýchle dodanie a odborné poradenstvo, aby váš úľ prekypoval zdravím a medom.</p>
+                    <h1>Medový extrakt s propolisom</h1>
+                    <p>Tento prírodný medový extrakt je obohatený o vysokokvalitný propolis, ktorý podporuje imunitu a prispieva k zdravému životnému štýlu. Med je starostlivo získavaný z kvetov včelínov, čím zaručuje prírodný pôvod a bohatú chuť. Propolis v ňom obsiahnutý má silné antibakteriálne a protizápalové vlastnosti. Tento produkt je ideálny na každodennú konzumáciu, do čaju alebo ako doplnok k bežnej strave.</p>
+                    <h1>Cena: 12,99€ (100 ml)</h1>
                 </div>
                 <div class="button-container">
                     <a class="shop_but" href="#">Do košíka</a>
@@ -151,35 +152,72 @@
             </div>
         </div>
         
-        <div class="hero-lower">
-            <div class="why-shop-list">
-                <div class="why-shop-item">
-                    <div class="info-container">
-                        <i class="fa-solid fa-truck-fast"></i>
-                        <p>Rýchla a spoľahlivá preprava</p>
+        <div class="reviews-container">
+            <h2>Recenzie</h2>
+            <div class = "reviews">
+                <div class="review">
+                    <div class="reviewer">
+                        <i class="fa-solid fa-circle-user user-icon"></i>
+                        <p>John Doe</p>
                     </div>
-                    <p class="subtext">Tovar precízne zabalíme</p>
-                </div>
-                <div class="why-shop-item">
-                    <div class="info-container">
-                        <i class="fa-solid fa-money-bill-1-wave"></i>
-                        <p>Doprava zadarmo</p>
-                    </div>
-                    <p class="subtext">Pre objednávky nad 79€</p>
-                </div>
-                <div class="why-shop-item">
-                    <div class="info-container">
+                    <div class = "review-stars">
                         <i class="fa-solid fa-star"></i>
-                        <p>Päť generácií včelárov</p>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>    
+                    <div class = "review-text">
+                        <p>Produkt je skvelý, vrelo odporúčam!</p>
                     </div>
-                    <p class="subtext">O včely sa staráme s citom</p>
                 </div>
-                <div class="why-shop-item">
-                    <div class="info-container">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <p>Tri kamenné predajne</p>
+                <div class="review">
+                    <div class="reviewer">
+                        <i class="fa-solid fa-circle-user user-icon"></i>
+                        <p>Jožko Mrkvička</p>
                     </div>
-                    <p class="subtext">Navštívte nás v Bratislave, Nitre a Prešove</p>
+                    <div class = "review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>    
+                    <div class = "review-text">
+                        <p>Rýchle dodanie a vysková kvalita produktov.</p>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="reviewer">
+                        <i class="fa-solid fa-circle-user user-icon"></i>
+                        <p>Anna Kováčová</p>
+                    </div>
+                    <div class = "review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>    
+                    <div class = "review-text">
+                        <p>Skvelý produkt, materiál je kvalitný. Určite objednám znovu.</p>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="reviewer">
+                        <i class="fa-solid fa-circle-user user-icon"></i>
+                        <p>Eliška Nováková</p>
+                    </div>
+                    <div class = "review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>    
+                    <div class = "review-text">
+                        <p>Eshop som si zamilovala už po prvom nákupe! Zákaznícky servis
+                            je na vysokej úrovni a produkty sú kvalitné.</p>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
