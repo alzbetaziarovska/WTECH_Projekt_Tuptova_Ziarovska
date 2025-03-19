@@ -82,7 +82,7 @@
         </div>
     </section>
 
-         <!-- Popup for Sign In / Register -->
+    <!-- Popup for Sign In / Register -->
     <div id="auth-popup" class="popup-container">
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
@@ -100,7 +100,7 @@
             <!-- Register Form -->
             <div id="register-form" class="form-content" style="display:none;">
                 <h3>Registrácia</h3>
-                <form action="#" method="POST">
+                <form action="profile.html" method="POST">
                     <input type="text" placeholder="Meno a Priezvisko" required><br>
                     <input type="email" placeholder="E-mail" required><br>
                     <input type="password" placeholder="Heslo" required><br>
@@ -111,136 +111,44 @@
         </div>
     </div>
 
-    <!-- Product Details -->
-    <section class="product-detail">
-        <div class="product-detail-upper">
-            <div class="product-banner">
-                <div class="place4img-product">
-                    <img src="../images/one.png" alt="Banner" class="banner-img" id="img-1">
-                    <img src="../images/two.png" alt="Banner" class="banner-img" id="img-2">
-                    <img src="../images/three.png" alt="Banner" class="banner-img" id="img-3">
-                    <img src="../images/four.png" alt="Banner" class="banner-img" id="img-4">
-                    <img src="../images/five.png" alt="Banner" class="banner-img" id="img-5">
-                </div>
-                <div class="place4links-product">
-                    <div class="link-shop" data-target="img-1">
-                        <a href=""><img src="../images/one.png" class="link-img" alt="Thumbnail"></a>
+    <section class = "profile-section">
+        <div class="profile">
+            <div class="profile-info">
+                <h2>Môj profil</h2>
+                <div class="profile-details">
+                    <div class="profile-image">
+                        <i class="fa-solid fa-circle-user"></i>
                     </div>
-                    <div class="link-shop" data-target="img-2">
-                        <a href=""><img src="../images/two.png" class="link-img" alt="Thumbnail"></a>
-                    </div>
-                    <div class="link-shop" data-target="img-3">
-                        <a href=""><img src="../images/three.png" class="link-img" alt="Thumbnail"></a>
-                    </div>
-                    <div class="link-shop" data-target="img-4">
-                        <a href=""><img src="../images/four.png" class="link-img" alt="Thumbnail"></a>
-                    </div>
-                    <div class="link-shop" data-target="img-5">
-                        <a href=""><img src="../images/five.png" class="link-img" alt="Thumbnail"></a>
+                    <div class="profile-text">
+                        <p><b>Meno:</b> Janko Hraško</p>
+                        <p><b>E-mail:</b> janko.hrasko@gmail.com</p>
                     </div>
                 </div>
-                <div class="variants">
-                    <div class="variant" data-target="variant-1">
-                        <a href=""><img src="../images/one.png" class="variant-img" alt="Thumbnail"></a>
-                    </div>
-                    <div class="variant" data-target="variant-2">
-                        <a href=""><img src="../images/two.png" class="variant-img" alt="Thumbnail"></a>
-                    </div>
-                    <div class="variant" data-target="variant-3">
-                        <a href=""><img src="../images/three.png" class="variant-img" alt="Thumbnail"></a>
-                    </div>
-                </div>
-            </div>            
-            <div class="product-text">
-                <div class="text-container">
-                    <h1>Medový extrakt s propolisom</h1>
-                    <p>Tento prírodný medový extrakt je obohatený o vysokokvalitný propolis, ktorý podporuje imunitu a prispieva k zdravému životnému štýlu. Med je starostlivo získavaný z kvetov včelínov, čím zaručuje prírodný pôvod a bohatú chuť. Propolis v ňom obsiahnutý má silné antibakteriálne a protizápalové vlastnosti. Tento produkt je ideálny na každodennú konzumáciu, do čaju alebo ako doplnok k bežnej strave.</p>
-                    <h1>Cena: 12,99€ (100 ml)</h1>
-                </div>
-                <div class="quantity-selector">
-                    <button class="quantity-btn" id="decrease">−</button>
-                    <input type="number" id="quantity" min="1" value="1">
-                    <button class="quantity-btn" id="increase">+</button>
-                </div>
-                <div class="button-container">
-                    <a class="shop_but" href="#">Do košíka</a>
+                <div class="profile-actions">
+                    <a href="#"><button>Zmeniť heslo</button></a>
+                    <a href="/pages/homepage.html"><button>Odhlásiť sa</button></a>
                 </div>
             </div>
-        </div>
-        
-        <div class="reviews-container">
-            <h2>Recenzie</h2>
-            <div class = "reviews">
-                <div class="review">
-                    <div class="reviewer">
-                        <i class="fa-solid fa-circle-user user-icon"></i>
-                        <p>John Doe</p>
+    </section>
+    <section class="orders-section">
+            <div class="orders">
+                <h2>Moje objednávky</h2>
+                <div class="order">
+                    <div class="order-info">
+                        <p><b>Číslo objednávky:</b> 123456</p>
+                        <p><b>Dátum:</b> 12.12.2023</p>
+                        <p><b>Cena:</b> 25,00 €</p>
                     </div>
-                    <div class = "review-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>    
-                    <div class = "review-text">
-                        <p>Produkt je skvelý, vrelo odporúčam!</p>
-                    </div>
-                </div>
-                <div class="review">
-                    <div class="reviewer">
-                        <i class="fa-solid fa-circle-user user-icon"></i>
-                        <p>Jožko Mrkvička</p>
-                    </div>
-                    <div class = "review-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>    
-                    <div class = "review-text">
-                        <p>Rýchle dodanie a vysková kvalita produktov.</p>
-                    </div>
-                </div>
-                <div class="review">
-                    <div class="reviewer">
-                        <i class="fa-solid fa-circle-user user-icon"></i>
-                        <p>Anna Kováčová</p>
-                    </div>
-                    <div class = "review-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>    
-                    <div class = "review-text">
-                        <p>Skvelý produkt, materiál je kvalitný. Určite objednám znovu.</p>
-                    </div>
-                </div>
-                <div class="review">
-                    <div class="reviewer">
-                        <i class="fa-solid fa-circle-user user-icon"></i>
-                        <p>Eliška Nováková</p>
-                    </div>
-                    <div class = "review-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>    
-                    <div class = "review-text">
-                        <p>Eshop som si zamilovala už po prvom nákupe! Zákaznícky servis
-                            je na vysokej úrovni a produkty sú kvalitné.</p>
-                        </p>
-                    </div>
+                    <div class="order-actions">
+                        <a href="#"><button>Detaily</button></a>
+                        <a href="#"><button>Zrušiť</button></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+     <!-- Footer -->
+     <footer>
         <div class="newsletter-container">
             <h3>Aktuálne novinky a akcie na Váš e-mail</h3>
             <div class="newsletter-form">

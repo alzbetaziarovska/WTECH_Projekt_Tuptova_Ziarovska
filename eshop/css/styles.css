@@ -947,18 +947,14 @@ footer {
     margin: 0 0 20px 60px;
 }
 
-/* Product list */
 .products {
     padding-top: 130px;
     padding-bottom: 20px;
     height: auto ;
     width: 70vw;
     background-color: var(--light);
-    display: flex;
-    justify-content: space-around;
-    align-items: column;
-    flex-wrap: wrap;
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .product-shop {
@@ -1067,6 +1063,27 @@ footer {
     border: none;
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light);
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.pagination button{
+    padding: 10px 10px;
+    background: linear-gradient(170deg, #ffb027, #ffcc33, #ffb027);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    color: #000;
+    font-size: 15px;
+    font-weight: 40;
 }
 
 .product-detail {
@@ -1204,6 +1221,55 @@ footer {
     transition: 0.3s ease-in-out;
 }
 
+.variants {
+    margin-left: 20px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.variants img {
+    width: 5vw;  /* Adjust thumbnail size */
+    height: 5vw;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    border-radius: 50%;
+}
+
+.variant:hover {
+    transform: scale(1.1);
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.quantity-btn {
+    background-color: var(--dark);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#quantity {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 .reviews {
     display: grid; /* Enables CSS Grid */
     grid-template-columns: repeat(3, 1fr); /* 3 reviews per row */
@@ -1275,4 +1341,194 @@ footer {
     color: #666;
     margin-top: 10px;
     margin-left: 20px;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    padding-top: 130px;
+    height: auto ;
+    background-color: var(--light);
+    justify-content: center;
+    /*margin-bottom: 20px;*/
+    align-items: center;
+}
+
+.profile-section i {
+    display: block;
+    font-size: 200px;
+    color: var(--dark);
+    background: linear-gradient(170deg, #b2d72d, #ffcc33, #ffb027);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    padding-bottom: 20px;
+    align-content: center;
+}
+
+.profile-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-section p {
+    font-size: 20px;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-actions button{
+    padding: 10px 10px;
+    background: linear-gradient(170deg, #ffb027, #ffcc33, #ffb027);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    color: #000;
+    font-size: 15px;
+    font-weight: 40;
+}
+
+.orders-section {
+    display: flex;
+    flex-direction: column;
+    height: auto ;
+    background-color: var(--light);
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.orders-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.orders-section p {
+    font-size: 20px;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.order-actions button{
+    padding: 10px 10px;
+    background: linear-gradient(170deg, #ffb027, #ffcc33, #ffb027);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    color: #000;
+    font-size: 15px;
+    font-weight: 40;
+}
+
+/* Shopping cart */
+.cart-sections-bar {
+    margin-top: 100px;
+    display: flex;
+    height: auto ;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--background);
+    color: #333;
+}
+
+.cart-sections-bar i {
+    font-size: 30px;
+    color: #b88c00;
+    margin: 10px;
+}
+
+.cart-sections-bar .arrows {
+    font-size: 30px;
+    color: var(--dark);
+    margin: 10px;
+}
+
+.cart-sections-bar a {
+    font-size: 15x;
+    color: #666;
+    text-decoration: none;
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    height: auto ;
+    background-color: var(--light);
+    justify-content: left;
+    padding-bottom: 20px;
+}
+
+.cart-container h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.cart-items {
+    padding-bottom: 20px;
+    height: auto ;
+    width: auto;
+    background-color: var(--light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-left: 20px;
+}
+
+.cart-items .product {
+    width: 90%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
 }
