@@ -1,5 +1,8 @@
 // skrolovanie cez < > buttons v odporucanych produktov
 document.addEventListener("DOMContentLoaded", function () {
+    if (!document.querySelector(".product-carousel")) {
+        return;
+    }
     const carousel = document.querySelector(".product-carousel");
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
@@ -15,6 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function checkStoreStatus() {
+    if(!document.getElementById('status-icon')) {
+        return;
+    }
     const now = new Date();
     const now_hour = now.getHours();
     const today = now.getDay(); // 0 nedela, 6 sobota
@@ -81,6 +87,9 @@ closedIcon.addEventListener('click', togglePopup);
 
 
 document.addEventListener("DOMContentLoaded", function() {
+    if (!window.location.href.includes("homepage.html")) {
+        return;
+    }
     // všetky odkazy a obrazky
     const links = document.querySelectorAll(".place4links .link");
     const images = document.querySelectorAll(".place4img .banner-img");
@@ -124,14 +133,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // zmena obrazkov a v detaile produktu
 document.addEventListener("DOMContentLoaded", function () {
+    if (!document.querySelector(".place4links-product")) {
+        return;
+    }
     const links = document.querySelectorAll(".place4links-product .link-shop");
     const images = document.querySelectorAll(".place4img-product .banner-img");
     const productBanner = document.querySelector(".product-banner");
-
-    if (!links.length || !images.length || !productBanner) {
-        console.error("Error: One or more elements not found in the DOM!");
-        return;
-    }
 
     let currentIndex = 0;
     let autoSwitchInterval;
@@ -216,6 +223,34 @@ window.addEventListener('click', function(event) {
 document.querySelector('.user-icon').addEventListener('click', toggleAuthPopup);
 
 document.addEventListener("DOMContentLoaded", function () {
+    if (!document.querySelectorAll(".product-shop")) {
+        return;
+    }
+    const products = document.querySelectorAll(".product-shop");
+
+    products.forEach(product => {
+        const quantityInput = product.querySelector(".quantity-selector input");
+        const decreaseBtn = product.querySelector(".quantity-selector .quantity-btn:first-child");
+        const increaseBtn = product.querySelector(".quantity-selector .quantity-btn:last-child");
+
+        decreaseBtn.addEventListener("click", function () {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+
+        increaseBtn.addEventListener("click", function () {
+            let currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (!document.getElementById("quantity")) {
+        return;
+    }
     const quantityInput = document.getElementById("quantity");
     const decreaseBtn = document.getElementById("decrease");
     const increaseBtn = document.getElementById("increase");
@@ -233,25 +268,64 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-
-$(document).ready(function() {
-    $('#calendar').fullCalendar({
-      events: [
-        {
-          title: 'Sale Event',
-          start: '2025-03-20',
-          description: 'Special sale event for the weekend.',
-          url: '#',  // Add link to the event page
-          color: 'red'
-        },
-        {
-          title: 'New Product Launch',
-          start: '2025-03-25',
-          description: 'Launch of a new product in our store.',
-          url: '#',
-          color: 'green'
-        }
-      ]
+if (document.getElementById('calendar')) {
+    $(document).ready(function() {
+        $('#calendar').fullCalendar({
+        events: [
+            {
+            title: 'Sale Event',
+            start: '2025-03-20',
+            description: 'Special sale event for the weekend.',
+            url: '#',  // Add link to the event page
+            color: 'red'
+            },
+            {
+            title: 'New Product Launch',
+            start: '2025-03-25',
+            description: 'Launch of a new product in our store.',
+            url: '#',
+            color: 'green'
+            }
+        ]
+        });
     });
+}
+
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!document.querySelectorAll(".product-shop") || !document.getElementById("prevPage") || !document.getElementById("nextPage")) {
+        return;
+    }
+    const products = document.querySelectorAll(".product-shop");
+    const perPage = 4; // Change this to set how many items per page
+    let currentPage = 1;
+    
+    function showPage(page) {
+        const start = (page - 1) * perPage;
+        const end = start + perPage;
+        
+        products.forEach((product, index) => {
+            /*product.style.visibility = (index >= start && index < end) ? "visible" : "hidden";
+            product.style.height = (index >= start && index < end) ? "auto" : "0px";*/
+            product.style.display = (index >= start && index < end) ? "flex" : "none";
+        });
+
+        document.getElementById("pageIndicator").textContent = `Stránka ${currentPage}/${Math.ceil(products.length / perPage)}`; // zobrazenie stranky
+    }
+
+    document.getElementById("prevPage").addEventListener("click", function () {
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    document.getElementById("nextPage").addEventListener("click", function () {
+        if (currentPage < Math.ceil(products.length / perPage)) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
+    showPage(currentPage);
+
   });

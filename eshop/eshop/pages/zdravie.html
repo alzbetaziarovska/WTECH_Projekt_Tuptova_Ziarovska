@@ -17,7 +17,7 @@
                         <a href='../pages/homepage.html'><img src="../images/logo_final.png" alt="Logo"></a>
                     </div>
                     <div class="nav-links">
-                        <a href="../pages/homepage.html#about">O nás</a>
+                        <a href="about.html">O nás</a>
                         <a href="../pages/shop.html">E-shop</a>
                         <a href="../pages/homepage.html#recommended">Odporúčané produkty</a>
                         <a href="#">Kamenné predajne</a>
@@ -44,7 +44,7 @@
                     <a href="../pages/vybavenie.html">VYBAVENIE</a>
                     <a href="../pages/krmivo.html">KRMIVO A DOPLNKY</a>
                     <a href="../pages/zdravie.html">ZDRAVIE VČIEL</a>
-                    <a href="../pages/vase.html">VAŠE PRODUKTY</a>
+                    <a href="../pages/vyrobky.html">VÝROBKY</a>
                     <div class="search-container">
                         <input type="text" placeholder="Hľadať..." class="searchbar">
                         <span class="search-icon">&#128269;</span> 
@@ -84,6 +84,33 @@
         </div>
     </div>
 
+    <section class="opened-info">
+        <div class="info-circle" id="status-icon">
+            <i class="fa fa-shop" id="open-icon"></i>
+            <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
+            <div class="text-info-container" id="text-container">
+                <p id="open-text">Kamenné predajne otvorené</p>
+                <p id="closed-text">Kamenné predajne zatvorené</p>
+                <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
+            </div>
+            <i class="fa fa-chevron-up" id="toggle-arrow"></i> <!-- Šípka pre zbalenie -->
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="togglePopup()">&times;</span>
+                <h3>Návštivte nás osobne</h3>
+                <table>
+                    <tr><th>Deň</th><th>Čas</th></tr>
+                    <tr><td>Po - Pi</td><td>9:00 - 17:30</td></tr>
+                    <tr><td>So</td><td>Zatvorené</td></tr>
+                    <tr><td>Ne</td><td>Zatvorené</td></tr>
+                </table>
+                <p class="stores-list"><a class="our-store" href="#">Bratislava</a> | <a class="our-store" href="#">Nitra</a> | <a class="our-store" href="#">Prešov</a></p>
+                <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
+            </div>
+        </div>
+    </section>
+
     <div class = "filter-product-container">
         <!-- Products -->
         <div class="products">
@@ -93,6 +120,11 @@
                     <h3>Produkt 1</h3>
                     <p>Popis produktu 1</p>
                     <p class="price">Cena: 12€</p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decrease">-</button>
+                        <input type="number" id="quantity" min="1" value="1">
+                        <button class="quantity-btn" id="increase">+</button>
+                    </div>
                     <button type="button">Pridať do košíka</button>
                     <p>V košíku: 0</p>
                 </div>
@@ -103,6 +135,11 @@
                     <h3>Produkt 2</h3>
                     <p>Popis produktu 2</p>
                     <p class="price">Cena: 20€</p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decrease">-</button>
+                        <input type="number" id="quantity" min="1" value="1">
+                        <button class="quantity-btn" id="increase">+</button>
+                    </div>
                     <button type="button">Pridať do košíka</button>
                     <p>V košíku: 0</p>
                 </div>
@@ -113,6 +150,11 @@
                     <h3>Produkt 3</h3>
                     <p>Popis produktu 3</p>
                     <p class="price">Cena: 5€</p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decrease">-</button>
+                        <input type="number" id="quantity" min="1" value="1">
+                        <button class="quantity-btn" id="increase">+</button>
+                    </div>
                     <button type="button">Pridať do košíka</button>
                     <p>V košíku: 0</p>
                 </div>
@@ -123,6 +165,11 @@
                     <h3>Produkt 4</h3>
                     <p>Popis produktu 4</p>
                     <p class="price">Cena: 10€</p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decrease">-</button>
+                        <input type="number" id="quantity" min="1" value="1">
+                        <button class="quantity-btn" id="increase">+</button>
+                    </div>
                     <button type="button">Pridať do košíka</button>
                     <p>V košíku: 0</p>
                 </div>
@@ -162,6 +209,11 @@
             </div>
      </div>
 
+    <div class="pagination">
+        <button id="prevPage">&laquo; Predošlá</button>
+        <span id="pageIndicator">1</span>
+        <button id="nextPage">Ďalšia &raquo;</button>
+    </div>
 
     <!-- Footer -->
     <footer>
