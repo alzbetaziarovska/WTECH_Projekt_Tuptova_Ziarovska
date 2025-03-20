@@ -24,6 +24,28 @@ body {
     color: #333;
 }
 
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.4;
+    text-align: left;
+    margin-top: 20px;
+}
 /* Header */
 header {
     position: fixed;
@@ -580,13 +602,18 @@ header {
 
 
 .product {
-    background: rgba(255, 255, 255, 0.424);
+    background: var(--background);
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     min-width: 200px;
     max-width: 200px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 /* Šípky na posúvanie */
@@ -1531,4 +1558,203 @@ footer {
     height: 200px;
     display: flex;
     flex-direction: row;
+}
+
+/* about us page */
+.grid-container {
+    width: 100%;
+    height: auto;
+    background-color: var(--light);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 rovnakých stĺpcov */
+    grid-template-rows: auto;
+    grid-template-areas:
+        "about about about community community"
+        "about about about community community" 
+        "gallery gallery gallery gallery gallery"
+        "gallery gallery gallery gallery gallery" ;
+    margin-top: 100px;
+}
+
+/* Každá sekcia dostane svoju oblasť */
+.about-us-main { grid-area: about; }
+.why-us-main { grid-area: why; }
+.connect-main{ grid-area: connect; }
+.our-gallery { grid-area: gallery; }
+.community { grid-area: community; }
+.opened-info { grid-area: opened; }
+
+.grid-container .why-shop-list {
+    flex-direction: column;
+}
+
+#calendar {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+
+.about-us-main, .community{
+    background-color: var(--background);
+    padding: 40px;
+    text-align: justify;
+}
+
+
+
+.about-us-main i, .community i {
+    font-size: 50px;
+    color: #b88c00;
+}
+
+.community i {
+    margin-right: 15px;
+}
+
+.go-shopping-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+
+.video-main {
+    text-align: center;
+}
+
+
+.our-gallery {
+    padding: 40px;
+    background-color: var(--light);
+    text-align: center;
+}
+
+.our-gallery h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Subtle hover effect for the images */
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Variations of image size for different grid items */
+.item1 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.item2 {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.item3 {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.item4 {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.item5 {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.item6 {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.item7 {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.item8 {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
+}
+
+@media (max-width: 800px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+}
+
+@media (max-width: 500px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* 1 column */
+    }
+}
+
+.community span {
+    color: #ffb027; 
+    text-transform: uppercase; 
+    font-weight: 600;
+
+}
+
+
+
+.connect-main {
+    background-color: var(--background);
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.connect-main-contacts i {
+    font-size: 30px;
+}
+
+.connect-main-contacts {
+    background-color: var(--dark);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-bottom: 0px;
 }

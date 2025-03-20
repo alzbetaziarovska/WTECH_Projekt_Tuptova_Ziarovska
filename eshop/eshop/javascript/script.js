@@ -234,3 +234,24 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+$(document).ready(function() {
+    $('#calendar').fullCalendar({
+      events: [
+        {
+          title: 'Sale Event',
+          start: '2025-03-20',
+          description: 'Special sale event for the weekend.',
+          url: '#',  // Add link to the event page
+          color: 'red'
+        },
+        {
+          title: 'New Product Launch',
+          start: '2025-03-25',
+          description: 'Launch of a new product in our store.',
+          url: '#',
+          color: 'green'
+        }
+      ]
+    });
+  });
