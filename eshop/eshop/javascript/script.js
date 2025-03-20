@@ -329,3 +329,15 @@ if (document.getElementById('calendar')) {
     showPage(currentPage);
 
   });
+
+document.querySelector(".toggle-coupon").addEventListener("click", function(event) {
+    event.preventDefault(); // Zabraňuje presmerovaniu
+
+    let couponForm = document.querySelector(".coupon-form");
+
+    if (couponForm.style.display === "none" || couponForm.style.display === "") {
+        couponForm.style.display = "block";
+    } else {
+        couponForm.style.display = "none";
+    }
+});

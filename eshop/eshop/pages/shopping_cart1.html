@@ -20,8 +20,7 @@
                     <div class="nav-links">
                         <a href="about.html">O nás</a>
                         <a href="../pages/shop.html">E-shop</a>
-                        <a href="#">Kamenné predajne</a>
-                        <a href="#">Zákaznícky servis</a>
+                        <a href="stores.html">Kamenné predajne</a>
                     </div>
                 </div>
                 <div class="contact-section">
@@ -35,7 +34,7 @@
                     <a href="#"><i class="fa-solid fa-circle-user user-icon" onclick="toggleAuthPopup()"></i></a>
                     <a href="../pages/shopping_cart1.html" class="bag">
                         <i class="fa-solid fa-cart-shopping"></i>
-                        <div class="bag-count">0</div>
+                        <div class="bag-count">3</div>
                     </a>
                 </div>
             </div>
@@ -69,7 +68,8 @@
         <h2>Váš nákupný košík</h2>
         <div class="cart-items">
 
-            <div class="product">
+            <div class="product-in-cart">
+                <p>&times</p>
                 <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
                     <p>Popis 2</p>
                     <p>Cena 2€</p>
@@ -79,7 +79,8 @@
                         <button class="quantity-btn" id="increase">+</button>
                     </div>
             </div>
-            <div class="product">
+            <div class="product-in-cart">
+                <p>&times</p>
                 <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
                     <p>Popis 2</p>
                     <p>Cena 2€</p>
@@ -89,7 +90,8 @@
                         <button class="quantity-btn" id="increase">+</button>
                     </div>
             </div>
-            <div class="product">
+            <div class="product-in-cart">
+                <p>&times</p>
                 <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
                     <p>Popis 2</p>
                     <p>Cena 2€</p>
@@ -100,8 +102,45 @@
                     </div>
             </div>
         </div>
-    </div>
+        
 
+
+        
+        <div class="cart-total">
+            <div class="cart-pannel">
+                <p>Objednajte ešte za <b>Y$</b> a máte dopravu <b>ZADARMO</b></bZADARMO>.</p>
+                <div class="shipping-loader">
+                    <div class="shipping-progress"></div>
+                </div>
+                <p>Objednajte ešte za <b>Z$</b> a získate <b>DARČEK</b> .</p>
+                <div class="gift-loader">
+                    <div class="gift-progress"></div>
+                </div>
+                <p>Doručenie možné do: <i class="fa-solid fa-circle-question"></i></p> 
+                <p class="delivery-time"><i class="fa-solid fa-box-open"></i>DD.MM.RRRR</p>
+            </div>
+            <div class="price-info">
+                <div>
+                    <h3>Celkom za tovar:</h3>
+                    <span>Cena: XXX$</span>
+                </div>
+                <div>
+                    <p>Celkom bez DPH:</p>
+                    <p>Cena: XXX$</p>
+            </div>
+                <div>
+                    <a href="#" class="toggle-coupon"><u>Mám zľavový kupón</u> &#10095;</a>
+                    <div class="coupon-form">
+                        <input type="text" placeholder="Zadajte kupón" class="coupon-input">
+                        <button class="apply-button">APLIKUJ</button>
+                    </div>
+                    <a>POKRAČOVAŤ</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <a href="shop.html"><u><i class="fa-solid fa-arrow-left"></i>Späť do obchodu</u></a>
+    </div>
     <section class="opened-info">
         <div class="info-circle" id="status-icon">
             <i class="fa fa-shop" id="open-icon"></i>
