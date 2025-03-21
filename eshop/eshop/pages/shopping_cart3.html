@@ -56,91 +56,54 @@
     </header>
 
     <div class="cart-sections-bar">
-        <a><i class="fa-solid fa-bag-shopping"></i><b>Nákupný košík</b></a>
+        <a><i class="fa-solid fa-bag-shopping"></i>Nákupný košík</a>
         <i class="fa-solid fa-arrow-right arrows"></i>
         <a><i class="fa-solid fa-truck"></i>Doprava a platba</a>
         <i class="fa-solid fa-arrow-right arrows"></i>
-        <a><i class="fa-solid fa-circle-info"></i>Informácie o Vás</a>
+        <a><i class="fa-solid fa-circle-info"></i><b>Informácie o Vás</b></a>
     </div>
     
 
     <div class="cart-container">
-        <h2>Váš nákupný košík</h2>
-        <div class="cart-items">
+        <h2>Vaše údaje</h2>
+        <div class="info-container-cart">
+            <form action="thanks_for_purchase.html" method="POST" class="info-form" id="info-form">
+                <label for="name">Meno: *</label>
+                <input type="text" id="fname" name="first_name" required>
 
-            <div class="product-in-cart">
-                <p>&times</p>
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
-                    <p>Popis 2</p>
-                    <p>Cena 2€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-            </div>
-            <div class="product-in-cart">
-                <p>&times</p>
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
-                    <p>Popis 2</p>
-                    <p>Cena 2€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-            </div>
-            <div class="product-in-cart">
-                <p>&times</p>
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
-                    <p>Popis 2</p>
-                    <p>Cena 2€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-            </div>
+                <label for="name">Priezvisko: *</label>
+                <input type="text" id="lname" name="last_name" required>
+                
+                <label for="email">E-mail: *</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Telefónne číslo: *</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="address">Ulica a číslo popisné: *</label>
+                <input type="text" id="street" name="street" required>
+
+                <label for="address">Mesto: *</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="country">Vyberte krajinu: *</label>
+                <select id="country" name="country">
+                    <option value="">-- Vyberte krajinu --</option>
+                    <option value="sk">Slovensko</option>
+                    <option value="cz">Česko</option>
+                    <option value="pl">Poľsko</option>
+                    <option value="hu">Maďarsko</option>
+                    <option value="at">Rakúsko</option>
+                </select>
+
+                <label for="note">Poznámka k objednávke:</label>
+                <textarea id="note" name="note"></textarea>
+            </form>
         </div>
-        
 
-
-        
-        <div class="cart-total">
-            <div class="cart-pannel">
-                <p>Objednajte ešte za <b>Y$</b> a máte dopravu <b>ZADARMO</b></bZADARMO>.</p>
-                <div class="shipping-loader">
-                    <div class="shipping-progress"></div>
-                </div>
-                <p>Objednajte ešte za <b>Z$</b> a získate <b>DARČEK</b> .</p>
-                <div class="gift-loader">
-                    <div class="gift-progress"></div>
-                </div>
-                <p>Doručenie možné do: <i class="fa-solid fa-circle-question"></i></p> 
-                <p class="delivery-time"><i class="fa-solid fa-box-open"></i>DD.MM.RRRR</p>
-            </div>
-            <div class="price-info">
-                <div>
-                    <h3>Celkom za tovar:</h3>
-                    <span>Cena: XXX$</span>
-                </div>
-                <div>
-                    <p>Celkom bez DPH:</p>
-                    <p>Cena: XXX$</p>
-            </div>
-                <div>
-                    <a href="#" class="toggle-coupon"><u>Mám zľavový kupón</u> &#10095;</a>
-                    <div class="coupon-form">
-                        <input type="text" placeholder="Zadajte kupón" class="coupon-input">
-                        <button class="apply-button">APLIKUJ</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
         <div class="cart-actions">
-            <a href="shop.html" class="back-button"><i class="fa-solid fa-arrow-left"></i> Späť do obchodu</a>
-            <a href="shopping_cart2.html" class="next-button" type="submit">Pokračovať na dopravu a platbu <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="shopping_cart2.html" class="back-button"><i class="fa-solid fa-arrow-left"></i> Späť na dopravu a platbu</a>
+            <button type="submit" id="submit-btn-sc3" class="next-button">Objednať sa povinnosťou platby <i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
 
