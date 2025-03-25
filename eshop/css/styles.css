@@ -1297,14 +1297,24 @@ footer {
     font-weight: 40;
 }
 
-.product-detail {
-    padding-top: 80px;
-    height: auto ;
+.hero {
+    margin-top: 105px;
+    height: auto;
     display: flex;
     flex-direction: column;
-    background-color: var(--light);
+    background-color: var(--background);
     justify-content: center;
-    margin-bottom: -20px;
+    padding: 50px 10px 50px 10px;
+}
+
+.product-detail {
+    margin-top: 105px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    justify-content: center;
+    padding: 50px 10px 50px 10px;
 }
 
 .product-detail-upper {
@@ -1312,7 +1322,7 @@ footer {
     justify-content: center;
     align-items: flex-start;
     flex-basis: 80%;
-    margin: 20px 0px;
+    margin: 0 20px;
     gap: 20px;
 }
 
@@ -1322,13 +1332,12 @@ footer {
 }
 
 .product-banner {
-    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 80%;
     text-align: right;
-    margin-right: 60px;
+
 }
 
 .product-banner img {
@@ -1381,6 +1390,41 @@ footer {
 .product-text h1 span {
     color: #ffb027; /* Highlight the last word */
 }
+
+.mobile-heading {
+    display: none;
+    text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+    
+
+    .product-detail-upper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-text {
+
+        padding: 0 20px;
+        display: flex;
+    }
+
+    .mobile-heading {
+        display: inline;
+    }
+
+    .text-container h1{
+        display: none;
+    }
+
+    .quantity-selector {
+        margin-top: 20px;
+    }
+
+}
+
 
 .banner-img {
     width: 100%;
@@ -1486,35 +1530,29 @@ footer {
     padding: 5px;
 }
 
+.reviews-section {
+    padding: 50px 10px 50px 10px;
+    background-color: var(--light);
+}
+
 .reviews {
     display: grid; /* Enables CSS Grid */
-    grid-template-columns: repeat(3, 1fr); /* 3 reviews per row */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Automatická mriežka */
     gap: 20px; /* Spacing between reviews */
-    background-color: var(--background);
-    padding: 30px 20px;
-    margin-bottom: 20px;
+    background-color: var(--light);
+    border-radius: 8px;
+    padding: 0px 20px 30px 20px;
 }
 
 .reviews-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     height: auto;
     background-color: var(--light);
-    padding: 30px 20px;
-    margin-bottom: 20px;
 }
 
 .reviews-container h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 30px;
-    font-weight: 400;
-    color: var(--text-main);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 1.4;
-    text-align: left;
-    margin-left: 10px;
+    margin-left: 40px;
 }
 
 .reviewer {
@@ -1554,9 +1592,15 @@ footer {
 
 .review-text p {
     font-size: 16px;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     margin-top: 10px;
     margin-left: 20px;
+}
+
+
+.similar {
+    background-color: var(--background);
+    padding: 50px 10px 50px 10px;
 }
 
 .profile-section {
