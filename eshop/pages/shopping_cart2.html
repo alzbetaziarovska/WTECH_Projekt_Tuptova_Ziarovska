@@ -76,94 +76,42 @@
     </div>
 
     <div class="cart-sections-bar">
-        <a><i class="fa-solid fa-bag-shopping"></i><b>Nákupný košík</b></a>
+        <a><i class="fa-solid fa-bag-shopping"></i>Nákupný košík</a>
         <i class="fa-solid fa-arrow-right arrows"></i>
-        <a><i class="fa-solid fa-truck"></i>Doprava a platba</a>
+        <a><i class="fa-solid fa-truck"></i><b>Doprava a platba</b></a>
         <i class="fa-solid fa-arrow-right arrows"></i>
         <a><i class="fa-solid fa-circle-info"></i>Informácie o Vás</a>
     </div>
     
 
     <div class="cart-container">
-        <h2>Váš nákupný košík</h2>
-        <div class="cart-items">
-
-            <div class="product-in-cart">
-                <p>&times</p>
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
-                    <p>Popis 2</p>
-                    <p>Cena 2€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-            </div>
-            <div class="product-in-cart">
-                <p>&times</p>
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
-                    <p>Popis 2</p>
-                    <p>Cena 2€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-            </div>
-            <div class="product-in-cart">
-                <p>&times</p>
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
-                    <p>Popis 2</p>
-                    <p>Cena 2€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-            </div>
+        <h2>Doprava a Platba</h2>
+        <div class="shipping-options">
+            <h3>Vyberte spôsob dopravy *</h3>
+            <label><input type="radio" name="shipping" value="kurier"> Kuriér - 5€</label>
+            <label><input type="radio" name="shipping" value="posta"> Slovenská pošta - 3€</label>
+            <label><input type="radio" name="shipping" value="osobne" id="osobne"> Osobný odber - zadarmo</label>
+            <label for="osobne_shop" id="osobne_label" style="display: none;">Vyberte predajňu: *</label>
+                <select id="osobne_select" name="cities" style="display: none;">
+                    <option value="">-- Vyberte predajňu --</option>
+                    <option value="sk">Bratislava</option>
+                    <option value="cz">Nitra</option>
+                    <option value="pl">Prešov</option>
+                </select>
         </div>
         
-
-
-        
-        <div class="cart-total">
-            <div class="cart-pannel">
-                <p>Objednajte ešte za <b>Y$</b> a máte dopravu <b>ZADARMO</b></bZADARMO>.</p>
-                <div class="shipping-loader">
-                    <div class="shipping-progress"></div>
-                </div>
-                <p>Objednajte ešte za <b>Z$</b> a získate <b>DARČEK</b> .</p>
-                <div class="gift-loader">
-                    <div class="gift-progress"></div>
-                </div>
-                <p>Doručenie možné do: <i class="fa-solid fa-circle-question"></i></p> 
-                <p class="delivery-time"><i class="fa-solid fa-box-open"></i>DD.MM.RRRR</p>
-            </div>
-            <div class="price-info">
-                <div>
-                    <h3>Celkom za tovar:</h3>
-                    <span>Cena: XXX$</span>
-                </div>
-                <div>
-                    <p>Celkom bez DPH:</p>
-                    <p>Cena: XXX$</p>
-            </div>
-                <div>
-                    <a href="#" class="toggle-coupon"><u>Mám zľavový kupón</u> &#10095;</a>
-                    <div class="coupon-form">
-                        <input type="text" placeholder="Zadajte kupón" class="coupon-input">
-                        <button class="apply-button">APLIKUJ</button>
-                    </div>
-                </div>
-            </div>
+        <div class="payment-options">
+            <h3>Vyberte spôsob platby *</h3>
+            <label><input type="radio" name="payment" value="card"> Platba kartou</label>
+            <label><input type="radio" name="payment" value="bank"> Bankový prevod</label>
+            <label><input type="radio" name="payment" value="cash"> Dobierka (+1€)</label>
         </div>
-        <br>
+        
         <div class="cart-actions">
-            <a href="shop.html" class="back-button"><i class="fa-solid fa-arrow-left"></i> Späť do obchodu</a>
-            <a href="shopping_cart2.html" class="next-button" type="submit">Pokračovať na dopravu a platbu <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="shopping_cart1.html" class="back-button"><i class="fa-solid fa-arrow-left"></i> Späť na nákupný košík</a>
+            <button type="submit" id="submit-btn-sc2" class="next-button">Pokračovať na Vaše údaje <i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
-
 
     <section class="opened-info">
         <div class="info-circle" id="status-icon">
@@ -221,7 +169,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="newsletter-container">
             <h3>Aktuálne novinky a akcie na Váš e-mail</h3>
