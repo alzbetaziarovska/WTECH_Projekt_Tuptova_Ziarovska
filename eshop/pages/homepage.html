@@ -169,18 +169,17 @@
     <div id="auth-popup" class="popup-container">
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
-            <!-- Sign In Form -->
             <div id="signin-form" class="form-content">
                 <h3>Prihlásenie</h3>
                 <form action="profile.html" method="GET">
                     <input type="email" placeholder="E-mail" required><br>
                     <input type="password" placeholder="Heslo" required><br>
+                    <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
                     <button type="submit">Prihlásiť sa</button>
                 </form>                
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
             </div>
-
-            <!-- Register Form -->
+    
             <div id="register-form" class="form-content" style="display:none;">
                 <h3>Registrácia</h3>
                 <form action="#" method="POST">
@@ -190,6 +189,15 @@
                     <button type="submit">Registrovať sa</button>
                 </form>
                 <p>Máte už účet? <a href="#" onclick="toggleRegisterForm()">Prihláste sa!</a></p>
+            </div>
+    
+            <div id="forgot-password-form" class="form-content" style="display:none;">
+                <h3>Zabudnuté heslo</h3>
+                <form action="#" method="POST">
+                    <input type="email" placeholder="E-mail" required><br>
+                    <button type="submit">Resetovať heslo</button>
+                </form>
+                <p>Návrat na <a href="#" onclick="showSignInForm()">prihlásenie</a></p>
             </div>
         </div>
     </div>

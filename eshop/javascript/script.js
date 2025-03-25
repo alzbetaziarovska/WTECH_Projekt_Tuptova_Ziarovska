@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setActive(0);
 });
 
-// zobrazenie alebo skrytie pop-up okna celeho
+// zobrazenie alebo skrytie pop-up okna celeho// zobrazenie alebo skrytie pop-up okna celeho
 function toggleAuthPopup() {
     const popup = document.getElementById('auth-popup');
     popup.style.display = (popup.style.display === 'flex') ? 'none' : 'flex';
@@ -234,6 +234,18 @@ function toggleRegisterForm() {
         signinForm.style.display = 'none';
         registerForm.style.display = 'block';
     }
+}
+
+function toggleForgotPasswordForm() {
+    document.getElementById('signin-form').style.display = 'none';
+    document.getElementById('register-form').style.display = 'none';
+    document.getElementById('forgot-password-form').style.display = 'block';
+}
+
+function showSignInForm() {
+    document.getElementById('forgot-password-form').style.display = 'none';
+    document.getElementById('register-form').style.display = 'none';
+    document.getElementById('signin-form').style.display = 'block';
 }
 
 window.addEventListener('click', function(event) {
