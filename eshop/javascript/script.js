@@ -449,11 +449,8 @@ document.getElementById("toggle-btn").addEventListener("click", function () {
 });
 
 document.querySelectorAll(".variant-img").forEach((img) => {
-    if(!document.querySelectorAll(".variant-img")) {
-        return;
-    }
     img.addEventListener("click", function () {
-        // Remove 'active' from all variant images
+        // Remove 'active' class from all variant images
         document.querySelectorAll(".variant-img").forEach((el) => el.classList.remove("active"));
         
         // Add 'active' class to the clicked image
