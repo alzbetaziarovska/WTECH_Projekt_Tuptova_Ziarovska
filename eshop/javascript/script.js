@@ -433,3 +433,30 @@ if (document.getElementById("submit-btn-sc2")) {
         }
     })
 }
+
+document.getElementById("toggle-btn").addEventListener("click", function () {
+    if (!document.getElementById("product_description")) {
+        return;
+    }
+    var desc = document.getElementById("product_description");
+    if (desc.classList.contains("collapsed")) {
+        desc.classList.remove("collapsed");
+        this.textContent = "Menej";
+    } else {
+        desc.classList.add("collapsed");
+        this.textContent = "Viac...";
+    }
+});
+
+document.querySelectorAll(".variant-img").forEach((img) => {
+    if(!document.querySelectorAll(".variant-img")) {
+        return;
+    }
+    img.addEventListener("click", function () {
+        // Remove 'active' from all variant images
+        document.querySelectorAll(".variant-img").forEach((el) => el.classList.remove("active"));
+        
+        // Add 'active' class to the clicked image
+        this.classList.add("active");
+    });
+});

@@ -859,6 +859,22 @@ footer {
     font-weight: 400;
 }
 
+.collapsed {
+    max-height: 100px; /* Adjust height as needed */
+    overflow: hidden;
+    position: relative;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 5px;
+}
+
 .copyright, .regulations {
     color: var(--text-highlight);
     margin-top: 2px;
@@ -1282,7 +1298,7 @@ footer {
 }
 
 .product-detail {
-    padding-top: 130px;
+    padding-top: 80px;
     height: auto ;
     display: flex;
     flex-direction: column;
@@ -1294,7 +1310,7 @@ footer {
 .product-detail-upper {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-basis: 80%;
     margin: 20px 0px;
     gap: 20px;
@@ -1306,6 +1322,7 @@ footer {
 }
 
 .product-banner {
+    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1384,16 +1401,6 @@ footer {
     transform: scale(1.1);
 }
 
-/* .place4img-product {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    max-width: 400px;
-    overflow: hidden;
-} */
-
 .place4img-product img {
     margin-right: 20px;
 }
@@ -1418,12 +1425,20 @@ footer {
 
 .variants {
     margin-left: 20px;
+    margin-right: 20px;
     flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     margin-top: 10px;
+}
+
+.variants p {
+    font-size: 20px;
+    color: var(--text-secondary);
+    margin-top: 5px;
+    align-self: center;
 }
 
 .variants img {
@@ -1433,6 +1448,11 @@ footer {
     border-radius: 5px;
     transition: 0.3s ease-in-out;
     border-radius: 50%;
+    margin-right: 20px;
+}
+
+.variant-img.active {
+    transform: scale(1.5);
 }
 
 .variant:hover {
@@ -1895,9 +1915,8 @@ iframe {
 
 .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
-    border-bottom: 2px solid #f0f0f0;
 }
 
 /* Subtle hover effect for the images */
@@ -1910,6 +1929,8 @@ iframe {
 .item1 {
     grid-column: span 2;
     grid-row: span 2;
+    height: auto;
+    width: auto;
 }
 
 .item2 {
@@ -1919,7 +1940,7 @@ iframe {
 
 .item3 {
     grid-column: span 1;
-    grid-row: span 2;
+    grid-row: span 1;
 }
 
 .item4 {
@@ -1934,15 +1955,25 @@ iframe {
 
 .item6 {
     grid-column: span 1;
-    grid-row: span 2;
+    grid-row: span 1;
 }
 
 .item7 {
-    grid-column: span 2;
+    grid-column: span 1;
     grid-row: span 1;
 }
 
 .item8 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.item9 {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.item10 {
     grid-column: span 1;
     grid-row: span 1;
 }
