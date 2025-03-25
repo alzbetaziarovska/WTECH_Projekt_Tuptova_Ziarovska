@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="user-actions">
-                    <a href="#"><i class="fa-solid fa-circle-user user-icon" onclick="toggleAuthPopup()"></i></a>
+                    <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
                     <a href="../pages/shopping_cart1.html" class="bag">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="bag-count">3</div>
@@ -39,48 +39,41 @@
             </div>
             <div class="bottom-nav">
                 <div class="categories">
+                    <button class="menu-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    
                     <a href="../pages/vybavenie.html">VYBAVENIE</a>
                     <a href="../pages/krmivo.html">KRMIVO A DOPLNKY</a>
                     <a href="../pages/zdravie.html">ZDRAVIE VČIEL</a>
                     <a href="../pages/vyrobky.html">VÝROBKY</a>
-                    <div class="search-container">
-                        <input type="text" placeholder="Hľadať..." class="searchbar">
-                        <span class="search-icon">&#128269;</span> 
+                    <div class="search-contact-mobile">
+                        <div class="contact-section mobile">
+                            <i class="fa-solid fa-phone phone-icon"></i> 
+                            <div class="contact-info">
+                                <span class="phone-number">+421 816 526 113</span>
+                                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                            </div>
+                        </div>
+                        <div class="search-container">
+                            <input type="text" placeholder="Hľadať..." class="searchbar">
+                            <i class="search-icon fa fa-magnifying-glass"></i>
+                        </div>
                     </div>
                 </div>
-                
             </div>
         </nav>
-    </header>
+    </header> 
+
+
+    <!-- BOČNÉ MENU -->
+    <div class="sidebar">
+        <button class="close-btn-side">&times;</button> <a href="../pages/vybavenie.html">VYBAVENIE</a>
+        <a href="../pages/krmivo.html">KRMIVO A DOPLNKY</a>
+        <a href="../pages/zdravie.html">ZDRAVIE VČIEL</a>
+        <a href="../pages/vyrobky.html">VÝROBKY</a>
+    </div>
     
-
-    <section class="opened-info">
-        <div class="info-circle" id="status-icon">
-            <i class="fa fa-shop" id="open-icon"></i>
-            <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
-            <div class="text-info-container" id="text-container">
-                <p id="open-text">Kamenné predajne otvorené</p>
-                <p id="closed-text">Kamenné predajne zatvorené</p>
-                <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
-            </div>
-            <i class="fa fa-chevron-up" id="toggle-arrow"></i> <!-- Šípka pre zbalenie -->
-        </div>
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <span class="close-btn" onclick="togglePopup()">&times;</span>
-                <h3>Návštivte nás osobne</h3>
-                <table>
-                    <tr><th>Deň</th><th>Čas</th></tr>
-                    <tr><td>Po - Pi</td><td>9:00 - 17:30</td></tr>
-                    <tr><td>So</td><td>Zatvorené</td></tr>
-                    <tr><td>Ne</td><td>Zatvorené</td></tr>
-                </table>
-                <p class="stores-list"><a class="our-store" href="#">Bratislava</a> | <a class="our-store" href="#">Nitra</a> | <a class="our-store" href="#">Prešov</a></p>
-                <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
-            </div>
-        </div>
-    </section>
-
     <!-- Popup for Sign In / Register -->
     <div id="auth-popup" class="popup-container">
         <div class="popup-form">
@@ -110,6 +103,33 @@
         </div>
     </div>
 
+    <section class="opened-info">
+        <div class="info-circle" id="status-icon">
+            <i class="fa fa-shop" id="open-icon"></i>
+            <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
+            <div class="text-info-container" id="text-container">
+                <p id="open-text">Kamenné predajne otvorené</p>
+                <p id="closed-text">Kamenné predajne zatvorené</p>
+                <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
+            </div>
+            <i class="fa fa-chevron-up" id="toggle-arrow"></i> <!-- Šípka pre zbalenie -->
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="togglePopup()">&times;</span>
+                <h3>Návštivte nás osobne</h3>
+                <table>
+                    <tr><th>Deň</th><th>Čas</th></tr>
+                    <tr><td>Po - Pi</td><td>9:00 - 17:30</td></tr>
+                    <tr><td>So</td><td>Zatvorené</td></tr>
+                    <tr><td>Ne</td><td>Zatvorené</td></tr>
+                </table>
+                <p class="stores-list"><a class="our-store" href="#">Bratislava</a> | <a class="our-store" href="#">Nitra</a> | <a class="our-store" href="#">Prešov</a></p>
+                <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
+            </div>
+        </div>
+    </section>
+
     <div class = "filter-product-container">
         <!-- Products -->
         <div class="products">
@@ -118,14 +138,14 @@
                 <div class="product-info">    
                     <h3>Produkt 1</h3>
                     <p>Popis produktu 1</p>
-                    <p class="price">Cena: 5€</p>
+                    <p class="price">Cena: 12€</p>
                     <div class="quantity-selector">
                         <button class="quantity-btn" id="decrease">-</button>
                         <input type="number" id="quantity" min="1" value="1">
                         <button class="quantity-btn" id="increase">+</button>
                     </div>
                     <button type="button">Pridať do košíka</button>
-                    <p>V košíku: <span>0</span></p>
+                    <p>V košíku: 0</p>
                 </div>
             </div>
             <div class="product-shop">
@@ -133,36 +153,6 @@
                 <div class="product-info">
                     <h3>Produkt 2</h3>
                     <p>Popis produktu 2</p>
-                    <p class="price">Cena: 10€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <button type="button">Pridať do košíka</button>
-                    <p>V košíku: <span>0</span></p>
-                </div>
-            </div>
-            <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product3"></a>
-                <div class="product-info">
-                    <h3>Produkt 3</h3>
-                    <p>Popis produktu 3</p>
-                    <p class="price">Cena: 15€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <button type="button">Pridať do košíka</button>
-                    <p>V košíku: <span>0</span></p>
-                </div>
-            </div>
-            <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product4"></a>
-                <div class="product-info">
-                    <h3>Produkt 4</h3>
-                    <p>Popis produktu 4</p>
                     <p class="price">Cena: 20€</p>
                     <div class="quantity-selector">
                         <button class="quantity-btn" id="decrease">-</button>
@@ -170,44 +160,44 @@
                         <button class="quantity-btn" id="increase">+</button>
                     </div>
                     <button type="button">Pridať do košíka</button>
-                    <p>V košíku: <span>0</span></p>
+                    <p>V košíku: 0</p>
                 </div>
             </div>
             <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product5"></a>
+                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product3"></a>
                 <div class="product-info">
-                    <h3>Produkt 5</h3>
-                    <p>Popis produktu 5</p>
-                    <p class="price">Cena: 25€</p>
+                    <h3>Produkt 3</h3>
+                    <p>Popis produktu 3</p>
+                    <p class="price">Cena: 5€</p>
                     <div class="quantity-selector">
                         <button class="quantity-btn" id="decrease">-</button>
                         <input type="number" id="quantity" min="1" value="1">
                         <button class="quantity-btn" id="increase">+</button>
                     </div>
                     <button type="button">Pridať do košíka</button>
-                    <p>V košíku: <span>0</span></p>
+                    <p>V košíku: 0</p>
                 </div>
             </div>
             <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product6"></a>
+                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product4"></a>
                 <div class="product-info">
-                    <h3>Produkt 6</h3>
-                    <p>Popis produktu 6</p>
-                    <p class="price">Cena: 30€</p>
+                    <h3>Produkt 4</h3>
+                    <p>Popis produktu 4</p>
+                    <p class="price">Cena: 10€</p>
                     <div class="quantity-selector">
                         <button class="quantity-btn" id="decrease">-</button>
                         <input type="number" id="quantity" min="1" value="1">
                         <button class="quantity-btn" id="increase">+</button>
                     </div>
                     <button type="button">Pridať do košíka</button>
-                    <p>V košíku: <span>0</span></p>
+                    <p>V košíku: 0</p>
                 </div>
             </div>
         </div>
 
         <!-- Filter -->
             <div class="filter">
-                <h2>Výrobky</h2>
+                <h2>Zdravie včiel</h2>
                 <div class="filter-options">
                     <div class="filter-option">
                         <h3>Typ</h3>
@@ -247,28 +237,30 @@
     <!-- Footer -->
     <footer>
         <div class="newsletter-container">
-            <h3>Aktuálne novinky a akcie na váš e-mail</h3>
+            <h3>Aktuálne novinky a akcie na Váš e-mail</h3>
             <div class="newsletter-form">
-                <form action="#" method="POST">
-                    <input type="email" name="email" placeholder="tvoj@email.sk">
+                <form action="#" method="GET">
+                    <input type="email" name="email" placeholder="tvoj@email.sk" required>
                     <button type="submit">Potvrdiť</button>
                 </form>
-                <p class="regulations">*vložením e-mailu súhlasíte s podmienkami ochrany osobných údajov</p>
+                <p class="regulations">*Vložením e-mailu súhlasíte s podmienkami ochrany osobných údajov</p>
             </div>
         </div>
         <div class="footer-text-container">
             <div class="contact-us">
                 <div class="text-container">
-                    <h3>Pomôžeme Vám s výberom</h3>
-                    <p>Potrebujete poradiť? Neváhajte, sme tu pre Vás!</p>
+                    <p>Potrebujete poradiť?</p>
+                    <p> Neváhajte, <b>sme tu pre Vás</b>!</p>
                 </div>
+                <div class="delimeter"></div>
                 <div class="information">
-                    <p><i class="fa-solid fa-phone"></i> +421 816 526 113</p>
-                    <p><i class="fa-solid fa-envelope"></i> nasemail@gmail.com</p>
+                    <p class="phone-info"> +421 816 526 113</p>
+                    <p> nasemail@gmail.com</p>
                 </div>
             </div>
+            <div class="delimeter"></div>
             <div class="socials">
-                <h3>Sledujte nás</h3>
+                <p><b>Sledujte nás</b></p>
                 <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
                 <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
             </div>

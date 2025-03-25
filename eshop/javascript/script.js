@@ -1,27 +1,46 @@
 // skrolovanie cez < > buttons v odporucanych produktov
 document.addEventListener("DOMContentLoaded", function () {
-    const carousels = document.querySelectorAll(".product-carousel");
-    const prevBtns = document.querySelectorAll("#prevBtn");
-    const nextBtns = document.querySelectorAll("#nextBtn");
-    const scrollStep = 320;
+    if (!document.querySelector(".product-carousel")) {
+        return;
+    }
+    const carousel = document.querySelector(".product-carousel");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let scrollStep = 320;
 
-    if (carousels.length === 0) return;
+    nextBtn.addEventListener("click", function () {
+        carousel.scrollBy({ left: scrollStep});
+    });
 
-    carousels.forEach((carousel, index) => {
-        const prevBtn = prevBtns[index];
-        const nextBtn = nextBtns[index];
-
-        if (!prevBtn || !nextBtn) return; // Avoid errors if buttons are missing
-
-        nextBtn.addEventListener("click", function () {
-            carousel.scrollBy({ left: scrollStep });
-        });
-
-        prevBtn.addEventListener("click", function () {
-            carousel.scrollBy({ left: -scrollStep });
-        });
+    prevBtn.addEventListener("click", function () {
+        carousel.scrollBy({ left: -scrollStep});
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    const closeBtn = document.querySelector(".close-btn-side");
+
+    menuToggle.addEventListener("click", function () {
+        sidebar.classList.add("sidebar-open");
+        sidebar.style.left = "0";
+    });
+
+    closeBtn.addEventListener("click", function () {
+        sidebar.classList.remove("sidebar-open");
+        sidebar.style.left = "-250px";
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!sidebar.contains(event.target) && !menuToggle.contains(event.target)) {
+            sidebar.classList.remove("sidebar-open");
+            sidebar.style.left = "-250px";
+        }
+    });
+});
+
+
 
 
 function checkStoreStatus() {
@@ -337,74 +356,14 @@ if (document.getElementById('calendar')) {
 
   });
 
-if (document.querySelector(".toggle-coupon")) {
-    document.querySelector(".toggle-coupon").addEventListener("click", function(event) {
-        event.preventDefault(); // Zabraňuje presmerovaniu
+document.querySelector(".toggle-coupon").addEventListener("click", function(event) {
+    event.preventDefault(); // Zabraňuje presmerovaniu
 
-        let couponForm = document.querySelector(".coupon-form");
+    let couponForm = document.querySelector(".coupon-form");
 
-        if (couponForm.style.display === "none" || couponForm.style.display === "") {
-            couponForm.style.display = "block";
-        } else {
-            couponForm.style.display = "none";
-        }
-    });
-}
-
-if (document.getElementById("submit-btn-sc3")) {
-    document.getElementById("submit-btn-sc3").addEventListener("click", function () {
-        const form = document.getElementById("info-form");
-        if (!form.checkValidity()) {
-            alert("Prosím vyplňte všetky povinné polia!");
-        } else {
-            form.submit();
-        }
-    });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    if (!document.getElementById("osobne")) {
-        return;
+    if (couponForm.style.display === "none" || couponForm.style.display === "") {
+        couponForm.style.display = "block";
+    } else {
+        couponForm.style.display = "none";
     }
-    const osobne = document.getElementById("osobne");
-    const osobneSelect = document.getElementById("osobne_select");
-    const osobneLabel = document.getElementById("osobne_label");
-
-    // Function to toggle visibility based on the radio button's checked state
-    function toggleSelectVisibility() {
-
-        if (osobne.checked) {
-            osobneSelect.style.display = 'block';
-            osobneLabel.style.display = 'block';
-        } else {
-            osobneSelect.style.display = 'none';
-            osobneLabel.style.display = 'none';
-        }
-    }
-
-    // Initialize visibility based on current state
-    toggleSelectVisibility();
-
-    // Listen for change event on the shipping group
-    const shippingRadios = document.getElementsByName("shipping");
-    shippingRadios.forEach(function(radio) {
-        radio.addEventListener('change', toggleSelectVisibility);
-    });
 });
-
-if (document.getElementById("submit-btn-sc2")) {
-    document.getElementById("submit-btn-sc2").addEventListener("click", function () {
-        const shippingSelected = document.querySelector('input[name="shipping"]:checked');
-        const paymentSelected = document.querySelector('input[name="payment"]:checked');
-
-        if (!shippingSelected || !paymentSelected) {
-            alert("Prosím, vyberte spôsob dopravy aj spôsob platby!");
-        } 
-        else if (shippingSelected.value === "osobne" && !document.getElementById("osobne_select").value) {
-            alert("Prosím, vyberte predajňu!");
-        }
-        else {
-            window.location.href = "shopping_cart3.html";
-        }
-    })
-}

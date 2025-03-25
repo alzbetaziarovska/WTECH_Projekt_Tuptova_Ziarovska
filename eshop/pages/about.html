@@ -44,18 +44,40 @@
             </div>
             <div class="bottom-nav">
                 <div class="categories">
+                    <button class="menu-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    
                     <a href="../pages/vybavenie.html">VYBAVENIE</a>
                     <a href="../pages/krmivo.html">KRMIVO A DOPLNKY</a>
                     <a href="../pages/zdravie.html">ZDRAVIE VČIEL</a>
                     <a href="../pages/vyrobky.html">VÝROBKY</a>
-                    <div class="search-container">
-                        <input type="text" placeholder="Hľadať..." class="searchbar">
-                        <i class="search-icon fa fa-magnifying-glass"></i>
+                    <div class="search-contact-mobile">
+                        <div class="contact-section mobile">
+                            <i class="fa-solid fa-phone phone-icon"></i> 
+                            <div class="contact-info">
+                                <span class="phone-number">+421 816 526 113</span>
+                                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                            </div>
+                        </div>
+                        <div class="search-container">
+                            <input type="text" placeholder="Hľadať..." class="searchbar">
+                            <i class="search-icon fa fa-magnifying-glass"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </nav>
-    </header>
+    </header> 
+
+
+    <!-- BOČNÉ MENU -->
+    <div class="sidebar">
+        <button class="close-btn-side">&times;</button> <a href="../pages/vybavenie.html">VYBAVENIE</a>
+        <a href="../pages/krmivo.html">KRMIVO A DOPLNKY</a>
+        <a href="../pages/zdravie.html">ZDRAVIE VČIEL</a>
+        <a href="../pages/vyrobky.html">VÝROBKY</a>
+    </div>
     <section class="opened-info">
         <div class="info-circle" id="status-icon">
             <i class="fa fa-shop" id="open-icon"></i>
@@ -192,8 +214,8 @@
         <div class="newsletter-container">
             <h3>Aktuálne novinky a akcie na Váš e-mail</h3>
             <div class="newsletter-form">
-                <form action="#" method="POST">
-                    <input type="email" name="email" placeholder="tvoj@email.sk">
+                <form action="#" method="GET">
+                    <input type="email" name="email" placeholder="tvoj@email.sk" required>
                     <button type="submit">Potvrdiť</button>
                 </form>
                 <p class="regulations">*Vložením e-mailu súhlasíte s podmienkami ochrany osobných údajov</p>
@@ -202,17 +224,18 @@
         <div class="footer-text-container">
             <div class="contact-us">
                 <div class="text-container">
-                    <h3>Pomôžeme Vám s výberom</h3>
-                    <p>Potrebujete poradiť? Neváhajte, sme tu pre Vás!</p>
+                    <p>Potrebujete poradiť?</p>
+                    <p> Neváhajte, <b>sme tu pre Vás</b>!</p>
                 </div>
+                <div class="delimeter"></div>
                 <div class="information">
-                    <p class="phone-info"><i class="fa-solid fa-phone"></i> +421 816 526 113</p>
-                    <p><i class="fa-solid fa-envelope"></i> nasemail@gmail.com</p>
+                    <p class="phone-info"> +421 816 526 113</p>
+                    <p> nasemail@gmail.com</p>
                 </div>
             </div>
             <div class="delimeter"></div>
             <div class="socials">
-                <h3>Sledujte nás</h3>
+                <p><b>Sledujte nás</b></p>
                 <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
                 <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
             </div>

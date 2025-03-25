@@ -31,82 +31,49 @@
                     </div>
                 </div>
                 <div class="user-actions">
-                    <a href="#"><i class="fa-solid fa-circle-user user-icon" onclick="toggleAuthPopup()"></i></a>
+                    <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
                     <a href="../pages/shopping_cart1.html" class="bag">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="bag-count">3</div>
                     </a>
                 </div>
             </div>
-            
             <div class="bottom-nav">
                 <div class="categories">
+                    <button class="menu-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    
                     <a href="../pages/vybavenie.html">VYBAVENIE</a>
                     <a href="../pages/krmivo.html">KRMIVO A DOPLNKY</a>
                     <a href="../pages/zdravie.html">ZDRAVIE VČIEL</a>
                     <a href="../pages/vyrobky.html">VÝROBKY</a>
-                    <div class="search-container">
-                        <input type="text" placeholder="Hľadať..." class="searchbar">
-                        <i class="search-icon fa fa-magnifying-glass"></i>
+                    <div class="search-contact-mobile">
+                        <div class="contact-section mobile">
+                            <i class="fa-solid fa-phone phone-icon"></i> 
+                            <div class="contact-info">
+                                <span class="phone-number">+421 816 526 113</span>
+                                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                            </div>
+                        </div>
+                        <div class="search-container">
+                            <input type="text" placeholder="Hľadať..." class="searchbar">
+                            <i class="search-icon fa fa-magnifying-glass"></i>
+                        </div>
                     </div>
                 </div>
-                
             </div>
         </nav>
-    </header>
+    </header> 
 
-    <div class="cart-sections-bar">
-        <a><i class="fa-solid fa-bag-shopping"></i>Nákupný košík</a>
-        <i class="fa-solid fa-arrow-right arrows"></i>
-        <a><i class="fa-solid fa-truck"></i>Doprava a platba</a>
-        <i class="fa-solid fa-arrow-right arrows"></i>
-        <a><i class="fa-solid fa-circle-info"></i><b>Informácie o Vás</b></a>
+
+    <!-- BOČNÉ MENU -->
+    <div class="sidebar">
+        <button class="close-btn-side">&times;</button> <a href="../pages/vybavenie.html">VYBAVENIE</a>
+        <a href="../pages/krmivo.html">KRMIVO A DOPLNKY</a>
+        <a href="../pages/zdravie.html">ZDRAVIE VČIEL</a>
+        <a href="../pages/vyrobky.html">VÝROBKY</a>
     </div>
-    
-
-    <div class="cart-container">
-        <h2>Vaše údaje</h2>
-        <div class="info-container-cart">
-            <form action="thanks_for_purchase.html" method="POST" class="info-form" id="info-form">
-                <label for="name">Meno: *</label>
-                <input type="text" id="fname" name="first_name" required>
-
-                <label for="name">Priezvisko: *</label>
-                <input type="text" id="lname" name="last_name" required>
-                
-                <label for="email">E-mail: *</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="phone">Telefónne číslo: *</label>
-                <input type="tel" id="phone" name="phone" required>
-
-                <label for="address">Ulica a číslo popisné: *</label>
-                <input type="text" id="street" name="street" required>
-
-                <label for="address">Mesto: *</label>
-                <input type="text" id="city" name="city" required>
-
-                <label for="country">Vyberte krajinu: *</label>
-                <select id="country" name="country">
-                    <option value="">-- Vyberte krajinu --</option>
-                    <option value="sk">Slovensko</option>
-                    <option value="cz">Česko</option>
-                    <option value="pl">Poľsko</option>
-                    <option value="hu">Maďarsko</option>
-                    <option value="at">Rakúsko</option>
-                </select>
-
-                <label for="note">Poznámka k objednávke:</label>
-                <textarea id="note" name="note"></textarea>
-            </form>
-        </div>
-
-        <div class="cart-actions">
-            <a href="shopping_cart2.html" class="back-button"><i class="fa-solid fa-arrow-left"></i> Späť na dopravu a platbu</a>
-            <button type="submit" id="submit-btn-sc3" class="next-button">Objednať sa povinnosťou platby <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-    </div>
-
 
     <section class="opened-info">
         <div class="info-circle" id="status-icon">
@@ -134,7 +101,7 @@
             </div>
         </div>
     </section>
-            
+
     <!-- Popup for Sign In / Register -->
     <div id="auth-popup" class="popup-container">
         <div class="popup-form">
@@ -146,14 +113,14 @@
                     <input type="email" placeholder="E-mail" required><br>
                     <input type="password" placeholder="Heslo" required><br>
                     <button type="submit">Prihlásiť sa</button>
-                </form>          
+                </form>      
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
             </div>
 
             <!-- Register Form -->
             <div id="register-form" class="form-content" style="display:none;">
                 <h3>Registrácia</h3>
-                <form action="#" method="POST">
+                <form action="profile.html" method="POST">
                     <input type="text" placeholder="Meno a Priezvisko" required><br>
                     <input type="email" placeholder="E-mail" required><br>
                     <input type="password" placeholder="Heslo" required><br>
@@ -164,38 +131,75 @@
         </div>
     </div>
 
-<!-- Footer -->
-<footer>
-    <div class="newsletter-container">
-        <h3>Aktuálne novinky a akcie na Váš e-mail</h3>
-        <div class="newsletter-form">
-            <form action="#" method="POST">
-                <input type="email" name="email" placeholder="tvoj@email.sk">
-                <button type="submit">Potvrdiť</button>
-            </form>
-            <p class="regulations">*Vložením e-mailu súhlasíte s podmienkami ochrany osobných údajov</p>
-        </div>
-    </div>
-    <div class="footer-text-container">
-        <div class="contact-us">
-            <div class="text-container">
-                <h3>Pomôžeme Vám s výberom</h3>
-                <p>Potrebujete poradiť? Neváhajte, sme tu pre Vás!</p>
+    <section class = "profile-section">
+        <div class="profile">
+            <div class="profile-info">
+                <h2>Môj profil</h2>
+                <div class="profile-details">
+                    <div class="profile-image">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </div>
+                    <div class="profile-text">
+                        <p><b>Meno:</b> Janko Hraško</p>
+                        <p><b>E-mail:</b> janko.hrasko@gmail.com</p>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <a href="#"><button>Zmeniť heslo</button></a>
+                    <a href="homepage.html"><button>Odhlásiť sa</button></a>
+                </div>
             </div>
-            <div class="information">
-                <p class="phone-info"><i class="fa-solid fa-phone"></i> +421 816 526 113</p>
-                <p><i class="fa-solid fa-envelope"></i> nasemail@gmail.com</p>
+    </section>
+    <section class="orders-section">
+            <div class="orders">
+                <h2>Moje objednávky</h2>
+                <div class="order">
+                    <div class="order-info">
+                        <p><b>Číslo objednávky:</b> 123456</p>
+                        <p><b>Dátum:</b> 12.12.2023</p>
+                        <p><b>Cena:</b> 25,00 €</p>
+                    </div>
+                    <div class="order-actions">
+                        <a href="#"><button>Detaily</button></a>
+                        <a href="#"><button>Zrušiť</button></a>
+                </div>
             </div>
         </div>
-        <div class="delimeter"></div>
-        <div class="socials">
-            <h3>Sledujte nás</h3>
-            <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+    </section>
+
+     <!-- Footer -->
+     <footer>
+        <div class="newsletter-container">
+            <h3>Aktuálne novinky a akcie na Váš e-mail</h3>
+            <div class="newsletter-form">
+                <form action="#" method="GET">
+                    <input type="email" name="email" placeholder="tvoj@email.sk" required>
+                    <button type="submit">Potvrdiť</button>
+                </form>
+                <p class="regulations">*Vložením e-mailu súhlasíte s podmienkami ochrany osobných údajov</p>
+            </div>
         </div>
-    </div>
-    <p class="copyright">&copy; 2025 WTECH Tuptová, Žiarovská</p>
-</footer>
-<script src="../javascript/script.js"></script>
+        <div class="footer-text-container">
+            <div class="contact-us">
+                <div class="text-container">
+                    <p>Potrebujete poradiť?</p>
+                    <p> Neváhajte, <b>sme tu pre Vás</b>!</p>
+                </div>
+                <div class="delimeter"></div>
+                <div class="information">
+                    <p class="phone-info"> +421 816 526 113</p>
+                    <p> nasemail@gmail.com</p>
+                </div>
+            </div>
+            <div class="delimeter"></div>
+            <div class="socials">
+                <p><b>Sledujte nás</b></p>
+                <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 WTECH Tuptová, Žiarovská</p>
+    </footer>
+    <script src="../javascript/script.js"></script>
 </body>
 </html>
