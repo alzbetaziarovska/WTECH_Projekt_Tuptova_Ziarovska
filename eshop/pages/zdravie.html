@@ -48,8 +48,7 @@
                     <a href="../pages/zdravie.html">ZDRAVIE VČIEL</a>
                     <a href="../pages/vyrobky.html">VÝROBKY</a>
                     <div class="search-contact-mobile">
-                        <div class="contact-section mobile">
-                            <i class="fa-solid fa-phone phone-icon"></i> 
+                        <div class="contact-section tablet">
                             <div class="contact-info">
                                 <span class="phone-number">+421 816 526 113</span>
                                 <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
@@ -68,28 +67,38 @@
 
     <!-- BOČNÉ MENU -->
     <div class="sidebar">
-        <button class="close-btn-side">&times;</button> <a href="../pages/vybavenie.html">VYBAVENIE</a>
+        <button class="close-btn-side">&times;</button>
+        <a href="../pages/about.html" class="topper">O nás</a>
+        <a href="../pages/shop.html" class="topper">E-shop</a>
+        <a href="../pages/vybavenie.html">VYBAVENIE</a>
         <a href="../pages/krmivo.html">KRMIVO A DOPLNKY</a>
         <a href="../pages/zdravie.html">ZDRAVIE VČIEL</a>
         <a href="../pages/vyrobky.html">VÝROBKY</a>
+        <a href="../pages/stores.html" class="topper">Kamenné predajne</a>
+        <div class="contact-section mobile" class="topper">
+            <i class="fa-solid fa-phone phone-icon"></i> 
+            <div class="contact-info">
+                <span class="phone-number">+421 816 526 113</span>
+                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+            </div>
+        </div>
     </div>
     
     <!-- Popup for Sign In / Register -->
     <div id="auth-popup" class="popup-container">
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
-            <!-- Sign In Form -->
             <div id="signin-form" class="form-content">
                 <h3>Prihlásenie</h3>
                 <form action="profile.html" method="GET">
                     <input type="email" placeholder="E-mail" required><br>
                     <input type="password" placeholder="Heslo" required><br>
+                    <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
                     <button type="submit">Prihlásiť sa</button>
-                </form>      
+                </form>                
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
             </div>
-
-            <!-- Register Form -->
+    
             <div id="register-form" class="form-content" style="display:none;">
                 <h3>Registrácia</h3>
                 <form action="#" method="POST">
@@ -99,6 +108,15 @@
                     <button type="submit">Registrovať sa</button>
                 </form>
                 <p>Máte už účet? <a href="#" onclick="toggleRegisterForm()">Prihláste sa!</a></p>
+            </div>
+    
+            <div id="forgot-password-form" class="form-content" style="display:none;">
+                <h3>Zabudnuté heslo</h3>
+                <form action="#" method="POST">
+                    <input type="email" placeholder="E-mail" required><br>
+                    <button type="submit">Resetovať heslo</button>
+                </form>
+                <p>Návrat na <a href="#" onclick="showSignInForm()">prihlásenie</a></p>
             </div>
         </div>
     </div>
