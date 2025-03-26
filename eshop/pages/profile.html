@@ -170,8 +170,7 @@
         </div>
         <div class="orders-section">
             <h2>História objednávok</h2>
-            <div class="orders">
-                
+            <divclass="orders">
                 <div class="order">
                     <div class="order-info">
                         <p><b>Číslo objednávky:</b> 123456</p>
@@ -181,8 +180,36 @@
                     <div class="order-actions">
                         <a href="#"><button>Detaily</button></a>
                         <a href="#"><button>Zrušiť</button></a>
+                        <p><span class="status waiting">V procese</span></p>
+                    </div>
                 </div>
+                <div id="orders" class="collapsed-orders">
+                    <div class="order">
+                        <div class="order-info">
+                            <p><b>Číslo objednávky:</b> 123456</p>
+                            <p><b>Dátum:</b> 12.12.2023</p>
+                            <p><b>Cena:</b> 25,00 €</p>
+                        </div>
+                        <div class="order-actions">
+                            <a href="#"><button>Detaily</button></a>
+                            <a href="#"><button>Zrušiť</button></a>
+                            <p><span class="status canceled">Zrušená</span></p>
+                        </div>
+                    </div>
+                    <div class="order">
+                        <div class="order-info">
+                            <p><b>Číslo objednávky:</b> 123456</p>
+                            <p><b>Dátum:</b> 12.12.2023</p>
+                            <p><b>Cena:</b> 25,00 €</p>
+                        </div>
+                        <div class="order-actions">
+                            <a href="#"><button>Detaily</button></a>
+                            <a href="#"><button>Zrušiť</button></a>
+                            <p><span class="status delivered">Doručená</span></p>
+                        </div>
+                    </div>
             </div>
+            <button id="toggle-btn" class="toggle-button">Viac...</button>
         </div>
     </section>
 

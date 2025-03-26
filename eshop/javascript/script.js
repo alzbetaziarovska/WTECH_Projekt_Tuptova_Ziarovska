@@ -446,19 +446,35 @@ if (document.getElementById("submit-btn-sc2")) {
     })
 }
 
-document.getElementById("toggle-btn").addEventListener("click", function () {
-    if (!document.getElementById("product_description")) {
-        return;
-    }
-    var desc = document.getElementById("product_description");
-    if (desc.classList.contains("collapsed")) {
-        desc.classList.remove("collapsed");
-        this.textContent = "Menej";
-    } else {
-        desc.classList.add("collapsed");
-        this.textContent = "Viac...";
-    }
-});
+if (document.getElementById("toggle-btn")) {
+    document.getElementById("toggle-btn").addEventListener("click", function () {
+        if (!document.getElementById("product_description")) {
+            return;
+        }
+        var desc = document.getElementById("product_description");
+        if (desc.classList.contains("collapsed")) {
+            desc.classList.remove("collapsed");
+            this.textContent = "Menej";
+        } else {
+            desc.classList.add("collapsed");
+            this.textContent = "Viac...";
+        }
+    });
+
+    document.getElementById("toggle-btn").addEventListener("click", function () {
+        if (!document.getElementById("orders")) {
+            return;
+        }
+        var desc = document.getElementById("orders");
+        if (desc.classList.contains("collapsed-orders")) {
+            desc.classList.remove("collapsed-orders");
+            this.textContent = "Menej";
+        } else {
+            desc.classList.add("collapsed-orders");
+            this.textContent = "Viac...";
+        }
+    });
+}
 
 document.querySelectorAll(".variant-img").forEach((img) => {
     img.addEventListener("click", function () {
@@ -468,4 +484,10 @@ document.querySelectorAll(".variant-img").forEach((img) => {
         // Add 'active' class to the clicked image
         this.classList.add("active");
     });
+});
+
+document.querySelector(".edit-product-form-id").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+    document.querySelector(".edit-product-form").style.display = "flex";
 });

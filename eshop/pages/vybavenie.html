@@ -148,6 +148,18 @@
         </div>
     </div>
 
+
+    <div class="product-choices">
+        <select class="order-by" id="order-by" name="order-by">
+            <option value="">-- Zoradiť podľa --</option>
+            <option value="price_desc">Cena (najdrahšie hore)</option>
+            <option value="price_asc">Cena (najlacnejšie hore)</option>
+            <option value="abc">Abecedne</option>
+            <option value="review">Hodnotenie (najlepšie hore)</option>
+        </select>
+        <button class="filter-btn">Filter</button>
+    </div>
+
     <div class = "filter-product-container">
         <!-- Products -->
         <div class="products">
@@ -244,36 +256,37 @@
         </div>
 
         <!-- Filter -->
-            <div class="filter">
-                <h2>Vybavenie</h2>
-                <div class="filter-options">
-                    <div class="filter-option">
-                        <h3>Typ</h3>
-                        <ul>
-                            <li><input type="checkbox" name="type" value="1"> Typ 1</li>
-                            <li><input type="checkbox" name="type" value="2"> Typ 2</li>
-                            <li><input type="checkbox" name="type" value="3"> Typ 3</li>
-                        </ul>
-                    </div>
-                    <div class="filter-option">
-                        <h3>Farba</h3>
-                        <ul>
-                            <li><input type="checkbox" name="color" value="1"> Farba 1</li>
-                            <li><input type="checkbox" name="color" value="2"> Farba 2</li>
-                            <li><input type="checkbox" name="color" value="3"> Farba 3</li>
-                        </ul>
-                    </div>
-                    <div class="filter-option">
-                        <h3>Veľkosť</h3>
-                        <ul>
-                            <li><input type="checkbox" name="size" value="1"> Veľkosť 1</li>
-                            <li><input type="checkbox" name="size" value="2"> Veľkosť 2</li>
-                            <li><input type="checkbox" name="size" value="3"> Veľkosť 3</li>
-                        </ul>
-                    </div>
+        <div class="filter">
+            <h2>Vybavenie</h2>
+            <div class="filter-options">
+                <div class="filter-option">
+                    <h3>Farba</h3>
+                    <ul>
+                        <li><input type="checkbox" name="type" value="1"> Čierna</li>
+                        <li><input type="checkbox" name="type" value="2"> Biela</li>
+                        <li><input type="checkbox" name="type" value="3"> Červená</li>
+                        <li><input type="checkbox" name="type" value="4"> Žltá</li>
+                        <li><input type="checkbox" name="type" value="5"> Hnedá</li>
+                    </ul>
                 </div>
-                <a><button>Filter</button></a>
+                <div class="filter-option">
+                    <h3>Výrobca</h3>
+                    <ul>
+                        <li><input type="checkbox" name="color" value="1"> AllForBees</li>
+                        <li><input type="checkbox" name="color" value="2"> Včelári.sk</li>
+                        <li><input type="checkbox" name="color" value="3"> Včielka</li>
+                    </ul>
+                </div>
+                <div class="filter-option">
+                    <h3>Veľkosť</h3>
+                    <ul>
+                        <li><input type="checkbox" name="size" value="1"> S</li>
+                        <li><input type="checkbox" name="size" value="2"> M</li>
+                        <li><input type="checkbox" name="size" value="3"> L</li>
+                    </ul>
+                </div>
             </div>
+            <a><button>Filter</button></a>
         </div>
     </div>
 

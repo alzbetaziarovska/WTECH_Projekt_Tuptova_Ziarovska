@@ -277,28 +277,35 @@
             <div class="filter">
                 <h2>Krmivo a doplnky</h2>
                 <div class="filter-options">
+                    <select class="order-by" id="order-by" name="order-by">
+                        <option value="">-- Zoradiť podľa --</option>
+                        <option value="price_desc">Cena (najdrahšie hore)</option>
+                        <option value="price_asc">Cena (najlacnejšie hore)</option>
+                        <option value="abc">Abecedne</option>
+                        <option value="review">Hodnotenie (najlepšie hore)</option>
+                    </select>
+                    <div class="filter-option">
+                        <h3>Hmostnosť</h3>
+                        <ul>
+                            <li><input type="checkbox" name="type" value="1"> 100 g</li>
+                            <li><input type="checkbox" name="type" value="2"> 500 g</li>
+                            <li><input type="checkbox" name="type" value="3"> 1000 g</li>
+                        </ul>
+                    </div>
+                    <div class="filter-option">
+                        <h3>Výrobca</h3>
+                        <ul>
+                            <li><input type="checkbox" name="color" value="1"> Happy bee</li>
+                            <li><input type="checkbox" name="color" value="2"> Včelári.sk</li>
+                            <li><input type="checkbox" name="color" value="3"> Beeznis</li>
+                        </ul>
+                    </div>
                     <div class="filter-option">
                         <h3>Typ</h3>
                         <ul>
-                            <li><input type="checkbox" name="type" value="1"> Typ 1</li>
-                            <li><input type="checkbox" name="type" value="2"> Typ 2</li>
-                            <li><input type="checkbox" name="type" value="3"> Typ 3</li>
-                        </ul>
-                    </div>
-                    <div class="filter-option">
-                        <h3>Farba</h3>
-                        <ul>
-                            <li><input type="checkbox" name="color" value="1"> Farba 1</li>
-                            <li><input type="checkbox" name="color" value="2"> Farba 2</li>
-                            <li><input type="checkbox" name="color" value="3"> Farba 3</li>
-                        </ul>
-                    </div>
-                    <div class="filter-option">
-                        <h3>Veľkosť</h3>
-                        <ul>
-                            <li><input type="checkbox" name="size" value="1"> Veľkosť 1</li>
-                            <li><input type="checkbox" name="size" value="2"> Veľkosť 2</li>
-                            <li><input type="checkbox" name="size" value="3"> Veľkosť 3</li>
+                            <li><input type="checkbox" name="size" value="1"> Granulové</li>
+                            <li><input type="checkbox" name="size" value="2"> Tekuté</li>
+                            <li><input type="checkbox" name="size" value="3"> Steblá</li>
                         </ul>
                     </div>
                 </div>

@@ -148,119 +148,95 @@
         </div>
     </section>
 
-    <div class = "filter-product-container">
-        <!-- Products -->
-        <div class="products">
-            <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product1"></a>
-                <div class="product-info">    
-                    <h3>Produkt 1</h3>
-                    <p>Popis produktu 1</p>
-                    <p class="price">Cena: 12€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <button type="button">Pridať do košíka</button>
-                    <p>V košíku: 0</p>
+    <section class = "profile-section">
+        <div class="profile">
+            <h2>Môj profil</h2>
+            <div class="profile-info">
+                <div class="profile-image">
+                    <i class="fa-solid fa-circle-user"></i>
                 </div>
-            </div>
-            <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product2"></a>
-                <div class="product-info">
-                    <h3>Produkt 2</h3>
-                    <p>Popis produktu 2</p>
-                    <p class="price">Cena: 20€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
+                <div>
+                    <div class="profile-text">
+                        <p><b>Janko Hraško</b></p>
+                        <p>janko.hrasko@gmail.com</p>
                     </div>
-                    <button type="button">Pridať do košíka</button>
-                    <p>V košíku: 0</p>
-                </div>
-            </div>
-            <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product3"></a>
-                <div class="product-info">
-                    <h3>Produkt 3</h3>
-                    <p>Popis produktu 3</p>
-                    <p class="price">Cena: 5€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
+                    <div class="profile-actions">
+                        <a href="#"><button>Zmeniť heslo</button></a>
+                        <a href="homepage.html"><button>Odhlásiť sa</button></a>
                     </div>
-                    <button type="button">Pridať do košíka</button>
-                    <p>V košíku: 0</p>
-                </div>
-            </div>
-            <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product4"></a>
-                <div class="product-info">
-                    <h3>Produkt 4</h3>
-                    <p>Popis produktu 4</p>
-                    <p class="price">Cena: 10€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <button type="button">Pridať do košíka</button>
-                    <p>V košíku: 0</p>
                 </div>
             </div>
         </div>
 
-        <!-- Filter -->
-            <div class="filter">
-                <select class="order-by" id="order-by" name="order-by">
-                    <option value="">-- Zoradiť podľa --</option>
-                    <option value="price_desc">Cena (najdrahšie hore)</option>
-                    <option value="price_asc">Cena (najlacnejšie hore)</option>
-                    <option value="abc">Abecedne</option>
-                    <option value="review">Hodnotenie (najlepšie hore)</option>
-                </select>
-                <h2>Zdravie včiel</h2>
-                <div class="filter-options">
-                    <div class="filter-option">
-                        <h3>Hmotnosť</h3>
-                        <ul>
-                            <li><input type="checkbox" name="type" value="1"> 50 g</li>
-                            <li><input type="checkbox" name="type" value="2"> 100 g</li>
-                            <li><input type="checkbox" name="type" value="3"> 200 g</li>
-                        </ul>
-                    </div>
-                    <div class="filter-option">
-                        <h3>Výrobca</h3>
-                        <ul>
-                            <li><input type="checkbox" name="color" value="1"> Včelári.sk</li>
-                            <li><input type="checkbox" name="color" value="2"> Včielka</li>
-                            <li><input type="checkbox" name="color" value="3"> Xbees</li>
-                        </ul>
-                    </div>
-                    <div class="filter-option">
-                        <h3>Typ</h3>
-                        <ul>
-                            <li><input type="checkbox" name="size" value="1"> Vydymovače</li>
-                            <li><input type="checkbox" name="size" value="2"> Liečivá</li>
-                            <li><input type="checkbox" name="size" value="3"> Prímasy</li>
-                        </ul>
-                    </div>
-                </div>
-                <a href = "#"><button>Filter</button></a>
+        <div class="admin">
+            <div class="add-product">
+                <h2>Pridať produkt</h2>
+                <form action="#" method="POST" class="add-product-form">
+                    <label for="product-name">Názov produktu</label>
+                    <input type="text" id="product-name" name="product-name" required>
+                    <label for="product-category">Kategória produktu</label>
+                    <select name="product-category" id="product-category" required>
+                        <option value="vybavenie">Vybavenie</option>
+                        <option value="krmivo">Krmivo a doplnky</option>
+                        <option value="zdravie">Zdravie včiel</option>
+                        <option value="vyrobky">Výrobky</option>
+                    </select>
+                    <label for="product-description">Popis produktu</label>
+                    <textarea name="product-description" id="product-description" required></textarea>
+                    <label for="product-price">Cena produktu</label>  
+                    <input type="number" name="product-price" id="product-price" required>
+                    <label for="make">Výrobca produktu</label>
+                    <input type="text" name="make" required>
+                    <label for="product-quantity">Množstvo produktu</label>
+                    <input type="number" name="product-quantity" required>
+                    <label for="product-images">Obrázky produktu</label>
+                    <input type="file" name="product-image" required>
+                    <button type="submit">Pridať produkt</button>
+                </form>
             </div>
-     </div>
+            <div class="delete-product">
+                <h2>Odstrániť produkt</h2>
+                <form action="#" method="POST" class="delete-product-form">
+                    <label for="product-id">Id produktu</label>
+                    <input type="text" name="product-id" required>
+                    <button type="submit">Odstrániť produkt</button>
+                </form>
+            </div>
+            <div class="edit-product">
+                <h2>Upraviť produkt</h2>
+                <form action="#" method="SUBMIT" class="edit-product-form-id">
+                    <label for="product-id">Id produktu</label>
+                    <input type="text" name="product-id" required>
+                    <button type="submit">Nájsť produkt</button>
+                </form>
+                <form action="#" method="POST" class="edit-product-form">
+                    <label for="product-name">Názov produktu</label>
+                    <input type="text" id="product-name" name="product-name" required>
+                    <label for="product-category">Kategória produktu</label>
+                    <select name="product-category" id="product-category" required>
+                        <option value="vybavenie">Vybavenie</option>
+                        <option value="krmivo">Krmivo a doplnky</option>
+                        <option value="zdravie">Zdravie včiel</option>
+                        <option value="vyrobky">Výrobky</option>
+                    </select>
+                    <label for="product-description">Popis produktu</label>
+                    <textarea name="product-description" id="product-description" required></textarea>
+                    <label for="product-price">Cena produktu</label>  
+                    <input type="number" name="product-price" id="product-price" required>
+                    <label for="make">Výrobca produktu</label>
+                    <input type="text" name="make" required>
+                    <label for="product-quantity">Množstvo produktu</label>
+                    <input type="number" name="product-quantity" required>
+                    <label for="product-images">Obrázky produktu</label>
+                    <input type="file" name="product-image" required>
+                    <button type="submit">Upraviť produkt</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-    <div class="pagination">
-        <button id="prevPage">&laquo; Predošlá</button>
-        <span id="pageIndicator">1</span>
-        <button id="nextPage">Ďalšia &raquo;</button>
-    </div>
-
-    <!-- Footer -->
-    <footer>
+     <!-- Footer -->
+     <footer>
         <div class="newsletter-container">
             <h3>Aktuálne novinky a akcie na Váš e-mail</h3>
             <div class="newsletter-form">
