@@ -1713,7 +1713,7 @@ footer {
     padding: 30px 10px 50px 10px;
     height: auto ;
     background-color: var(--light);
-    justify-content: space-between;
+    justify-content: center;
     /*margin-bottom: 20px;*/
     align-items: start;
     gap: 20px;
@@ -2014,8 +2014,28 @@ footer {
     flex-basis: 70%;
 }
 
+@media (max-width: 700px) {
+    .cart-items .product-in-cart {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
 
+    .cart-items .product-in-cart img {
+        max-width: 100px;
+        margin-bottom: 10px;
+    }
 
+    .cart-total {
+        padding: 10px;
+    }
+
+    .cart-actions {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+}
 
 /* about us page */
 .grid-container {
@@ -2601,162 +2621,67 @@ iframe {
 .admin {
     display: flex;
     justify-content: center;
-    align-items: left;
+    align-items: center;
     gap: 20px;
     padding: 20px;
     background-color: var(--background);
     color: var(--text-main);
-    flex-direction: column;
     border-radius: 10px;
+    width: 50vw;
+    flex-direction: column;
 }
 
-.add-product-form {
+.add-product-form, .delete-product-form, .edit-product-form, .edit-product-form-id {
     display: flex;
     flex-direction: column;
     background-color: var(--light);
     border-radius: 10px;
-    padding-top: 20px;
-    padding-bottom: 50px;
-}
-
-.add-product-form label,
-.add-product-form input ,
-.add-product-form select ,
-.add-product-form textarea {
-    margin: 10px;
-    width: 50vw;
-}
-
-.add-product-form input,
-.add-product-form select,
-.add-product-form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.add-product-form input:last-of-type {
-    border: none;
-}
-
-.add-product-form button {
-    padding: 10px 20px;
-    background: linear-gradient(170deg, #ffb027, #ffcc33, #ffb027);
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    color: var(--background);
-    font-size: 15px;
-    font-weight: 400;
-    margin: 10px;
-    width: 30vw;
-    align-self: center;
-}
-
-.delete-product-form {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--light);
-    border-radius: 10px;
-    padding-top: 20px;
-    padding-bottom: 50px;
-}
-
-.delete-product-form label,
-.delete-product-form input {
-    margin: 10px;
-    width: 50vw;
-}
-
-.delete-product-form input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.delete-product-form button {
-    padding: 10px 20px;
-    background: linear-gradient(170deg, #ffb027, #ffcc33, #ffb027);
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    color: var(--background);
-    font-size: 15px;
-    font-weight: 400;
-    margin: 10px;
-    width: 30vw;
-    align-self: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    width: 35vw;
 }
 
 .edit-product-form {
     display: none;
-    flex-direction: column;
-    background-color: var(--light);
-    border-radius: 10px;
-    padding-top: 20px;
-    padding-bottom: 50px;
-    margin-bottom: 20px;
-}
-
-.edit-product-form label,
-.edit-product-form input ,
-.edit-product-form select ,
-.edit-product-form textarea {
-    margin: 10px;
-    width: 50vw;
-}
-
-.edit-product-form input,
-.edit-product-form select,
-.edit-product-form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.edit-product-form input:last-of-type {
-    border: none;
-}
-
-.edit-product-form button {
-    padding: 10px 20px;
-    background: linear-gradient(170deg, #ffb027, #ffcc33, #ffb027);
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    color: var(--background);
-    font-size: 15px;
-    font-weight: 400;
-    margin: 10px;
-    width: 30vw;
-    align-self: center;
 }
 
 .edit-product-form-id {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--light);
-    border-radius: 10px;
-    padding-top: 20px;
-    padding-bottom: 50px;
     margin-bottom: 20px;
 }
 
+.add-product-form label,
+.delete-product-form label,
+.edit-product-form label,
 .edit-product-form-id label,
-.edit-product-form-id input {
-    margin: 10px;
-    width: 50vw;
+.add-product-form input,
+.delete-product-form input,
+.edit-product-form input,
+.edit-product-form-id input,
+.add-product-form select,
+.edit-product-form select,
+.add-product-form textarea,
+.edit-product-form textarea {
+    margin-bottom: 10px;
+    width: 100%;
 }
 
-.edit-product-form-id input {
+.add-product-form input,
+.delete-product-form input,
+.edit-product-form input,
+.edit-product-form-id input,
+.add-product-form select,
+.edit-product-form select,
+.add-product-form textarea,
+.edit-product-form textarea {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
+.add-product-form button,
+.delete-product-form button,
+.edit-product-form button,
 .edit-product-form-id button {
     padding: 10px 20px;
     background: linear-gradient(170deg, #ffb027, #ffcc33, #ffb027);
@@ -2767,37 +2692,42 @@ iframe {
     color: var(--background);
     font-size: 15px;
     font-weight: 400;
-    margin: 10px;
-    width: 30vw;
-    align-self: center;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 300px;
+    display: block;
 }
 
+/* Responsive adjustments */
 @media (max-width: 800px) {
-    .add-product-form label,
-    .add-product-form input ,
-    .add-product-form select ,
-    .add-product-form textarea {
-        margin: 10px;
-        width: 80vw;
+    .admin {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .delete-product-form label,
-    .delete-product-form input {
-        margin: 10px;
-        width: 80vw;
+    .add-product-form,
+    .delete-product-form,
+    .edit-product-form,
+    .edit-product-form-id {
+        width: 100%;
     }
+}
 
-    .edit-product-form label,
-    .edit-product-form input ,
-    .edit-product-form select ,
-    .edit-product-form textarea {
-        margin: 10px;
-        width: 80vw;
+@media (max-width: 450px) {
+    .add-product-form,
+    .delete-product-form,
+    .edit-product-form,
+    .edit-product-form-id {
+        width: 100%;
+        max-width: 400px;
+        padding: 15px;
     }
-
-    .edit-product-form-id label,
-    .edit-product-form-id input {
-        margin: 10px;
-        width: 80vw;
+    
+    .add-product-form button,
+    .delete-product-form button,
+    .edit-product-form button,
+    .edit-product-form-id button {
+        width: 100%;
     }
 }
