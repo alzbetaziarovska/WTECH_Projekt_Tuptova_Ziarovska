@@ -1945,8 +1945,18 @@ footer {
     gap: 5px;
 }
 
-.cart-items .product-in-cart {
+.cart-items .product-in-cart{
     width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--background);
+    border-radius: 10px;
+}
+
+.cart-items .product-item-media {
+    width: 85%;
     height: 200px;
     display: flex;
     align-items: center;
@@ -1964,6 +1974,19 @@ footer {
     justify-content: space-between;
     background-color: var(--dark);
     border-radius: 10px;
+    
+}
+
+.price-info {
+    display: flex;
+    flex-direction: column;
+    align-self: left;
+    align-items: right;
+    text-align: right;
+}
+
+.price-info h3 {
+    text-align: right;
 }
 
 .cart-items .product-in-cart  img {
@@ -2016,8 +2039,14 @@ footer {
 
 @media (max-width: 700px) {
     .cart-items .product-in-cart {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .product-item-media {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
         padding: 10px;
     }
 
@@ -2034,6 +2063,34 @@ footer {
         flex-direction: column;
         gap: 30px;
         align-items: center;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .cart-total {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .cart-actions {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .cart-items .product-in-cart {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        height: auto;
+    }
+
+    .cart-items .product-in-cart img {
+        max-width: 100px;
+        margin-bottom: 10px;
     }
 }
 
@@ -2704,30 +2761,53 @@ iframe {
         display: flex;
         align-items: center;
         justify-content: center;
+        align-self: center;
+        width: 90%;
+    }
+
+    .add-product, .delete-product,
+    .edit-product {
+        width: 90%;
+        margin-right: 20px;
+        margin-left: 20px;
+        align-items: center;
+        justify-content: center;
     }
 
     .add-product-form,
     .delete-product-form,
     .edit-product-form,
     .edit-product-form-id {
-        width: 100%;
+        width: 90%;
+        margin: 20px;
+        align-self: center;
     }
 }
 
 @media (max-width: 450px) {
+    .admin {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        width: 90%;
+    }
+
+    .add-product, .delete-product,
+    .edit-product {
+        width: 90%;
+        margin-right: 20px;
+        margin-left: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
     .add-product-form,
     .delete-product-form,
     .edit-product-form,
     .edit-product-form-id {
-        width: 100%;
-        max-width: 400px;
-        padding: 15px;
-    }
-    
-    .add-product-form button,
-    .delete-product-form button,
-    .edit-product-form button,
-    .edit-product-form-id button {
-        width: 100%;
+        width: 90%;
+        margin: 20px;
+        align-self: center;
     }
 }

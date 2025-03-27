@@ -486,8 +486,9 @@ document.querySelectorAll(".variant-img").forEach((img) => {
     });
 });
 
+if (document.querySelector(".edit-product-form-id")) {
 document.querySelector(".edit-product-form-id").addEventListener("submit", function(event) {
-
     event.preventDefault();
     document.querySelector(".edit-product-form").style.display = "flex";
 });
+}
