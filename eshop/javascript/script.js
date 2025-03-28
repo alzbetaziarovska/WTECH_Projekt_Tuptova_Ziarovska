@@ -1,4 +1,6 @@
-// skrolovanie cez < > buttons v odporucanych produktov
+// JavaScript for the e-shop website
+
+// Listing through products in the recommended, similar and categories sections
 document.addEventListener("DOMContentLoaded", function () {
     const carousels = document.querySelectorAll(".product-carousel");
     const prevBtns = document.querySelectorAll("#prevBtn");
@@ -23,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Side bar menu for responsive design
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const sidebar = document.querySelector(".sidebar");
@@ -46,9 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-
-
+// Opening hours pop up
 function checkStoreStatus() {
     if(!document.getElementById('status-icon')) {
         return;
@@ -79,19 +80,19 @@ function checkStoreStatus() {
     }
 }
 
+// Check store status
 checkStoreStatus();
-// periodicky updejtuj v miuntovych intervaloch
 setInterval(checkStoreStatus, 60000);
 
 
-// funkcia na zobrazenie/skrytie popupu
+// Hide/show pop up
 function togglePopup() {
     const popup = document.getElementById("popup");
     popup.style.display = popup.style.display === "block" ? "none" : "block";
 }
 
 
-// funkcia na zbalenie/rozbalenie textu
+// Hide/show text in the pop up
 function toggleText() {
     const textContainer = document.getElementById('text-container');
     const arrow = document.getElementById('toggle-arrow');
@@ -103,16 +104,13 @@ function toggleText() {
     }
 }
 
-// event listener pre šípku (pre zbalenie textu)
+// Listeners for pop up
 const arrow = document.getElementById('toggle-arrow');
 arrow.addEventListener('click', toggleText);
-
 const openTextLink = document.querySelector('#text-to-open-popup');
 const openIcon = document.getElementById('open-icon');
 const closedIcon = document.getElementById('closed-icon');
-// event listeners pre text "Otváracie hodiny"
 openTextLink.addEventListener('click', togglePopup);
-// event listeners pre ikony
 openIcon.addEventListener('click', togglePopup);
 closedIcon.addEventListener('click', togglePopup);
 
@@ -122,48 +120,45 @@ document.addEventListener("DOMContentLoaded", function() {
     if (!window.location.href.includes("homepage.html")) {
         return;
     }
-    // všetky odkazy a obrazky
+    // All of the images and links in the carousel
     const links = document.querySelectorAll(".place4links .link");
     const images = document.querySelectorAll(".place4img .banner-img");
-    let currentIndex = 0; // na aktualny index obrazka
-    let autoSwitchInterval; // interva timer
+    let currentIndex = 0; // Active image index
+    let autoSwitchInterval; //  Interval for automatic switching
 
-    // zmena aktivneho odkazu a obrazku
+    // Change the active image and link
     function setActive(index) {
-        images.forEach(image => image.style.display = "none"); // skry obrazky 
-        // zobraz vybrany obrazok
+        images.forEach(image => image.style.display = "none"); // Hide the images
+        // Show the chosen image
         const activeImage = document.getElementById(`img-${index + 1}`);
         activeImage.style.display = "block";
-        // odstran titul aktivny z predchadzajuceho
         links.forEach(link => link.classList.remove("active"));
-        // pridaj titul aktivny aktualnemu
         links[index].classList.add("active");
-        currentIndex = index; // uloz index, dalsi aktivny +1 alebo co si user vyberie
+        currentIndex = index; // Save the current index, next active +1 or what the user chooses
     }
 
-    // ked klikne user sam
+    // When user changes the image
     links.forEach((link, index) => {
         link.addEventListener("click", function(event) {
             event.preventDefault();
             setActive(index);
-            // musi nastavit novy na 8 sekund lebo bolo prepnute
-            clearInterval(autoSwitchInterval); // zrus predchadzajuci interval
+            // Set new interval for automatic switching
+            clearInterval(autoSwitchInterval); // Cancel previous interval
             autoSwitchInterval = setInterval(function() {
                 let nextIndex = (currentIndex + 1) % links.length;
                 setActive(nextIndex);
             }, 8000); 
         });
     });
-    // prepni kazdych 8 sekund 
     autoSwitchInterval = setInterval(function() {
         let nextIndex = (currentIndex + 1) % links.length;
         setActive(nextIndex);
     }, 8000);
 
-    setActive(0); // defalut zacni na prvy obrazok
+    setActive(0); // Default set the first image as active
 });
 
-// zmena obrazkov a v detaile produktu
+// Change the active image and link in the product detail
 document.addEventListener("DOMContentLoaded", function () {
     if (!document.querySelector(".place4links-product")) {
         return;
@@ -181,9 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const activeImage = document.getElementById(`img-${index + 1}`);
         if (activeImage) {
             activeImage.style.display = "block";
-
             console.log("Active Image:", activeImage.src);
-
             productBanner.style.backgroundImage = "none"; // Force repaint
             setTimeout(() => {
                 productBanner.style.backgroundImage = `url('${activeImage.src}')`;
@@ -191,7 +184,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 productBanner.style.backgroundPosition = "center";
             }, 50);
         }
-
         currentIndex = index;
     }
 
@@ -216,13 +208,13 @@ document.addEventListener("DOMContentLoaded", function () {
     setActive(0);
 });
 
-// zobrazenie alebo skrytie pop-up okna celeho// zobrazenie alebo skrytie pop-up okna celeho
+// Show/hide the authentication pop-up for login and registration
 function toggleAuthPopup() {
     const popup = document.getElementById('auth-popup');
     popup.style.display = (popup.style.display === 'flex') ? 'none' : 'flex';
 }
 
-// prepnutie medzi prihlasovacím a registračným formulárom
+// Switch between login and registration forms
 function toggleRegisterForm() {
     const signinForm = document.getElementById('signin-form');
     const registerForm = document.getElementById('register-form');
@@ -254,7 +246,7 @@ window.addEventListener('click', function(event) {
         popup.style.display = 'none';
     }
 });
-// zatvorenie popupu pri kliknutí mimo formulára
+// Close the form after clicking outside of it
 window.addEventListener('click', function(event) {
     const popup = document.getElementById('auth-popup');
     const formContainer = document.querySelector('.popup-form');
@@ -263,9 +255,9 @@ window.addEventListener('click', function(event) {
     }
 });
 
-
 document.querySelector('.user-icon').addEventListener('click', toggleAuthPopup);
 
+// Choosing the quantity of the product in the category page
 document.addEventListener("DOMContentLoaded", function () {
     if (!document.querySelectorAll(".product-shop")) {
         return;
@@ -291,6 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Quantity selector in the product detail page
 document.addEventListener("DOMContentLoaded", function () {
     if (!document.getElementById("quantity")) {
         return;
@@ -312,6 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Calendar in the about page
 if (document.getElementById('calendar')) {
     $(document).ready(function() {
         $('#calendar').fullCalendar({
@@ -335,6 +329,7 @@ if (document.getElementById('calendar')) {
     });
 }
 
+// Pagination for the product list in the category page
   document.addEventListener("DOMContentLoaded", function () {
     if (!document.querySelectorAll(".product-shop") || !document.getElementById("prevPage") || !document.getElementById("nextPage")) {
         return;
@@ -348,8 +343,6 @@ if (document.getElementById('calendar')) {
         const end = start + perPage;
         
         products.forEach((product, index) => {
-            /*product.style.visibility = (index >= start && index < end) ? "visible" : "hidden";
-            product.style.height = (index >= start && index < end) ? "auto" : "0px";*/
             product.style.display = (index >= start && index < end) ? "flex" : "none";
         });
 
@@ -371,12 +364,12 @@ if (document.getElementById('calendar')) {
     });
 
     showPage(currentPage);
-
   });
 
+  // Show/hide the coupon form in the shopping cart
   if (document.querySelector(".toggle-coupon")) {
     document.querySelector(".toggle-coupon").addEventListener("click", function(event) {
-        event.preventDefault(); // Zabraňuje presmerovaniu
+        event.preventDefault(); // Prevent default forwarding
 
         let couponForm = document.querySelector(".coupon-form");
 
@@ -386,6 +379,24 @@ if (document.getElementById('calendar')) {
             couponForm.style.display = "none";
         }
     });
+}
+
+// Checking whether the form is filled in the shopping cart
+if (document.getElementById("submit-btn-sc2")) {
+    document.getElementById("submit-btn-sc2").addEventListener("click", function () {
+        const shippingSelected = document.querySelector('input[name="shipping"]:checked');
+        const paymentSelected = document.querySelector('input[name="payment"]:checked');
+
+        if (!shippingSelected || !paymentSelected) {
+            alert("Prosím, vyberte spôsob dopravy aj spôsob platby!");
+        } 
+        else if (shippingSelected.value === "osobne" && !document.getElementById("osobne_select").value) {
+            alert("Prosím, vyberte predajňu!");
+        }
+        else {
+            window.location.href = "shopping_cart3.html";
+        }
+    })
 }
 
 if (document.getElementById("submit-btn-sc3")) {
@@ -399,6 +410,7 @@ if (document.getElementById("submit-btn-sc3")) {
     });
 }
 
+// Choosing the store for personal pickup in the shopping cart and showing store options
 document.addEventListener("DOMContentLoaded", function () {
     if (!document.getElementById("osobne")) {
         return;
@@ -429,23 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-if (document.getElementById("submit-btn-sc2")) {
-    document.getElementById("submit-btn-sc2").addEventListener("click", function () {
-        const shippingSelected = document.querySelector('input[name="shipping"]:checked');
-        const paymentSelected = document.querySelector('input[name="payment"]:checked');
-
-        if (!shippingSelected || !paymentSelected) {
-            alert("Prosím, vyberte spôsob dopravy aj spôsob platby!");
-        } 
-        else if (shippingSelected.value === "osobne" && !document.getElementById("osobne_select").value) {
-            alert("Prosím, vyberte predajňu!");
-        }
-        else {
-            window.location.href = "shopping_cart3.html";
-        }
-    })
-}
-
+// Show less or more of the product description in the product detail page
 if (document.getElementById("toggle-btn")) {
     document.getElementById("toggle-btn").addEventListener("click", function () {
         if (!document.getElementById("product_description")) {
@@ -461,6 +457,7 @@ if (document.getElementById("toggle-btn")) {
         }
     });
 
+    // Show less or more for the history of orders in the profile page
     document.getElementById("toggle-btn").addEventListener("click", function () {
         if (!document.getElementById("orders")) {
             return;
@@ -476,6 +473,7 @@ if (document.getElementById("toggle-btn")) {
     });
 }
 
+// Making the chosen variant of the product active in the product detail page
 document.querySelectorAll(".variant-img").forEach((img) => {
     img.addEventListener("click", function () {
         // Remove 'active' class from all variant images
@@ -486,6 +484,7 @@ document.querySelectorAll(".variant-img").forEach((img) => {
     });
 });
 
+// Show/hide the edit product form in the admin page after inserting product ID
 if (document.querySelector(".edit-product-form-id")) {
 document.querySelector(".edit-product-form-id").addEventListener("submit", function(event) {
     event.preventDefault();
