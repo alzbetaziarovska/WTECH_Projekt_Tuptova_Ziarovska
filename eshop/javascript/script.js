@@ -305,29 +305,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Calendar in the about page
-if (document.getElementById('calendar')) {
-    $(document).ready(function() {
-        $('#calendar').fullCalendar({
-        events: [
-            {
-            title: 'Sale Event',
-            start: '2025-03-20',
-            description: 'Special sale event for the weekend.',
-            url: '#',  // Add link to the event page
-            color: 'red'
-            },
-            {
-            title: 'New Product Launch',
-            start: '2025-03-25',
-            description: 'Launch of a new product in our store.',
-            url: '#',
-            color: 'green'
-            }
-        ]
+
+document.addEventListener("DOMContentLoaded", function() {
+    const addToCartButtons = document.querySelectorAll(".shop-but"); // Vyberie všetky tlačidlá
+    const addedToCartPopup = document.querySelector(".added-to-cart");
+    const closeCartButton = document.querySelector(".close-btn-cart");
+
+    // Skontroluj, či všetky potrebné elementy existujú
+    if (addToCartButtons.length > 0 && addedToCartPopup && closeCartButton) {
+        // Pre každé tlačidlo pridaj event listener
+        addToCartButtons.forEach(button => {
+            button.addEventListener("click", function(event) {
+                event.preventDefault(); // Zabraň predvolenému správaniu (napr. presmerovaniu)
+                event.stopPropagation(); // Zabraň šíreniu kliknutia na .product-link
+                // Toggle: ak je skrytý, ukáž ho, ak je viditeľný, skry ho
+                addedToCartPopup.style.display = 
+                    addedToCartPopup.style.display === "block" ? "none" : "block";
+            });
         });
-    });
-}
+
+        // Kliknutie na tlačidlo zatvorenia
+        closeCartButton.addEventListener("click", function() {
+            addedToCartPopup.style.display = "none";
+        });
+
+        // Kliknutie mimo popup zatvorí popup
+        window.addEventListener("click", function(event) {
+            if (event.target === addedToCartPopup) {
+                addedToCartPopup.style.display = "none";
+            }
+        });
+    } else {
+        console.error("Niektoré elementy neboli nájdené: ", {
+            addToCartButtons: addToCartButtons.length,
+            addedToCartPopup,
+            closeCartButton
+        });
+    }
+});
 
 // Pagination for the product list in the category page
   document.addEventListener("DOMContentLoaded", function () {
@@ -335,7 +350,7 @@ if (document.getElementById('calendar')) {
         return;
     }
     const products = document.querySelectorAll(".product-shop");
-    const perPage = 4; // Change this to set how many items per page
+    const perPage = 6;
     let currentPage = 1;
     
     function showPage(page) {
@@ -409,6 +424,29 @@ if (document.getElementById("submit-btn-sc3")) {
         }
     });
 }
+
+
+// Toggle for filter
+document.addEventListener("DOMContentLoaded", function () {
+    const filterBtn = document.querySelector(".filter-btn");
+    const filter = document.querySelector(".filter-mobile");
+
+    if (filterBtn && filter) {
+        filterBtn.addEventListener("click", function () {
+            if (filter.style.display === "none" || filter.style.display === "") {
+                filter.style.display = "block";
+            } else {
+                filter.style.display = "none";
+            }
+        });
+
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 600) {
+                filter.style.display = "none";
+            }
+        });
+    }
+});
 
 // Choosing the store for personal pickup in the shopping cart and showing store options
 document.addEventListener("DOMContentLoaded", function () {

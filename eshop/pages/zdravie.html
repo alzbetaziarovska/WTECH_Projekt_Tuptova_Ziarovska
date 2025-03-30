@@ -83,6 +83,33 @@
             </div>
         </div>
     </div>
+
+    <section class="opened-info">
+        <div class="info-circle" id="status-icon">
+            <i class="fa fa-shop" id="open-icon"></i>
+            <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
+            <div class="text-info-container" id="text-container">
+                <p id="open-text">Kamenné predajne otvorené</p>
+                <p id="closed-text">Kamenné predajne zatvorené</p>
+                <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
+            </div>
+            <i class="fa fa-chevron-up" id="toggle-arrow"></i> <!-- Šípka pre zbalenie -->
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="togglePopup()">&times;</span>
+                <h3>Návštivte nás osobne</h3>
+                <table>
+                    <tr><th>Deň</th><th>Čas</th></tr>
+                    <tr><td>Po - Pi</td><td>9:00 - 17:30</td></tr>
+                    <tr><td>So</td><td>Zatvorené</td></tr>
+                    <tr><td>Ne</td><td>Zatvorené</td></tr>
+                </table>
+                <p class="stores-list"><a class="our-store" href="#">Bratislava</a> | <a class="our-store" href="#">Nitra</a> | <a class="our-store" href="#">Prešov</a></p>
+                <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
+            </div>
+        </div>
+    </section>
     
     <!-- Popup for Sign In / Register -->
     <div id="auth-popup" class="popup-container">
@@ -121,143 +148,332 @@
         </div>
     </div>
 
-    <section class="opened-info">
-        <div class="info-circle" id="status-icon">
-            <i class="fa fa-shop" id="open-icon"></i>
-            <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
-            <div class="text-info-container" id="text-container">
-                <p id="open-text">Kamenné predajne otvorené</p>
-                <p id="closed-text">Kamenné predajne zatvorené</p>
-                <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
-            </div>
-            <i class="fa fa-chevron-up" id="toggle-arrow"></i> <!-- Šípka pre zbalenie -->
+    <section class="shop-products-section">
+        <h2>ZDRAVIE</h2>
+        <div class="settings">
+            <select class="order-by" id="order-by" name="order-by">
+                <option value="">-- Zoradiť podľa --</option>
+                <option value="price_desc">Cena (najdrahšie hore)</option>
+                <option value="price_asc">Cena (najlacnejšie hore)</option>
+                <option value="abc">Abecedne</option>
+                <option value="review">Hodnotenie (najlepšie hore)</option>
+            </select>
+            <a class="filter-btn"><i class="fa-solid fa-filter"></i></a>
         </div>
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <span class="close-btn" onclick="togglePopup()">&times;</span>
-                <h3>Návštivte nás osobne</h3>
-                <table>
-                    <tr><th>Deň</th><th>Čas</th></tr>
-                    <tr><td>Po - Pi</td><td>9:00 - 17:30</td></tr>
-                    <tr><td>So</td><td>Zatvorené</td></tr>
-                    <tr><td>Ne</td><td>Zatvorené</td></tr>
-                </table>
-                <p class="stores-list"><a class="our-store" href="#">Bratislava</a> | <a class="our-store" href="#">Nitra</a> | <a class="our-store" href="#">Prešov</a></p>
-                <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
-            </div>
-        </div>
-    </section>
-
-    <div class = "filter-product-container">
+        
         <!-- Products -->
-        <div class="products">
-            <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product1"></a>
-                <div class="product-info">    
-                    <h3>Produkt 1</h3>
-                    <p>Popis produktu 1</p>
-                    <p class="price">Cena: 12€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <button type="button">Pridať do košíka</button>
-                    <p>V košíku: 0</p>
+        <div class="products-filter">
+            <div class="products">
+                <div class="product product-shop">
+                    <a href="../pages/product_detail.html" class="product-link">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <div class="labels">
+                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                            <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                            <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                            <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                        </div>
+                        <p class="name-of-product">Názov</p>
+                        <p class="price-of-product">Cena X€</p>
+                        <p class="price-of-product-sale">Cena Y€</p>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product sale product-shop">
+                    <a href="../pages/product_detail.html" class="product-link">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <div class="labels">
+                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                            <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                            <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                            <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                        </div>
+                        <p class="name-of-product">Názov</p>
+                        <p class="price-of-product">Cena X€</p>
+                        <p class="price-of-product-sale">Cena Y€</p>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product new sale product-shop">
+                    <a href="../pages/product_detail.html" class="product-link">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <div class="labels">
+                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                            <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                            <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                            <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                        </div>
+                        <p class="name-of-product">Názov</p>
+                        <p class="price-of-product">Cena X€</p>
+                        <p class="price-of-product-sale">Cena Y€</p>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product new recommended product-shop">
+                    <a href="../pages/product_detail.html" class="product-link">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <div class="labels">
+                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                            <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                            <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                            <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                        </div>
+                        <p class="name-of-product">Názov</p>
+                        <p class="price-of-product">Cena X€</p>
+                        <p class="price-of-product-sale">Cena Y€</p>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product sale product-shop">
+                    <a href="../pages/product_detail.html" class="product-link">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <div class="labels">
+                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                            <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                            <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                            <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                        </div>
+                        <p class="name-of-product">Názov</p>
+                        <p class="price-of-product">Cena X€</p>
+                        <p class="price-of-product-sale">Cena Y€</p>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product new product-shop">
+                    <a href="../pages/product_detail.html" class="product-link">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <div class="labels">
+                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                            <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                            <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                            <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                        </div>
+                        <p class="name-of-product">Názov</p>
+                        <p class="price-of-product">Cena X€</p>
+                        <p class="price-of-product-sale">Cena Y€</p>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product sale recommended product-shop">
+                    <a href="../pages/product_detail.html" class="product-link">
+                        <img src="../images/logo_final.png" alt="Produkt 1">
+                        <div class="labels">
+                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                            <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                            <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                            <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                        </div>
+                        <p class="name-of-product">Názov</p>
+                        <p class="price-of-product">Cena X€</p>
+                        <p class="price-of-product-sale">Cena Y€</p>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
-            <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product2"></a>
-                <div class="product-info">
-                    <h3>Produkt 2</h3>
-                    <p>Popis produktu 2</p>
-                    <p class="price">Cena: 20€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <button type="button">Pridať do košíka</button>
-                    <p>V košíku: 0</p>
-                </div>
-            </div>
-            <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product3"></a>
-                <div class="product-info">
-                    <h3>Produkt 3</h3>
-                    <p>Popis produktu 3</p>
-                    <p class="price">Cena: 5€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <button type="button">Pridať do košíka</button>
-                    <p>V košíku: 0</p>
-                </div>
-            </div>
-            <div class="product-shop">
-                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Product4"></a>
-                <div class="product-info">
-                    <h3>Produkt 4</h3>
-                    <p>Popis produktu 4</p>
-                    <p class="price">Cena: 10€</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <button type="button">Pridať do košíka</button>
-                    <p>V košíku: 0</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Filter -->
-            <div class="filter">
-                <select class="order-by" id="order-by" name="order-by">
-                    <option value="">-- Zoradiť podľa --</option>
-                    <option value="price_desc">Cena (najdrahšie hore)</option>
-                    <option value="price_asc">Cena (najlacnejšie hore)</option>
-                    <option value="abc">Abecedne</option>
-                    <option value="review">Hodnotenie (najlepšie hore)</option>
-                </select>
-                <h2>Zdravie včiel</h2>
+    
+            <aside class="filter">
+                <!-- Filter -->
+                <h2>Filter</h2>
                 <div class="filter-options">
+
+                    <!-- Cenové rozpätie -->
                     <div class="filter-option">
-                        <h3>Hmotnosť</h3>
-                        <ul>
-                            <li><input type="checkbox" name="type" value="1"> 50 g</li>
-                            <li><input type="checkbox" name="type" value="2"> 100 g</li>
-                            <li><input type="checkbox" name="type" value="3"> 200 g</li>
-                        </ul>
+                        <h3>Cenové rozpätie</h3>
+                        <div class="price-range">
+                            <input type="number" id="min-price" placeholder="Min (€)" min="0" step="0.5">
+                            <span>-</span>
+                            <input type="number" id="max-price" placeholder="Max (€)" min="0" step="0.5">
+                        </div>
                     </div>
+        
+                    <!-- Výrobca -->
                     <div class="filter-option">
                         <h3>Výrobca</h3>
                         <ul>
-                            <li><input type="checkbox" name="color" value="1"> Včelári.sk</li>
-                            <li><input type="checkbox" name="color" value="2"> Včielka</li>
-                            <li><input type="checkbox" name="color" value="3"> Xbees</li>
+                            <li><input type="checkbox" name="manufacturer" value="allforbees"> AllForBees</li>
+                            <li><input type="checkbox" name="manufacturer" value="vcelari"> Včelári.sk</li>
+                            <li><input type="checkbox" name="manufacturer" value="vcielka"> Včielka</li>
+                            <li><input type="checkbox" name="manufacturer" value="beeplus"> BeePlus</li>
                         </ul>
                     </div>
+        
+                    <!-- Štítky -->
                     <div class="filter-option">
-                        <h3>Typ</h3>
+                        <h3>Štítky</h3>
                         <ul>
-                            <li><input type="checkbox" name="size" value="1"> Vydymovače</li>
-                            <li><input type="checkbox" name="size" value="2"> Liečivá</li>
-                            <li><input type="checkbox" name="size" value="3"> Prímasy</li>
+                            <li><input type="checkbox" name="tag" value="akcia"> Akcia</li>
+                            <li><input type="checkbox" name="tag" value="na-sklade"> Na sklade</li>
+                            <li><input type="checkbox" name="tag" value="novinka"> Novinka</li>
+                            <li><input type="checkbox" name="tag" value="odporucame"> Odporúčame</li>
+                            <li><input type="checkbox" name="tag" value="oblubene"> Obľúbené</li>
                         </ul>
                     </div>
                 </div>
-                <a href = "#"><button>Filter</button></a>
-            </div>
-     </div>
+                <button class="apply-filter-btn">Aplikovať filter</button>
+            </aside>
+        </div>
+    
+        <div class="pagination">
+            <button id="prevPage">&laquo; Predošlá</button>
+            <span id="pageIndicator">1</span>
+            <button id="nextPage">Ďalšia &raquo;</button>
+        </div>
+    </section>
 
-    <div class="pagination">
-        <button id="prevPage">&laquo; Predošlá</button>
-        <span id="pageIndicator">1</span>
-        <button id="nextPage">Ďalšia &raquo;</button>
-    </div>
+
+    <aside class="filter-mobile">
+        <!-- Filter -->
+        <h2>Filter</h2>
+        <div class="filter-options">
+
+            <!-- Cenové rozpätie -->
+            <div class="filter-option">
+                <h3>Cenové rozpätie</h3>
+                <div class="price-range">
+                    <input type="number" id="min-price" placeholder="Min (€)" min="0" step="0.5">
+                    <span>-</span>
+                    <input type="number" id="max-price" placeholder="Max (€)" min="0" step="0.5">
+                </div>
+            </div>
+
+            <!-- Výrobca -->
+            <div class="filter-option">
+                <h3>Výrobca</h3>
+                <ul>
+                    <li><input type="checkbox" name="manufacturer" value="allforbees"> AllForBees</li>
+                    <li><input type="checkbox" name="manufacturer" value="vcelari"> Včelári.sk</li>
+                    <li><input type="checkbox" name="manufacturer" value="vcielka"> Včielka</li>
+                    <li><input type="checkbox" name="manufacturer" value="beeplus"> BeePlus</li>
+                </ul>
+            </div>
+
+            <!-- Štítky -->
+            <div class="filter-option">
+                <h3>Štítky</h3>
+                <ul>
+                    <li><input type="checkbox" name="tag" value="akcia"> Akcia</li>
+                    <li><input type="checkbox" name="tag" value="na-sklade"> Na sklade</li>
+                    <li><input type="checkbox" name="tag" value="novinka"> Novinka</li>
+                    <li><input type="checkbox" name="tag" value="odporucame"> Odporúčame</li>
+                    <li><input type="checkbox" name="tag" value="oblubene"> Obľúbené</li>
+                </ul>
+            </div>
+        </div>
+        <button class="apply-filter-btn">Aplikovať filter</button>
+    </aside>
+    
 
     <!-- Footer -->
     <footer>
@@ -292,6 +508,7 @@
         </div>
         <p class="copyright">&copy; 2025 WTECH Tuptová, Žiarovská</p>
     </footer>
+    
     <script src="../javascript/script.js"></script>
 </body>
 </html>

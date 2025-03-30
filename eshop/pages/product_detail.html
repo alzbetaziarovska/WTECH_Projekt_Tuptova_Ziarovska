@@ -85,6 +85,36 @@
         </div>
     </div>
 
+    <div class="added-to-cart">
+        <button class="close-btn-cart">&times;</button>
+        <p>Produkt bol pridaný do košíka</p>
+        <div class="product">
+            <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
+            <p>Popis 2</p>
+            <p>Cena 2€</p>
+        </div>
+        <a href="../pages/shopping_cart1.html" class="btn-to-cart">Prejsť do košíka ➜</a>
+        <p>Čo si kupujú ostatní</p>
+        <div class="shoppers-also-buy">
+            
+            <div class="product">
+                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 1"></a>
+                <p>Popis 1</p>
+                <p>Cena 1€</p>
+            </div>
+            <div class="product">
+                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 3"></a>
+                <p>Popis 3</p>
+                <p>Cena 3€</p>
+            </div>
+            <div class="product">
+                <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 3"></a>
+                <p>Popis 3</p>
+                <p>Cena 3€</p>
+            </div>
+        </div>
+    </div>
+
     <section class="opened-info">
         <div class="info-circle" id="status-icon">
             <i class="fa fa-shop" id="open-icon"></i>
@@ -217,12 +247,13 @@
                     </div>
                 </div>
                 <div class="quantity-selector">
-                    <button class="quantity-btn" id="decrease">−</button>
+                    <button class="quantity-btn" id="decrease">-</button>
                     <input type="number" id="quantity" min="1" value="1">
                     <button class="quantity-btn" id="increase">+</button>
                 </div>
+                <p class="availability">Skladom >10ks</p>
                 <div class="button-container">
-                    <a class="shop_but" href="#">Do košíka</a>
+                    <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i>Do košíka</a>
                 </div>
             </div>
         </div>

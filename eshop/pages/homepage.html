@@ -85,6 +85,117 @@
         </div>
     </div>
 
+    <div class="added-to-cart">
+        <button class="close-btn-cart">&times;</button>
+        <p>Produkt bol pridaný do košíka</p>
+        <div class="product">
+            <a href="../pages/product_detail.html" class="product-link">
+                <img src="../images/logo_final.png" alt="Produkt 1">
+                <div class="labels">
+                    <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                    <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                    <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                    <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                </div>
+                <p class="name-of-product">Názov</p>
+                <p class="price-of-product">Cena X€</p>
+                <p class="price-of-product-sale">Cena Y€</p>
+                <div class="shop-product">
+                    
+                    <div class="info-of-product">
+                        <p class="availability">Skladom >5ks</p>
+                        <div class="product-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <a href="../pages/shopping_cart1.html" class="btn-to-cart">Prejsť do košíka ➜</a>
+        <p>Čo si kupujú ostatní</p>
+        <div class="shoppers-also-buy">
+            
+            <div class="product">
+                <a href="../pages/product_detail.html" class="product-link">
+                    <img src="../images/logo_final.png" alt="Produkt 1">
+                    <div class="labels">
+                        <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                        <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                        <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                        <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p class="name-of-product">Názov</p>
+                    <p class="price-of-product">Cena X€</p>
+                    <p class="price-of-product-sale">Cena Y€</p>
+                    <div class="shop-product">
+                        <div class="info-of-product">
+                            <p class="availability">Skladom >5ks</p>
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product">
+                <a href="../pages/product_detail.html" class="product-link">
+                    <img src="../images/logo_final.png" alt="Produkt 1">
+                    <div class="labels">
+                        <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                        <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                        <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                        <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p class="name-of-product">Názov</p>
+                    <p class="price-of-product">Cena X€</p>
+                    <p class="price-of-product-sale">Cena Y€</p>
+                    <div class="shop-product">
+                        <div class="info-of-product">
+                            <p class="availability">Skladom >5ks</p>
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product">
+                <a href="../pages/product_detail.html" class="product-link">
+                    <img src="../images/logo_final.png" alt="Produkt 1">
+                    <div class="labels">
+                        <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                        <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                        <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                        <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p class="name-of-product">Názov</p>
+                    <p class="price-of-product">Cena X€</p>
+                    <p class="price-of-product-sale">Cena Y€</p>
+                    <div class="shop-product">
+                        <div class="info-of-product">
+                            <p class="availability">Skladom >5ks</p>
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-upper">
@@ -110,7 +221,7 @@
                     <p>Ponúkame overené produkty, rýchle dodanie a odborné poradenstvo, aby váš úľ prekypoval zdravím a medom.</p>
                 </div>
                 <div class="button-container">
-                    <a class="shop_but" href = '../pages/shop.html'>NAKUPOVAŤ</a>
+                    <a class="shop-but" href = '../pages/shop.html'>NAKUPOVAŤ</a>
                 </div>
             </div>
         </div>
@@ -221,40 +332,187 @@
             <button id="prevBtn" class="carousel-btn left">&#10094;</button>
             <div class="carousel-container">
                 <div class="product-carousel">
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 1"></a>
-                        <p>Popis 1</p>
-                        <p>Cena 1€</p>
+                    <div class="product sale recommended">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
-                        <p>Popis 2</p>
-                        <p>Cena 2€</p>
+                    <div class="product recommended">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 3"></a>
-                        <p>Popis 3</p>
-                        <p>Cena 3€</p>
+                    <div class="product recommended new">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 4"></a>
-                        <p>Popis 4</p>
-                        <p>Cena 4€</p>
+                    <div class="product recommended">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 5"></a>
-                        <p>Popis 5</p>
-                        <p>Cena 5€</p>
+                    <div class="product recommended">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 6"></a>
-                        <p>Popis 6</p>
-                        <p>Cena 6€</p>
+                    <div class="product sale recommended">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 7"></a>
-                        <p>Popis 7</p>
-                        <p>Cena 7€</p>
+                    <div class="product sale recommended new">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
