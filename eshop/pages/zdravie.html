@@ -8,25 +8,26 @@
     <link rel="icon" type="image/x-icon" href="../improvised_logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+<body>
     <!-- Navbar -->
     <header>
         <nav>
             <div class="top-nav">
                 <div class="menu">
                     <div class="logo">
-                        <a href='../pages/homepage.html'><img src="../images/logo_final.png" alt="Logo"></a>
+                        <a href="../pages/homepage.html"><img src="../images/logo_final.png" alt="Logo"></a>
                     </div>
                     <div class="nav-links">
-                        <a href="about.html">O nás</a>
+                        <a href="../pages/about.html">O nás</a>
                         <a href="../pages/shop.html">E-shop</a>
-                        <a href="stores.html">Kamenné predajne</a>
+                        <a href="../pages/stores.html">Kamenné predajne</a>
                     </div>
                 </div>
                 <div class="contact-section">
                     <i class="fa-solid fa-phone phone-icon"></i> 
                     <div class="contact-info">
-                        <span class="phone-number">+421 816 526 113</span>
-                        <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                        <address><span class="phone-number">+421 816 526 113</span></address>
+                        <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
                     </div>
                 </div>
                 <div class="user-actions">
@@ -50,8 +51,8 @@
                     <div class="search-contact-mobile">
                         <div class="contact-section tablet">
                             <div class="contact-info">
-                                <span class="phone-number">+421 816 526 113</span>
-                                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                                <address><span class="phone-number">+421 816 526 113</span></address>
+                                <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
                             </div>
                         </div>
                         <div class="search-container">
@@ -66,7 +67,7 @@
 
 
     <!-- BOČNÉ MENU -->
-    <div class="sidebar">
+    <aside class="sidebar">
         <button class="close-btn-side">&times;</button>
         <a href="../pages/about.html" class="topper">O nás</a>
         <a href="../pages/shop.html" class="topper">E-shop</a>
@@ -78,13 +79,123 @@
         <div class="contact-section mobile" class="topper">
             <i class="fa-solid fa-phone phone-icon"></i> 
             <div class="contact-info">
-                <span class="phone-number">+421 816 526 113</span>
-                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                <address><span class="phone-number">+421 816 526 113</span></address>
+                <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
             </div>
         </div>
-    </div>
+    </aside>
 
-    <section class="opened-info">
+    <!-- PRODUCT ADDED TO CART -->
+    <aside class="added-to-cart">
+        <button class="close-btn-cart">&times;</button>
+        <p>Produkt bol pridaný do košíka</p>
+        <div class="product">
+            <a href="../pages/product_detail.html" class="product-link">
+                <img src="../images/logo_final.png" alt="Produkt 1">
+                <div class="labels">
+                    <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                    <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                    <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                    <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                </div>
+                <p class="name-of-product">Názov</p>
+                <p class="price-of-product">Cena X€</p>
+                <p class="price-of-product-sale">Cena Y€</p>
+                <div class="shop-product">
+                    
+                    <div class="info-of-product">
+                        <p class="availability">Skladom >5ks</p>
+                        <div class="product-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <a href="../pages/shopping_cart1.html" class="btn-to-cart">Prejsť do košíka ➜</a>
+        <p>Čo si kupujú ostatní</p>
+        <div class="shoppers-also-buy">
+            <div class="product">
+                <a href="../pages/product_detail.html" class="product-link">
+                    <img src="../images/logo_final.png" alt="Produkt 1">
+                    <div class="labels">
+                        <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                        <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                        <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                        <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p class="name-of-product">Názov</p>
+                    <p class="price-of-product">Cena X€</p>
+                    <p class="price-of-product-sale">Cena Y€</p>
+                    <div class="shop-product">
+                        <div class="info-of-product">
+                            <p class="availability">Skladom >5ks</p>
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product">
+                <a href="../pages/product_detail.html" class="product-link">
+                    <img src="../images/logo_final.png" alt="Produkt 1">
+                    <div class="labels">
+                        <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                        <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                        <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p class="name-of-product">Názov</p>
+                    <p class="price-of-product">Cena X€</p>
+                    <p class="price-of-product-sale">Cena Y€</p>
+                    <div class="shop-product">
+                        <div class="info-of-product">
+                            <p class="availability">Skladom >5ks</p>
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product">
+                <a href="../pages/product_detail.html" class="product-link">
+                    <img src="../images/logo_final.png" alt="Produkt 1">
+                    <div class="labels">
+                        <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                        <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                        <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                        <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p class="name-of-product">Názov</p>
+                    <p class="price-of-product">Cena X€</p>
+                    <p class="price-of-product-sale">Cena Y€</p>
+                    <div class="shop-product">
+                        <div class="info-of-product">
+                            <p class="availability">Skladom >5ks</p>
+                            <div class="product-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <dialog class="opened-info">
         <div class="info-circle" id="status-icon">
             <i class="fa fa-shop" id="open-icon"></i>
             <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
@@ -109,18 +220,19 @@
                 <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
             </div>
         </div>
-    </section>
+    </dialog>
     
     <!-- Popup for Sign In / Register -->
-    <div id="auth-popup" class="popup-container">
+    <dialog id="auth-popup" class="popup-container">
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
             <div id="signin-form" class="form-content">
                 <h3>Prihlásenie</h3>
-                <form action="profile.html" method="GET">
+                <form action="../pages/profile.html" method="GET">
                     <input type="email" placeholder="E-mail" required><br>
                     <input type="password" placeholder="Heslo" required><br>
                     <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
+                    <a href="../pages/admin_profile.html">Admin</a>
                     <button type="submit">Prihlásiť sa</button>
                 </form>                
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
@@ -146,7 +258,7 @@
                 <p>Návrat na <a href="#" onclick="showSignInForm()">prihlásenie</a></p>
             </div>
         </div>
-    </div>
+    </dialog>
 
     <section class="shop-products-section">
         <h2>ZDRAVIE</h2>
@@ -168,7 +280,6 @@
                     <a href="../pages/product_detail.html" class="product-link">
                         <img src="../images/logo_final.png" alt="Produkt 1">
                         <div class="labels">
-                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                             <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                             <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                             <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -199,7 +310,6 @@
                     <a href="../pages/product_detail.html" class="product-link">
                         <img src="../images/logo_final.png" alt="Produkt 1">
                         <div class="labels">
-                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                             <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                             <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                             <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -230,7 +340,6 @@
                     <a href="../pages/product_detail.html" class="product-link">
                         <img src="../images/logo_final.png" alt="Produkt 1">
                         <div class="labels">
-                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                             <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                             <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                             <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -261,7 +370,6 @@
                     <a href="../pages/product_detail.html" class="product-link">
                         <img src="../images/logo_final.png" alt="Produkt 1">
                         <div class="labels">
-                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                             <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                             <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                             <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -292,7 +400,6 @@
                     <a href="../pages/product_detail.html" class="product-link">
                         <img src="../images/logo_final.png" alt="Produkt 1">
                         <div class="labels">
-                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                             <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                             <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                             <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -323,7 +430,6 @@
                     <a href="../pages/product_detail.html" class="product-link">
                         <img src="../images/logo_final.png" alt="Produkt 1">
                         <div class="labels">
-                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                             <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                             <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                             <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -354,7 +460,6 @@
                     <a href="../pages/product_detail.html" class="product-link">
                         <img src="../images/logo_final.png" alt="Produkt 1">
                         <div class="labels">
-                            <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                             <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                             <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                             <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -382,13 +487,11 @@
                     </a>
                 </div>
             </div>
-    
+            
+            <!-- Filter -->
             <aside class="filter">
-                <!-- Filter -->
                 <h2>Filter</h2>
                 <div class="filter-options">
-
-                    <!-- Cenové rozpätie -->
                     <div class="filter-option">
                         <h3>Cenové rozpätie</h3>
                         <div class="price-range">
@@ -397,8 +500,6 @@
                             <input type="number" id="max-price" placeholder="Max (€)" min="0" step="0.5">
                         </div>
                     </div>
-        
-                    <!-- Výrobca -->
                     <div class="filter-option">
                         <h3>Výrobca</h3>
                         <ul>
@@ -408,8 +509,6 @@
                             <li><input type="checkbox" name="manufacturer" value="beeplus"> BeePlus</li>
                         </ul>
                     </div>
-        
-                    <!-- Štítky -->
                     <div class="filter-option">
                         <h3>Štítky</h3>
                         <ul>
@@ -424,7 +523,6 @@
                 <button class="apply-filter-btn">Aplikovať filter</button>
             </aside>
         </div>
-    
         <div class="pagination">
             <button id="prevPage">&laquo; Predošlá</button>
             <span id="pageIndicator">1</span>
@@ -437,7 +535,6 @@
         <!-- Filter -->
         <h2>Filter</h2>
         <div class="filter-options">
-
             <!-- Cenové rozpätie -->
             <div class="filter-option">
                 <h3>Cenové rozpätie</h3>
@@ -447,7 +544,6 @@
                     <input type="number" id="max-price" placeholder="Max (€)" min="0" step="0.5">
                 </div>
             </div>
-
             <!-- Výrobca -->
             <div class="filter-option">
                 <h3>Výrobca</h3>
@@ -458,7 +554,6 @@
                     <li><input type="checkbox" name="manufacturer" value="beeplus"> BeePlus</li>
                 </ul>
             </div>
-
             <!-- Štítky -->
             <div class="filter-option">
                 <h3>Štítky</h3>
@@ -473,7 +568,6 @@
         </div>
         <button class="apply-filter-btn">Aplikovať filter</button>
     </aside>
-    
 
     <!-- Footer -->
     <footer>
@@ -495,8 +589,8 @@
                 </div>
                 <div class="delimeter"></div>
                 <div class="information">
-                    <p class="phone-info"> +421 816 526 113</p>
-                    <p> nasemail@gmail.com</p>
+                    <address><p class="phone-info"> +421 816 526 113</p></address>
+                    <address><p> nasemail@gmail.com</p></address>
                 </div>
             </div>
             <div class="delimeter"></div>

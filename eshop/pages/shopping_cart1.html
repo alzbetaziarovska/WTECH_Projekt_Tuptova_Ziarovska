@@ -15,19 +15,19 @@
             <div class="top-nav">
                 <div class="menu">
                     <div class="logo">
-                        <a href='../pages/homepage.html'><img src="../images/logo_final.png" alt="Logo"></a>
+                        <a href="../pages/homepage.html"><img src="../images/logo_final.png" alt="Logo"></a>
                     </div>
                     <div class="nav-links">
-                        <a href="about.html">O nás</a>
+                        <a href="../pages/about.html">O nás</a>
                         <a href="../pages/shop.html">E-shop</a>
-                        <a href="stores.html">Kamenné predajne</a>
+                        <a href="../pages/stores.html">Kamenné predajne</a>
                     </div>
                 </div>
                 <div class="contact-section">
                     <i class="fa-solid fa-phone phone-icon"></i> 
                     <div class="contact-info">
-                        <span class="phone-number">+421 816 526 113</span>
-                        <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                        <address><span class="phone-number">+421 816 526 113</span></address>
+                        <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
                     </div>
                 </div>
                 <div class="user-actions">
@@ -51,8 +51,8 @@
                     <div class="search-contact-mobile">
                         <div class="contact-section tablet">
                             <div class="contact-info">
-                                <span class="phone-number">+421 816 526 113</span>
-                                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                                <address><span class="phone-number">+421 816 526 113</span></address>
+                                <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
                             </div>
                         </div>
                         <div class="search-container">
@@ -67,7 +67,7 @@
 
 
     <!-- BOČNÉ MENU -->
-    <div class="sidebar">
+    <aside class="sidebar">
         <button class="close-btn-side">&times;</button>
         <a href="../pages/about.html" class="topper">O nás</a>
         <a href="../pages/shop.html" class="topper">E-shop</a>
@@ -79,11 +79,11 @@
         <div class="contact-section mobile" class="topper">
             <i class="fa-solid fa-phone phone-icon"></i> 
             <div class="contact-info">
-                <span class="phone-number">+421 816 526 113</span>
-                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                <address><span class="phone-number">+421 816 526 113</span></address>
+                <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
             </div>
         </div>
-    </div>
+    </aside>
 
     <div class="cart-sections-bar">
         <a><i class="fa-solid fa-bag-shopping"></i><b>Nákupný košík</b></a>
@@ -139,9 +139,6 @@
             </div>
         </div>
         
-
-
-        
         <div class="cart-total">
             <div class="cart-pannel">
                 <p>Objednajte ešte za <b>Y$</b> a máte dopravu <b>ZADARMO</b></bZADARMO>.</p>
@@ -170,13 +167,13 @@
         </div>
         <br>
         <div class="cart-actions">
-            <a href="shop.html" class="back-button"><i class="fa-solid fa-arrow-left"></i> Späť do obchodu</a>
-            <a href="shopping_cart2.html" class="next-button" type="submit">Pokračovať na dopravu a platbu <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="../pages/shop.html" class="back-button"><i class="fa-solid fa-arrow-left"></i> Späť do obchodu</a>
+            <a href="../pages/shopping_cart2.html" class="next-button" type="submit">Pokračovať na dopravu a platbu <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </div>
 
 
-    <section class="opened-info">
+    <dialog class="opened-info">
         <div class="info-circle" id="status-icon">
             <i class="fa fa-shop" id="open-icon"></i>
             <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
@@ -201,18 +198,19 @@
                 <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
             </div>
         </div>
-    </section>
+    </dialog>
             
     <!-- Popup for Sign In / Register -->
-    <div id="auth-popup" class="popup-container">
+    <dialog id="auth-popup" class="popup-container">
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
             <div id="signin-form" class="form-content">
                 <h3>Prihlásenie</h3>
-                <form action="profile.html" method="GET">
+                <form action="../pages/profile.html" method="GET">
                     <input type="email" placeholder="E-mail" required><br>
                     <input type="password" placeholder="Heslo" required><br>
                     <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
+                    <a href="../pages/admin_profile.html">Admin</a>
                     <button type="submit">Prihlásiť sa</button>
                 </form>                
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
@@ -238,7 +236,7 @@
                 <p>Návrat na <a href="#" onclick="showSignInForm()">prihlásenie</a></p>
             </div>
         </div>
-    </div>
+    </dialog>
 
     <!-- Footer -->
     <footer>
@@ -260,8 +258,8 @@
                 </div>
                 <div class="delimeter"></div>
                 <div class="information">
-                    <p class="phone-info"> +421 816 526 113</p>
-                    <p> nasemail@gmail.com</p>
+                    <address><p class="phone-info"> +421 816 526 113</p></address>
+                    <address><p> nasemail@gmail.com</p></address>
                 </div>
             </div>
             <div class="delimeter"></div>

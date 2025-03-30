@@ -9,25 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- NAVBAR -->
     <header>
         <nav>
             <div class="top-nav">
                 <div class="menu">
                     <div class="logo">
-                        <a href='../pages/homepage.html'><img src="../images/logo_final.png" alt="Logo"></a>
+                        <a href="../pages/homepage.html"><img src="../images/logo_final.png" alt="Logo"></a>
                     </div>
                     <div class="nav-links">
-                        <a href="about.html">O nás</a>
+                        <a href="../pages/about.html">O nás</a>
                         <a href="../pages/shop.html">E-shop</a>
-                        <a href="stores.html">Kamenné predajne</a>
+                        <a href="../pages/stores.html">Kamenné predajne</a>
                     </div>
                 </div>
                 <div class="contact-section">
                     <i class="fa-solid fa-phone phone-icon"></i> 
                     <div class="contact-info">
-                        <span class="phone-number">+421 816 526 113</span>
-                        <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                        <address><span class="phone-number">+421 816 526 113</span></address>
+                        <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
                     </div>
                 </div>
                 <div class="user-actions">
@@ -51,8 +51,8 @@
                     <div class="search-contact-mobile">
                         <div class="contact-section tablet">
                             <div class="contact-info">
-                                <span class="phone-number">+421 816 526 113</span>
-                                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                                <address><span class="phone-number">+421 816 526 113</span></address>
+                                <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
                             </div>
                         </div>
                         <div class="search-container">
@@ -66,8 +66,8 @@
     </header> 
 
 
-    <!-- BOČNÉ MENU -->
-    <div class="sidebar">
+    <!-- SIDE MENU -->
+    <aside class="sidebar">
         <button class="close-btn-side">&times;</button>
         <a href="../pages/about.html" class="topper">O nás</a>
         <a href="../pages/shop.html" class="topper">E-shop</a>
@@ -79,13 +79,14 @@
         <div class="contact-section mobile" class="topper">
             <i class="fa-solid fa-phone phone-icon"></i> 
             <div class="contact-info">
-                <span class="phone-number">+421 816 526 113</span>
-                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                <address><span class="phone-number">+421 816 526 113</span></address> 
+                <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
             </div>
         </div>
-    </div>
+    </aside>
 
-    <div class="added-to-cart">
+    <!-- PRODUCT ADDED TO CART -->
+    <aside class="added-to-cart">
         <button class="close-btn-cart">&times;</button>
         <p>Produkt bol pridaný do košíka</p>
         <div class="product">
@@ -117,7 +118,6 @@
         <a href="../pages/shopping_cart1.html" class="btn-to-cart">Prejsť do košíka ➜</a>
         <p>Čo si kupujú ostatní</p>
         <div class="shoppers-also-buy">
-            
             <div class="product">
                 <a href="../pages/product_detail.html" class="product-link">
                     <img src="../images/logo_final.png" alt="Produkt 1">
@@ -147,7 +147,6 @@
                 <a href="../pages/product_detail.html" class="product-link">
                     <img src="../images/logo_final.png" alt="Produkt 1">
                     <div class="labels">
-                        <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                         <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                         <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                         <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -194,10 +193,38 @@
                 </a>
             </div>
         </div>
-    </div>
+    </aside>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- OPENING HOURS-->
+    <dialog class="opened-info">
+        <div class="info-circle" id="status-icon">
+            <i class="fa fa-shop" id="open-icon"></i>
+            <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
+            <div class="text-info-container" id="text-container">
+                <p id="open-text">Kamenné predajne otvorené</p>
+                <p id="closed-text">Kamenné predajne zatvorené</p>
+                <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
+            </div>
+            <i class="fa fa-chevron-up" id="toggle-arrow"></i> 
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="togglePopup()">&times;</span>
+                <h3>Návštivte nás osobne</h3>
+                <table>
+                    <tr><th>Deň</th><th>Čas</th></tr>
+                    <tr><td>Po - Pi</td><td>9:00 - 17:30</td></tr>
+                    <tr><td>So</td><td>Zatvorené</td></tr>
+                    <tr><td>Ne</td><td>Zatvorené</td></tr>
+                </table>
+                <p class="stores-list"><a class="our-store" href="#">Bratislava</a> | <a class="our-store" href="#">Nitra</a> | <a class="our-store" href="#">Prešov</a></p>
+                <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- HERO -->
+    <main class="hero">
         <div class="hero-upper">
             <div class="hero-banner">
                 <div class="place4img">
@@ -257,42 +284,17 @@
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <section class="opened-info">
-        <div class="info-circle" id="status-icon">
-            <i class="fa fa-shop" id="open-icon"></i>
-            <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
-            <div class="text-info-container" id="text-container">
-                <p id="open-text">Kamenné predajne otvorené</p>
-                <p id="closed-text">Kamenné predajne zatvorené</p>
-                <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
-            </div>
-            <i class="fa fa-chevron-up" id="toggle-arrow"></i> <!-- Šípka pre zbalenie -->
-        </div>
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <span class="close-btn" onclick="togglePopup()">&times;</span>
-                <h3>Návštivte nás osobne</h3>
-                <table>
-                    <tr><th>Deň</th><th>Čas</th></tr>
-                    <tr><td>Po - Pi</td><td>9:00 - 17:30</td></tr>
-                    <tr><td>So</td><td>Zatvorené</td></tr>
-                    <tr><td>Ne</td><td>Zatvorené</td></tr>
-                </table>
-                <p class="stores-list"><a class="our-store" href="#">Bratislava</a> | <a class="our-store" href="#">Nitra</a> | <a class="our-store" href="#">Prešov</a></p>
-                <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
-            </div>
-        </div>
-    </section>
     
-    <!-- Popup for Sign In / Register -->
-    <div id="auth-popup" class="popup-container">
+    
+    <!-- SIGN IN/REGISTER/FORGOTTEN PSWD POPUP-->
+    <dialog id="auth-popup" class="popup-container">
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
             <div id="signin-form" class="form-content">
                 <h3>Prihlásenie</h3>
-                <form action="profile.html" method="GET">
+                <form action="../pages/profile.html" method="GET">
                     <input type="email" placeholder="E-mail" required><br>
                     <input type="password" placeholder="Heslo" required><br>
                     <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
@@ -322,10 +324,10 @@
                 <p>Návrat na <a href="#" onclick="showSignInForm()">prihlásenie</a></p>
             </div>
         </div>
-    </div>
+    </dialog>
 
     
-    <!-- Sekcia Odporúčané produkty -->
+    <!-- RECOMMENDED PRODUCTS -->
     <section class="recommended" id="recommended">
         <h2>Odporúčame</h2>
         <div class="carousel-wrapper">
@@ -336,7 +338,6 @@
                         <a href="../pages/product_detail.html" class="product-link">
                             <img src="../images/logo_final.png" alt="Produkt 1">
                             <div class="labels">
-                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                                 <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                                 <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                                 <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -362,7 +363,6 @@
                         <a href="../pages/product_detail.html" class="product-link">
                             <img src="../images/logo_final.png" alt="Produkt 1">
                             <div class="labels">
-                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                                 <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                                 <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                                 <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -388,7 +388,6 @@
                         <a href="../pages/product_detail.html" class="product-link">
                             <img src="../images/logo_final.png" alt="Produkt 1">
                             <div class="labels">
-                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                                 <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                                 <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                                 <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -414,7 +413,6 @@
                         <a href="../pages/product_detail.html" class="product-link">
                             <img src="../images/logo_final.png" alt="Produkt 1">
                             <div class="labels">
-                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                                 <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                                 <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                                 <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -440,7 +438,6 @@
                         <a href="../pages/product_detail.html" class="product-link">
                             <img src="../images/logo_final.png" alt="Produkt 1">
                             <div class="labels">
-                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                                 <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                                 <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                                 <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -466,7 +463,6 @@
                         <a href="../pages/product_detail.html" class="product-link">
                             <img src="../images/logo_final.png" alt="Produkt 1">
                             <div class="labels">
-                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                                 <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                                 <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                                 <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -492,7 +488,6 @@
                         <a href="../pages/product_detail.html" class="product-link">
                             <img src="../images/logo_final.png" alt="Produkt 1">
                             <div class="labels">
-                                <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                                 <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                                 <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                                 <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -521,12 +516,11 @@
     </section>
     
 
-    <!-- Sekcia O nás -->
-    <section class="about" id="about">
+    <!-- ABOUT US -->
+    <article class="about" id="about">
         <h2 class="about-heading">Náš príbeh</h2>
         <div class = 'about-content'>
             <div class="about-text">
-                
                 <p>
                     Ahojte!<br><br>
                     Sme dve mladé študentky informatiky, ktoré spája netradičná vášeň - včely.
@@ -540,24 +534,22 @@
                     medu a propolisu a mnoho ďalšieho. Na našej stránke nájdete aj rôzne články
                     a príspevky, z ktorých sa dozviete mnoho tipov, trikov a zaujímvostí. <br><br>
                     V prípade akýchkoľvek otázok nás neváhajte kontaktovať, radi vám poradíme.<br><br>
-                    Ďakujeme za podporu a dôveru! 🐝 <a href="about.html"><u>Viac...</u></a>
+                    Ďakujeme za podporu a dôveru! 🐝 <a href="../pages/about.html"><u>Viac...</u></a>
                 </p>
             </div>
             <div class="about-images">
-                <div class="img_container">
+                <div class="img-container">
                     <img src = '../images/our_story.webp'></img>
                 </div>
-                <div class="img_container">
+                <div class="img-container">
                     <img src = '../images/our_story.webp'></img>
                 </div>
             </div>
             
         </div>
-    </section>
+    </article>
 
-    
-
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <div class="newsletter-container">
             <h3>Aktuálne novinky a akcie na Váš e-mail</h3>
@@ -577,8 +569,8 @@
                 </div>
                 <div class="delimeter"></div>
                 <div class="information">
-                    <p class="phone-info"> +421 816 526 113</p>
-                    <p> nasemail@gmail.com</p>
+                    <address><p class="phone-info"> +421 816 526 113</p></address>
+                    <address><p> nasemail@gmail.com</p></address>
                 </div>
             </div>
             <div class="delimeter"></div>

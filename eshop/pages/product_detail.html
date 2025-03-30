@@ -15,19 +15,19 @@
             <div class="top-nav">
                 <div class="menu">
                     <div class="logo">
-                        <a href='../pages/homepage.html'><img src="../images/logo_final.png" alt="Logo"></a>
+                        <a href="../pages/homepage.html"><img src="../images/logo_final.png" alt="Logo"></a>
                     </div>
                     <div class="nav-links">
-                        <a href="about.html">O nás</a>
+                        <a href="../pages/about.html">O nás</a>
                         <a href="../pages/shop.html">E-shop</a>
-                        <a href="stores.html">Kamenné predajne</a>
+                        <a href="../pages/stores.html">Kamenné predajne</a>
                     </div>
                 </div>
                 <div class="contact-section">
                     <i class="fa-solid fa-phone phone-icon"></i> 
                     <div class="contact-info">
-                        <span class="phone-number">+421 816 526 113</span>
-                        <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                        <address><span class="phone-number">+421 816 526 113</span></address>
+                        <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
                     </div>
                 </div>
                 <div class="user-actions">
@@ -51,8 +51,8 @@
                     <div class="search-contact-mobile">
                         <div class="contact-section tablet">
                             <div class="contact-info">
-                                <span class="phone-number">+421 816 526 113</span>
-                                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                                <address><span class="phone-number">+421 816 526 113</span></address>
+                                <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
                             </div>
                         </div>
                         <div class="search-container">
@@ -67,7 +67,7 @@
 
 
     <!-- BOČNÉ MENU -->
-    <div class="sidebar">
+    <aside class="sidebar">
         <button class="close-btn-side">&times;</button>
         <a href="../pages/about.html" class="topper">O nás</a>
         <a href="../pages/shop.html" class="topper">E-shop</a>
@@ -79,13 +79,13 @@
         <div class="contact-section mobile" class="topper">
             <i class="fa-solid fa-phone phone-icon"></i> 
             <div class="contact-info">
-                <span class="phone-number">+421 816 526 113</span>
-                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                <address><span class="phone-number">+421 816 526 113</span></address>
+                <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
             </div>
         </div>
-    </div>
+    </aside>
 
-    <div class="added-to-cart">
+    <aside class="added-to-cart">
         <button class="close-btn-cart">&times;</button>
         <p>Produkt bol pridaný do košíka</p>
         <div class="product">
@@ -113,9 +113,9 @@
                 <p>Cena 3€</p>
             </div>
         </div>
-    </div>
+    </aside>
 
-    <section class="opened-info">
+    <dialog class="opened-info">
         <div class="info-circle" id="status-icon">
             <i class="fa fa-shop" id="open-icon"></i>
             <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
@@ -140,18 +140,19 @@
                 <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
             </div>
         </div>
-    </section>
+    </dialog>
 
     <!-- Popup for Sign In / Register -->
-    <div id="auth-popup" class="popup-container">
+    <dialog id="auth-popup" class="popup-container">
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
             <div id="signin-form" class="form-content">
                 <h3>Prihlásenie</h3>
-                <form action="profile.html" method="GET">
+                <form action="../pages/profile.html" method="GET">
                     <input type="email" placeholder="E-mail" required><br>
                     <input type="password" placeholder="Heslo" required><br>
                     <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
+                    <a href="../pages/admin_profile.html">Admin</a>
                     <button type="submit">Prihlásiť sa</button>
                 </form>                
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
@@ -177,7 +178,7 @@
                 <p>Návrat na <a href="#" onclick="showSignInForm()">prihlásenie</a></p>
             </div>
         </div>
-    </div>
+    </dialog>
 
     <!-- Product Details -->
     <section class="product-detail">
@@ -337,46 +338,187 @@
             </div>
         </div>
     </section>
-    <section class="similar">
-        <h2>Podobné produkty</h2>
+    
+    <section class="similar" id="similar">
+        <h2>Podobné</h2>
         <div class="carousel-wrapper">
             <button id="prevBtn" class="carousel-btn left">&#10094;</button>
             <div class="carousel-container">
                 <div class="product-carousel">
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 1"></a>
-                        <p>Popis 1</p>
-                        <p>Cena 1€</p>
+                    <div class="product sale recommended">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 2"></a>
-                        <p>Popis 2</p>
-                        <p>Cena 2€</p>
+                    <div class="product recommended">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 3"></a>
-                        <p>Popis 3</p>
-                        <p>Cena 3€</p>
+                    <div class="product recommended new">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 4"></a>
-                        <p>Popis 4</p>
-                        <p>Cena 4€</p>
+                    <div class="product recommended">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 5"></a>
-                        <p>Popis 5</p>
-                        <p>Cena 5€</p>
+                    <div class="product recommended">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 6"></a>
-                        <p>Popis 6</p>
-                        <p>Cena 6€</p>
+                    <div class="product sale recommended">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product">
-                        <a href = "../pages/product_detail.html"><img src="../images/logo_final.png" alt="Produkt 7"></a>
-                        <p>Popis 7</p>
-                        <p>Cena 7€</p>
+                    <div class="product sale recommended new">
+                        <a href="../pages/product_detail.html" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">Názov</p>
+                            <p class="price-of-product">Cena X€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                            <div class="shop-product">
+                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                                <div class="info-of-product">
+                                    <p class="availability">Skladom >5ks</p>
+                                    <div class="product-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -404,8 +546,8 @@
                 </div>
                 <div class="delimeter"></div>
                 <div class="information">
-                    <p class="phone-info"> +421 816 526 113</p>
-                    <p> nasemail@gmail.com</p>
+                    <address><p class="phone-info"> +421 816 526 113</p></address>
+                    <address><p> nasemail@gmail.com</p></address>
                 </div>
             </div>
             <div class="delimeter"></div>

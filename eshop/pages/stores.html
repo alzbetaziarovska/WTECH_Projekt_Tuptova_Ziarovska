@@ -15,19 +15,19 @@
             <div class="top-nav">
                 <div class="menu">
                     <div class="logo">
-                        <a href='../pages/homepage.html'><img src="../images/logo_final.png" alt="Logo"></a>
+                        <a href="../pages/homepage.html"><img src="../images/logo_final.png" alt="Logo"></a>
                     </div>
                     <div class="nav-links">
-                        <a href="about.html">O nás</a>
+                        <a href="../pages/about.html">O nás</a>
                         <a href="../pages/shop.html">E-shop</a>
-                        <a href="stores.html">Kamenné predajne</a>
+                        <a href="../pages/stores.html">Kamenné predajne</a>
                     </div>
                 </div>
                 <div class="contact-section">
                     <i class="fa-solid fa-phone phone-icon"></i> 
                     <div class="contact-info">
-                        <span class="phone-number">+421 816 526 113</span>
-                        <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                        <address><span class="phone-number">+421 816 526 113</span></address>
+                        <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
                     </div>
                 </div>
                 <div class="user-actions">
@@ -51,8 +51,8 @@
                     <div class="search-contact-mobile">
                         <div class="contact-section tablet">
                             <div class="contact-info">
-                                <span class="phone-number">+421 816 526 113</span>
-                                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                                <address><span class="phone-number">+421 816 526 113</span></address>
+                                <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
                             </div>
                         </div>
                         <div class="search-container">
@@ -67,7 +67,7 @@
 
 
     <!-- BOČNÉ MENU -->
-    <div class="sidebar">
+    <aside class="sidebar">
         <button class="close-btn-side">&times;</button>
         <a href="../pages/about.html" class="topper">O nás</a>
         <a href="../pages/shop.html" class="topper">E-shop</a>
@@ -79,13 +79,13 @@
         <div class="contact-section mobile" class="topper">
             <i class="fa-solid fa-phone phone-icon"></i> 
             <div class="contact-info">
-                <span class="phone-number">+421 816 526 113</span>
-                <span class="working-hours">PO-PIA: 9:00 - 17:30</span>
+                <address><span class="phone-number">+421 816 526 113</span></address>
+                <address><span class="working-hours">PO-PIA: 9:00 - 17:30</span></address>
             </div>
         </div>
-    </div>
+    </aside>
 
-    <section class="opened-info">
+    <dialog class="opened-info">
         <div class="info-circle" id="status-icon">
             <i class="fa fa-shop" id="open-icon"></i>
             <i class="fa-solid fa-shop-slash" id="closed-icon"></i>
@@ -110,18 +110,19 @@
                 <p>Prejsť radšej do <a class="eshop-link" href="../pages/shop.html">E-shopu</a></p>
             </div>
         </div>
-    </section>
+    </dialog>
     
     <!-- Popup for Sign In / Register -->
-    <div id="auth-popup" class="popup-container">
+    <dialog id="auth-popup" class="popup-container">
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
             <div id="signin-form" class="form-content">
                 <h3>Prihlásenie</h3>
-                <form action="profile.html" method="GET">
+                <form action="../pages/profile.html" method="GET">
                     <input type="email" placeholder="E-mail" required><br>
                     <input type="password" placeholder="Heslo" required><br>
                     <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
+                    <a href="../pages/admin_profile.html">Admin</a>
                     <button type="submit">Prihlásiť sa</button>
                 </form>                
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
@@ -147,7 +148,7 @@
                 <p>Návrat na <a href="#" onclick="showSignInForm()">prihlásenie</a></p>
             </div>
         </div>
-    </div>
+    </dialog>
 
     <section class="on-site-stores-container">
         <h2>Kamenné predajne - Navštívte nás osobne!</h2>
@@ -156,21 +157,21 @@
         <div class="on-site-stores">
             <div class="store">
                 <h2><i class="fa fa-shop"></i> Bratislava</h2>
-                <p><strong>📍 Adresa:</strong> Fajnorovo nábrežie 52</p><br>
+                <address><p><strong>📍 Adresa:</strong> Fajnorovo nábrežie 52</p></address><br>
                 <p>Naša bratislavská predajňa sa nachádza v centre mesta a je ideálnym miestom na rýchly a pohodlný nákup včelárskych potrieb.</p>
                 <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1747.0375970036612!2d17.108987911653884!3d48.14030534056008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8941de479e11%3A0x3f069e5b28cae71f!2sFajnorovo%20n%C3%A1bre%C5%BEie%2052%2F5%2C%20811%2002%20Star%C3%A9%20Mesto!5e1!3m2!1ssk!2ssk!4v1742479782382!5m2!1ssk!2ssk" width="600" height="450" allowfullscreen="" loading="lazy"></iframe>
             </div>
         
             <div class="store">
                 <h2><i class="fa fa-shop"></i> Nitra</h2>
-                <p><strong>📍 Adresa:</strong> Výstavná 4, Chrenová</p><br>
+                <address><p><strong>📍 Adresa:</strong> Výstavná 4, Chrenová</p></address><br>
                 <p>Náš obchod v Nitre je obľúbený medzi včelármi z celého regiónu.</p>
                 <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2052.566586730531!2d18.09896457551765!3d48.30624507126262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b3ee943f40311%3A0xcb0a53f2fc5b542b!2sAgrokomplex%20Nitra!5e1!3m2!1ssk!2ssk!4v1742481833345!5m2!1ssk!2ssk" width="600" height="450" allowfullscreen="" loading="lazy"></iframe>
             </div>
         
             <div class="store">
                 <h2><i class="fa fa-shop"></i> Prešov</h2>
-                <p><strong>📍 Adresa:</strong> Jilemnického 39 </p> <br>
+                <address><p><strong>📍 Adresa:</strong> Jilemnického 39 </p></address> <br>
                 <p>Východné Slovensko má silnú včelársku tradíciu a naša predajňa v Prešove je miestom, kde nájdete všetko, čo potrebujete pre úspešné včelárenie.</p>
                 <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2025.4942363856949!2d21.243645275568205!3d48.97593347134839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473eed99be25a2b3%3A0x86b19294c0ddcb79!2sJilemnick%C3%A9ho%2C%20080%2001%20Pre%C5%A1ov!5e1!3m2!1ssk!2ssk!4v1742481994448!5m2!1ssk!2ssk" width="600" height="450" allowfullscreen="" loading="lazy"></iframe>
             </div>
@@ -202,8 +203,8 @@
                 </div>
                 <div class="delimeter"></div>
                 <div class="information">
-                    <p class="phone-info"> +421 816 526 113</p>
-                    <p> nasemail@gmail.com</p>
+                    <address><p class="phone-info"> +421 816 526 113</p></address>
+                    <address><p> nasemail@gmail.com</p></address>
                 </div>
             </div>
             <div class="delimeter"></div>
