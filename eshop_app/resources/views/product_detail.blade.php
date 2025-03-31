@@ -213,14 +213,11 @@
             </div>            
             <div class="product-text">
                 <div class="text-container">
-<<<<<<< HEAD
-=======
                     @if ($product)
                     <h1>{{$product->name}}</h1>
                     <p id="product_description" class="collapsed">{{$product->description}}</p>
                     <h1>Cena: {{$product->price}}€</h1>
                     @else
->>>>>>> ea0713f (added product tags, vybavenie update, deleted variants)
                     <h1>Sviečka z včelieho vosku</h1>
                     <p id="product_description" class="collapsed">Doprajte si kúzlo prírody s ručne vyrábanou sviečkou z čistého včelieho vosku. 
                         Táto sviečka je 100 % prírodná, bez pridaných chemikálií a umelých vôní, vďaka čomu je 
