@@ -276,15 +276,16 @@
         <!-- Products -->
         <div class="products-filter">
             <div class="products">
+                @foreach ($products as $product)
                 <div class="product product-shop">
-                    <a href="<?php echo url('product_detail') ?>" class="product-link">
+                    <a href="<?php echo url('product_detail/' . $product->id) ?>" class="product-link">
                         <img src="../images/logo_final.png" alt="Produkt 1">
                         <div class="labels">
                             <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                             <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                             <span class="label new-l"><i class="fa-regular fa-star"></i></span>
                         </div>
-                        <p class="name-of-product">Názov</p>
+                        <p class="name-of-product">{{$product->name}}</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
                         <div class="quantity-selector">
@@ -306,7 +307,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="product sale product-shop">
+                @endforeach
+                <!-- <div class="product sale product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
                         <img src="../images/logo_final.png" alt="Produkt 1">
                         <div class="labels">
@@ -486,7 +488,7 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> -->
             
             <!-- Filter -->
             <aside class="filter">
