@@ -26,7 +26,9 @@ class Product extends Model
         'in_stock',
         'new_in',
         'recommend',
-        'favorite'
+        'favorite',
+        'in_storage',
+        'price'
     ];
     
     protected $casts = [

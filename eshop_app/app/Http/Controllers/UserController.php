@@ -54,7 +54,12 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('profile')->with('user', $user);
+        if ($user->is_admin) {
+            return view('admin_profile')->with('user', $user);
+        }
+        else {
+            return view('profile')->with('user', $user);
+        }
     }
 
     /**

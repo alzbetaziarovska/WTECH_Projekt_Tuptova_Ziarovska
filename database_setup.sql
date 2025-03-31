@@ -8,7 +8,7 @@ password char varying(128) NOT NULL,
 is_admin boolean NOT NULL,
 newsletter boolean NOT NULL,
 CONSTRAINT users_pkey PRIMARY KEY (id)
-)
+);
 
 INSERT INTO users (f_name, l_name, email, password, is_admin, newsletter)
 values ('Alžbeta', 'Žiarovská', 'alzbetaziarovska@gmail.com', md5('12345'), true, false);
@@ -71,10 +71,12 @@ in_stock boolean DEFAULT false,
 new_in boolean DEFAULT false,
 recommend boolean DEFAULT false,
 favorite boolean DEFAULT false,
+in_storage INT NOT NULL CHECK (in_storage >= 0), -- Ensures non-negative stock values
+price DECIMAL(10,2) NOT NULL CHECK (price >= 0),
 CONSTRAINT fk_category_products FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
 );
 
-INSERT into products (category_id, name, description, make) values (1, 'test1', 'toto je testovaci produkt chichi', 'test');
+INSERT into products (category_id, name, description, make, in_storage, price) values (1, 'test1', 'toto je testovaci produkt chichi', 'test', 10, 10.99);
 
 CREATE TABLE product_photos (
     id BIGSERIAL PRIMARY KEY,
@@ -95,34 +97,21 @@ CREATE TABLE reviews (
     CONSTRAINT fk_reviews_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
-CREATE TYPE variant_type_enum AS ENUM ('size', 'color', 'weight');
-CREATE TYPE variant_enum AS ENUM ('XS', 'S', 'M', 'L', 'XL', 'small', 'big');
-
-CREATE TABLE variants (
-    id BIGSERIAL PRIMARY KEY,
-    product_id BIGINT NOT NULL,
-    variant_type variant_type_enum NOT NULL, -- Uses the ENUM type
-    variant variant_enum NOT NULL, -- Uses the ENUM type
-    in_storage INT NOT NULL CHECK (in_storage >= 0), -- Ensures non-negative stock values
-    price DECIMAL(10,2) NOT NULL CHECK (price >= 0), -- More precise than FLOAT
-    CONSTRAINT fk_variants_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
-);
-
 CREATE TABLE products_in_cart (
     cart_id BIGINT NOT NULL,
-    variant_id BIGINT NOT NULL,
+    product_id BIGINT NOT NULL,
     pcs INT NOT NULL CHECK (pcs >= 0),  -- Ensures pcs (pieces) are non-negative
     CONSTRAINT fk_products_in_cart_cart FOREIGN KEY (cart_id) REFERENCES carts(id) ON DELETE CASCADE,
-    CONSTRAINT fk_products_in_cart_variant FOREIGN KEY (variant_id) REFERENCES variants(id) ON DELETE CASCADE,
-    PRIMARY KEY (cart_id, variant_id) -- Ensures each cart can have only one of each variant
+    CONSTRAINT fk_products_in_cart_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    PRIMARY KEY (cart_id, product_id) -- Ensures each cart can have only one of each product
 );
 
 CREATE TABLE products_in_order (
     order_id BIGINT NOT NULL,
-    variant_id BIGINT NOT NULL,
+    product_id BIGINT NOT NULL,
     pcs INT NOT NULL CHECK (pcs >= 0),  -- Ensures pcs (pieces) are non-negative
     CONSTRAINT fk_products_in_order_order FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
-    CONSTRAINT fk_products_in_order_variant FOREIGN KEY (variant_id) REFERENCES variants(id) ON DELETE CASCADE,
-    PRIMARY KEY (order_id, variant_id) -- Ensures each order can have only one of each variant
+    CONSTRAINT fk_products_in_order_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    PRIMARY KEY (order_id, product_id) -- Ensures each order can have only one of each product
 );
 
