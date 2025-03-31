@@ -210,21 +210,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="variants">
-                    <p>Varianty</p>
-                        <div class="variant" data-target="variant-1">
-                            <a><img src="../images/var_one_nonum.png" class="variant-img" alt="Thumbnail"></a>
-                        </div>
-                        <div class="variant" data-target="variant-2">
-                            <a><img src="../images/var_two_nonum.png" class="variant-img" alt="Thumbnail"></a>
-                        </div>
-                        <div class="variant" data-target="variant-3">
-                            <a><img src="../images/var_three_nonum.png" class="variant-img" alt="Thumbnail"></a>
-                        </div>
-                </div>
             </div>            
             <div class="product-text">
                 <div class="text-container">
+<<<<<<< HEAD
+=======
+                    @if ($product)
+                    <h1>{{$product->name}}</h1>
+                    <p id="product_description" class="collapsed">{{$product->description}}</p>
+                    <h1>Cena: {{$product->price}}€</h1>
+                    @else
+>>>>>>> ea0713f (added product tags, vybavenie update, deleted variants)
                     <h1>Sviečka z včelieho vosku</h1>
                     <p id="product_description" class="collapsed">Doprajte si kúzlo prírody s ručne vyrábanou sviečkou z čistého včelieho vosku. 
                         Táto sviečka je 100 % prírodná, bez pridaných chemikálií a umelých vôní, vďaka čomu je 
@@ -239,6 +235,7 @@
                         💛 Prinesie do vášho domova harmóniu a prírodnú vôňu včelieho úľa!</p>
                     <button id="toggle-btn" class="toggle-button">Viac...</button>
                     <h1>Cena: 10,99€</h1>
+                    @endif
                     <div class = "product-stars">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
