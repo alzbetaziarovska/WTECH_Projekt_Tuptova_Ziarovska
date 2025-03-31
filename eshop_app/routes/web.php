@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::resource('profile', UserController::class);
+
+Route::resource('admin_profile', UserController::class);
 
 Route::get('/', function () {
     return view('homepage');
@@ -25,20 +30,12 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/admin_profile', function () {
-    return view('admin_profile');
-});
-
 Route::get('/krmivo', function () {
     return view('krmivo');
 });
 
 Route::get('/product_detail', function () {
     return view('product_detail');
-});
-
-Route::get('/profile', function () {
-    return view('profile');
 });
 
 Route::get('/shop', function () {

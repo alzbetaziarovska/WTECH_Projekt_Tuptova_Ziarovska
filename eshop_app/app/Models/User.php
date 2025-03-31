@@ -2,43 +2,29 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    // Define the table associated with the model (optional if table name follows Laravel conventions)
+    protected $table = 'users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // The primary key for the table (optional if it's 'id')
+    protected $primaryKey = 'id';
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    // Set this to false if your primary key is not auto-incrementing
+    public $incrementing = true;
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // Specify the data type of the primary key
+    protected $keyType = 'int';
+
+    // Define the timestamps (created_at and updated_at columns) (optional if your table doesn't have them)
+    public $timestamps = true;
+
+    // You can specify which columns are mass-assignable
+    protected $fillable = ['name', 'email', 'password'];
+
+    // If you have hidden fields like password or sensitive data
+    protected $hidden = ['password', 'remember_token'];
 }

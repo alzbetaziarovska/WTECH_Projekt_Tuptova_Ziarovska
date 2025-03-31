@@ -269,8 +269,13 @@
                 </div>
                 <div>
                     <div class="profile-text">
+                    @if($user)
+                        <p><b>{{ $user->f_name }} {{ $user->l_name }}</b></p>
+                        <p>{{ $user->email }}</p>
+                    @else
                         <p><b>Janko Hraško</b></p>
                         <p>janko.hrasko@gmail.com</p>
+                    @endif
                     </div>
                     <div class="profile-actions">
                         <a href="#"><button>Zmeniť heslo</button></a>
