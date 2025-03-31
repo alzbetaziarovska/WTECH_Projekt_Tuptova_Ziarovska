@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,11 +33,13 @@ Route::get('/about', function () {
 });
 
 Route::get('/krmivo', function () {
-    return view('krmivo');
+    $products = Product::where('category_id', 2)->get();
+    return view('krmivo')->with('products', $products);
 });
 
 Route::get('/product_detail', function () {
-    return view('product_detail');
+    $product = Product::find(0); // Example product ID
+    return view('product_detail')->with('product', $product);
 });
 
 Route::get('/shop', function () {
@@ -63,16 +67,22 @@ Route::get('/thanks_for_purchase', function () {
 });
 
 Route::get('/vybavenie', function () {
-    return view('vybavenie');
+    $products = Product::where('category_id', 1)->get();
+    return view('vybavenie')->with('products', $products);
 });
 
 Route::get('/vyrobky', function () {
-    return view('vyrobky');
+    $products = Product::where('category_id', 4)->get();
+    return view('vyrobky')->with('products', $products);
 });
 
 Route::get('/zdravie', function () {
-    return view('zdravie');
+    $products = Product::where('category_id', 3)->get();
+    return view('zdravie')->with('products', $products);
 });
+
+Route::get('product_detail/{id}', [ProductController::class, 'show'])->name('product.detail');
+
 
 
 

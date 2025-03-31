@@ -54,6 +54,11 @@ id BIGSERIAL PRIMARY KEY,
 name VARCHAR(50) NOT NULL
 );
 
+INSERT into categories (name) values ('Krmivo a doplnky');
+INSERT into categories (name) values ('Vybavenie');
+INSERT into categories (name) values ('Výrobky');
+INSERT into categories (name) values ('Zdravie včiel');
+
 CREATE TABLE "products" (
 id BIGSERIAL PRIMARY KEY,
 category_id BIGINT NOT NULL,
@@ -61,8 +66,15 @@ name VARCHAR(50) NOT NULL,
 description VARCHAR(500) NOT NULL,
 make VARCHAR(50) NOT NULL,
 stars DECIMAL(2,1) CHECK (stars BETWEEN 0 AND 5),
+on_sale boolean DEFAULT false,
+in_stock boolean DEFAULT false,
+new_in boolean DEFAULT false,
+recommend boolean DEFAULT false,
+favorite boolean DEFAULT false,
 CONSTRAINT fk_category_products FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
 );
+
+INSERT into products (category_id, name, description, make) values (1, 'test1', 'toto je testovaci produkt chichi', 'test');
 
 CREATE TABLE product_photos (
     id BIGSERIAL PRIMARY KEY,

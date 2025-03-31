@@ -181,7 +181,11 @@
 
     <!-- Product Details -->
     <section class="product-detail">
+        @if ($product)
+        <h1 class="mobile-heading">{{$product->name}}</h1>
+        @else
         <h1 class="mobile-heading">Sviečka z včelieho vosku</h1>
+        @endif
         <div class="product-detail-upper">
             <div class="product-banner">
                 <div class="together">
@@ -225,7 +229,11 @@
             </div>            
             <div class="product-text">
                 <div class="text-container">
+                    @if ($product)
+                    <h1>{{$product->name}}</h1>
+                    @else
                     <h1>Sviečka z včelieho vosku</h1>
+                    @endif
                     <p id="product_description" class="collapsed">Doprajte si kúzlo prírody s ručne vyrábanou sviečkou z čistého včelieho vosku. 
                         Táto sviečka je 100 % prírodná, bez pridaných chemikálií a umelých vôní, vďaka čomu je 
                         ideálnou voľbou pre zdravé a harmonické prostredie.<br><br>
