@@ -257,11 +257,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // quantity selector in the product detail page
+
 document.addEventListener("DOMContentLoaded", function () {
-    if (!document.getElementById("quantity")) {
+    if (!document.getElementById("quantity-detail")) {
         return;
     }
-    const quantityInput = document.getElementById("quantity");
+    const quantityInput = document.getElementById("quantity-detail");
     const decreaseBtn = document.getElementById("decrease");
     const increaseBtn = document.getElementById("increase");
     decreaseBtn.addEventListener("click", function () {
