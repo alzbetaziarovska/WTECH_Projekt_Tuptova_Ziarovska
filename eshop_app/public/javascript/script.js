@@ -1,7 +1,5 @@
 // javaScript for the e-shop website
 
-//const win = require("global");
-
 // listing through products in the recommended, similar and categories sections
 document.addEventListener("DOMContentLoaded", function () {
     const carousels = document.querySelectorAll(".product-carousel");
@@ -107,7 +105,7 @@ openIcon.addEventListener('click', togglePopup);
 closedIcon.addEventListener('click', togglePopup);
 
 document.addEventListener("DOMContentLoaded", function() {
-    if (!window.location.href.includes('homepage') || !window.location.href.includes('/')) {
+    if (!window.location.href.includes("homepage.html")) {
         return;
     }
     // image carousels
@@ -259,11 +257,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // quantity selector in the product detail page
+
 document.addEventListener("DOMContentLoaded", function () {
-    if (!document.getElementById("quantity")) {
+    if (!document.getElementById("quantity-detail")) {
         return;
     }
-    const quantityInput = document.getElementById("quantity");
+    const quantityInput = document.getElementById("quantity-detail");
     const decreaseBtn = document.getElementById("decrease");
     const increaseBtn = document.getElementById("increase");
     decreaseBtn.addEventListener("click", function () {
@@ -365,8 +364,7 @@ if (document.getElementById("submit-btn-sc2")) {
             alert("Prosím, vyberte predajňu!");
         }
         else {
-            window.location.replace('/shopping_cart3');
-
+            window.location.href = "shopping_cart3.html";
         }
     })
 }

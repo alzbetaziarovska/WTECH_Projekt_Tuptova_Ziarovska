@@ -268,19 +268,21 @@
                     <i class="fa-solid fa-circle-user"></i>
                 </div>
                 <div>
-                    <div class="profile-text">
-                    @if($user)
-                        <p><b>{{ $user->f_name }} {{ $user->l_name }}</b></p>
-                        <p>{{ $user->email }}</p>
+                <div class="profile-text">
+                    @if(auth()->check()) <!-- Skontroluje, či je niekto prihlásený -->
+                        <p><b>{{ auth()->user()->f_name }} {{ auth()->user()->l_name }}</b></p>
+                        <p>{{ auth()->user()->email }}</p>
                     @else
-                        <p><b>Janko Hraško</b></p>
-                        <p>janko.hrasko@gmail.com</p>
+                        <p>Nie ste prihlásení.</p>
                     @endif
-                    </div>
-                    <div class="profile-actions">
-                        <a href="#"><button>Zmeniť heslo</button></a>
-                        <a href="<?php echo url('homepage') ?>"><button>Odhlásiť sa</button></a>
-                    </div>
+                </div>
+                <div class="profile-actions">
+                    <a href="#"><button>Zmeniť heslo</button></a>
+                    <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                        @csrf
+                        <button type="submit">Odhlásiť sa</button>
+                    </form>
+                </div>
                 </div>
             </div>
         </div>

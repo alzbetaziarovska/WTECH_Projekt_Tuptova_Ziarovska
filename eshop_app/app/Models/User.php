@@ -2,29 +2,46 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class User extends Authenticatable
 {
-    // Define the table associated with the model (optional if table name follows Laravel conventions)
+    use HasFactory;
+
+    // Define the table associated with the model
     protected $table = 'users';
 
-    // The primary key for the table (optional if it's 'id')
+    // The primary key for the table
     protected $primaryKey = 'id';
 
-    // Set this to false if your primary key is not auto-incrementing
+    // Set this to true because your primary key is auto-incrementing (bigserial)
     public $incrementing = true;
 
     // Specify the data type of the primary key
     protected $keyType = 'int';
 
-    // Define the timestamps (created_at and updated_at columns) (optional if your table doesn't have them)
-    public $timestamps = true;
+    // Disable timestamps because your table doesn't have created_at/updated_at
+    public $timestamps = false;
 
-    // You can specify which columns are mass-assignable
-    protected $fillable = ['name', 'email', 'password'];
+    // Define which columns are mass-assignable
+    protected $fillable = [
+        'f_name',
+        'l_name',
+        'email',
+        'password',
+        'is_admin',
+        'newsletter',
+    ];
 
-    // If you have hidden fields like password or sensitive data
-    protected $hidden = ['password', 'remember_token'];
+    // Hidden fields (sensitive data not included in JSON responses)
+    protected $hidden = [
+        'password',
+    ];
+
+    // Automatically hash the password using md5 when it's set
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = md5($value);
+    }
 }

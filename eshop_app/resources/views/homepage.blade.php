@@ -31,12 +31,22 @@
                     </div>
                 </div>
                 <div class="user-actions">
-                    <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
-                    <a href="<?php echo url('shopping_cart1') ?>" class="bag">
+                    @if(Auth::check()) <!-- Ak je užívateľ prihlásený -->
+                        <a href="{{ route('profile') }}">
+                            <i class="fa-solid fa-circle-user user-icon"></i>
+                        </a>
+                    @else <!-- Ak nie je prihlásený -->
+                        <a href="#" onclick="openLoginPopup()">
+                            <i class="fa-solid fa-circle-user user-icon"></i>
+                        </a>
+                    @endif
+
+                    <a href="{{ url('shopping_cart1') }}" class="bag">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="bag-count">3</div>
                     </a>
                 </div>
+
             </div>
             <div class="bottom-nav">
                 <div class="categories">
@@ -288,37 +298,44 @@
 
     
     
-    <!-- SIGN IN/REGISTER/FORGOTTEN PSWD POPUP-->
     <dialog id="auth-popup" class="popup-container">
         <div class="popup-form">
-            <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
+            <span class="close-btn-auth" onclick="toggleAuthPopup()">×</span>     
             <div id="signin-form" class="form-content">
                 <h3>Prihlásenie</h3>
-                <form action="<?php echo url('profile') ?>" method="GET">
-                    <input type="email" placeholder="E-mail" required><br>
-                    <input type="password" placeholder="Heslo" required><br>
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
+                    <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required>
+                    @error('email') <span class="error">{{ $message }}</span> @enderror
+                    <input type="password" name="password" placeholder="Heslo" required>
+                    @error('password') <span class="error">{{ $message }}</span> @enderror
                     <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
                     <a href="<?php echo url('admin_profile') ?>">Admin</a>
                     <button type="submit">Prihlásiť sa</button>
                 </form>                
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
             </div>
-    
+        
             <div id="register-form" class="form-content" style="display:none;">
                 <h3>Registrácia</h3>
-                <form action="#" method="POST">
-                    <input type="text" placeholder="Meno a Priezvisko" required><br>
-                    <input type="email" placeholder="E-mail" required><br>
-                    <input type="password" placeholder="Heslo" required><br>
+                <form action="{{ route('register') }}" method="POST">
+                    @csrf
+                    <input type="text" name="full_name" placeholder="Meno a Priezvisko" value="{{ old('full_name') }}" required>
+                    @error('full_name') <span class="error">{{ $message }}</span> @enderror
+                    <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required>
+                    @error('email') <span class="error">{{ $message }}</span> @enderror
+                    <input type="password" name="password" placeholder="Heslo" required>
+                    @error('password') <span class="error">{{ $message }}</span> @enderror
                     <button type="submit">Registrovať sa</button>
                 </form>
                 <p>Máte už účet? <a href="#" onclick="toggleRegisterForm()">Prihláste sa!</a></p>
             </div>
-    
+        
             <div id="forgot-password-form" class="form-content" style="display:none;">
                 <h3>Zabudnuté heslo</h3>
                 <form action="#" method="POST">
-                    <input type="email" placeholder="E-mail" required><br>
+                    @csrf
+                    <input type="email" name="email" placeholder="E-mail" required>
                     <button type="submit">Resetovať heslo</button>
                 </form>
                 <p>Návrat na <a href="#" onclick="showSignInForm()">prihlásenie</a></p>
