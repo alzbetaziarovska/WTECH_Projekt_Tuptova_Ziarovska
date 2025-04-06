@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Včelárske potrebee</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="icon" type="image/x-icon" href="../improvised_logo.png">
+    <link rel="icon" type="image/x-icon" href="../images/logo_final.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -93,7 +93,6 @@
             <a href="<?php echo url('product_detail') ?>" class="product-link">
                 <img src="../images/logo_final.png" alt="Produkt 1">
                 <div class="labels">
-                    <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                     <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                     <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                     <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -122,7 +121,6 @@
                 <a href="<?php echo url('product_detail') ?>" class="product-link">
                     <img src="../images/logo_final.png" alt="Produkt 1">
                     <div class="labels">
-                        <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                         <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                         <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                         <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -171,7 +169,6 @@
                 <a href="<?php echo url('product_detail') ?>" class="product-link">
                     <img src="../images/logo_final.png" alt="Produkt 1">
                     <div class="labels">
-                        <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                         <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
                         <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
                         <span class="label new-l"><i class="fa-regular fa-star"></i></span>
@@ -204,7 +201,7 @@
                 <p id="closed-text">Kamenné predajne zatvorené</p>
                 <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
             </div>
-            <i class="fa fa-chevron-up" id="toggle-arrow"></i> <!-- Šípka pre zbalenie -->
+            <i class="fa fa-chevron-up" id="toggle-arrow"></i>
         </div>
         <div id="popup" class="popup">
             <div class="popup-content">
@@ -313,7 +310,7 @@
     @endif
 
     <section class="shop-products-section">
-        <h2>ZDRAVIE</h2>
+        <h2>ZDRAVIE VČIEL</h2>
         <div class="settings">
             <select class="order-by" id="order-by" name="order-by">
                 <option value="">-- Zoradiť podľa --</option>
@@ -339,6 +336,7 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
+                    </a>
                         <div class="quantity-selector">
                             <button class="quantity-btn" id="decrease">-</button>
                             <input type="number" id="quantity" min="1" value="1">
@@ -356,7 +354,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    
                 </div>
                 <div class="product sale product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -369,6 +367,7 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
+                    </a>
                         <div class="quantity-selector">
                             <button class="quantity-btn" id="decrease">-</button>
                             <input type="number" id="quantity" min="1" value="1">
@@ -386,7 +385,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    
                 </div>
                 <div class="product new sale product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -399,6 +398,7 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
+                    </a>
                         <div class="quantity-selector">
                             <button class="quantity-btn" id="decrease">-</button>
                             <input type="number" id="quantity" min="1" value="1">
@@ -416,7 +416,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    
                 </div>
                 <div class="product new recommended product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -429,6 +429,7 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
+                    </a>
                         <div class="quantity-selector">
                             <button class="quantity-btn" id="decrease">-</button>
                             <input type="number" id="quantity" min="1" value="1">
@@ -446,7 +447,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    
                 </div>
                 <div class="product sale product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -459,6 +460,7 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
+                    </a>
                         <div class="quantity-selector">
                             <button class="quantity-btn" id="decrease">-</button>
                             <input type="number" id="quantity" min="1" value="1">
@@ -476,7 +478,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    
                 </div>
                 <div class="product new product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -489,6 +491,7 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
+                    </a>
                         <div class="quantity-selector">
                             <button class="quantity-btn" id="decrease">-</button>
                             <input type="number" id="quantity" min="1" value="1">
@@ -506,7 +509,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    
                 </div>
                 <div class="product sale recommended product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -519,6 +522,7 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
+                    </a>
                         <div class="quantity-selector">
                             <button class="quantity-btn" id="decrease">-</button>
                             <input type="number" id="quantity" min="1" value="1">
@@ -536,14 +540,16 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    
                 </div>
             </div>
-            
-            <!-- Filter -->
+    
             <aside class="filter">
+                <!-- Filter -->
                 <h2>Filter</h2>
                 <div class="filter-options">
+
+                    <!-- Cenové rozpätie -->
                     <div class="filter-option">
                         <h3>Cenové rozpätie</h3>
                         <div class="price-range">
@@ -552,6 +558,8 @@
                             <input type="number" id="max-price" placeholder="Max (€)" min="0" step="0.5">
                         </div>
                     </div>
+        
+                    <!-- Výrobca -->
                     <div class="filter-option">
                         <h3>Výrobca</h3>
                         <ul>
@@ -561,6 +569,8 @@
                             <li><input type="checkbox" name="manufacturer" value="beeplus"> BeePlus</li>
                         </ul>
                     </div>
+        
+                    
                     <div class="filter-option">
                         <h3>Štítky</h3>
                         <ul>
@@ -575,6 +585,7 @@
                 <button class="apply-filter-btn">Aplikovať filter</button>
             </aside>
         </div>
+    
         <div class="pagination">
             <button id="prevPage">&laquo; Predošlá</button>
             <span id="pageIndicator">1</span>
@@ -587,6 +598,7 @@
         <!-- Filter -->
         <h2>Filter</h2>
         <div class="filter-options">
+
             <!-- Cenové rozpätie -->
             <div class="filter-option">
                 <h3>Cenové rozpätie</h3>
@@ -596,6 +608,7 @@
                     <input type="number" id="max-price" placeholder="Max (€)" min="0" step="0.5">
                 </div>
             </div>
+
             <!-- Výrobca -->
             <div class="filter-option">
                 <h3>Výrobca</h3>
@@ -606,7 +619,8 @@
                     <li><input type="checkbox" name="manufacturer" value="beeplus"> BeePlus</li>
                 </ul>
             </div>
-            <!-- Štítky -->
+
+           
             <div class="filter-option">
                 <h3>Štítky</h3>
                 <ul>
@@ -620,6 +634,7 @@
         </div>
         <button class="apply-filter-btn">Aplikovať filter</button>
     </aside>
+    
 
     <!-- Footer -->
     <footer>
@@ -654,7 +669,6 @@
         </div>
         <p class="copyright">&copy; 2025 WTECH Tuptová, Žiarovská</p>
     </footer>
-    
     <script src="../javascript/script.js"></script>
 </body>
 </html>

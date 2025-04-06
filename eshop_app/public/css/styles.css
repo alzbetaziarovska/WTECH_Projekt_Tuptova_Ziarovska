@@ -1862,7 +1862,7 @@ p.availability {
     min-width: 40px;
 }
 
-#quantity {
+#quantity, #quantity-detail {
     width: 50px;
     text-align: center;
     font-size: 16px;
