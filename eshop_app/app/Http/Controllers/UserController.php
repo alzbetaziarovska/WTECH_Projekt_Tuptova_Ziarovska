@@ -4,95 +4,89 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $user = User::find(3);
-        if ($user->is_admin) {
-            return view('admin_profile')->with('user', $user);
+        $user = auth()->user();
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'Najprv sa prihláste.');
         }
-        else {
-            return view('profile')->with('user', $user);
-        }
-        //return view('profile')->with('user', $user);   
+        return $user->is_admin ? view('admin_profile')->with('user', $user) : view('profile')->with('user', $user);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('homepage');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'f_name' => 'required|string|max:512',
+            'l_name' => 'required|string|max:512',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = User::create([
+            'f_name' => $request->f_name,
+            'l_name' => $request->l_name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'is_admin' => false,
+            'newsletter' => $request->has('newsletter') ? true : false,
+        ]);
+
+        auth()->login($user);
+        return redirect()->route('profile.index')->with('success', 'Registrácia bola úspešná!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $user = User::find($id);
-        if ($user->is_admin) {
-            return view('admin_profile')->with('user', $user);
+        if (!$user) {
+            return redirect()->route('homepage')->with('error', 'Používateľ neexistuje.');
         }
-        else {
-            return view('profile')->with('user', $user);
+        return $user->is_admin ? view('admin_profile')->with('user', $user) : view('profile')->with('user', $user);
+    }
+
+    public function showLoginForm()
+    {
+        return view('homepage');
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->route('profile.index')->with('success', 'Prihlásenie bolo úspešné!');
         }
+
+        return redirect()->back()->withErrors(['email' => 'Nesprávny e-mail alebo heslo.'])->withInput();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    // Nová metóda: Odhlásenie
+    public function logout(Request $request)
     {
-        //
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('success', 'Boli ste odhlásení.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    public function edit($id) {}
+    public function update(Request $request, $id) {}
+    public function destroy($id) {}
 }

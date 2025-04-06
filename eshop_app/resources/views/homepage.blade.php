@@ -31,6 +31,7 @@
                     </div>
                 </div>
                 <div class="user-actions">
+<<<<<<< Updated upstream
                     @if(Auth::check()) <!-- Ak je užívateľ prihlásený -->
                         <a href="{{ route('profile') }}">
                             <i class="fa-solid fa-circle-user user-icon"></i>
@@ -42,6 +43,11 @@
                     @endif
 
                     <a href="{{ url('shopping_cart1') }}" class="bag">
+=======
+                    <p>Prihlásený ako: {{ auth()->user()->email ?? 'Neprihlásený' }}</p>
+                    <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
+                    <a href="<?php echo url('shopping_cart1') ?>" class="bag">
+>>>>>>> Stashed changes
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="bag-count">3</div>
                     </a>
@@ -298,23 +304,41 @@
 
     
     
+<<<<<<< Updated upstream
     <dialog id="auth-popup" class="popup-container">
+=======
+    <!-- SIGN IN/REGISTER/FORGOTTEN PSWD POPUP -->
+    <div id="auth-popup" class="popup-container">
+>>>>>>> Stashed changes
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">×</span>     
             <div id="signin-form" class="form-content">
                 <h3>Prihlásenie</h3>
+<<<<<<< Updated upstream
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required>
                     @error('email') <span class="error">{{ $message }}</span> @enderror
                     <input type="password" name="password" placeholder="Heslo" required>
                     @error('password') <span class="error">{{ $message }}</span> @enderror
+=======
+                <form action="{{ route('login.store') }}" method="POST">
+                    @csrf
+                    <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required><br>
+                    <input type="password" name="password" placeholder="Heslo" required><br>
+                    @if ($errors->has('email'))
+                        <div class="errors">
+                            <p>{{ $errors->first('email') }}</p>
+                        </div>
+                    @endif
+>>>>>>> Stashed changes
                     <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
-                    <a href="<?php echo url('admin_profile') ?>">Admin</a>
+                    <a href="{{ url('admin_profile') }}">Admin</a>
                     <button type="submit">Prihlásiť sa</button>
                 </form>                
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
             </div>
+<<<<<<< Updated upstream
         
             <div id="register-form" class="form-content" style="display:none;">
                 <h3>Registrácia</h3>
@@ -326,11 +350,36 @@
                     @error('email') <span class="error">{{ $message }}</span> @enderror
                     <input type="password" name="password" placeholder="Heslo" required>
                     @error('password') <span class="error">{{ $message }}</span> @enderror
+=======
+
+            <div id="register-form" class="form-content" style="display:none;">
+                <h3>Registrácia</h3>
+                <form action="{{ route('register.store') }}" method="POST">
+                    @csrf
+                    <input type="text" name="f_name" placeholder="Meno" value="{{ old('f_name') }}" required><br>
+                    <input type="text" name="l_name" placeholder="Priezvisko" value="{{ old('l_name') }}" required><br>
+                    <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required><br>
+                    <input type="password" name="password" placeholder="Heslo" required><br>
+                    <input type="password" name="password_confirmation" placeholder="Potvrďte heslo" required><br>
+>>>>>>> Stashed changes
                     <button type="submit">Registrovať sa</button>
                 </form>
+                @if ($errors->any() && !$errors->has('email'))
+                    <div class="errors">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <p>Máte už účet? <a href="#" onclick="toggleRegisterForm()">Prihláste sa!</a></p>
             </div>
+<<<<<<< Updated upstream
         
+=======
+
+>>>>>>> Stashed changes
             <div id="forgot-password-form" class="form-content" style="display:none;">
                 <h3>Zabudnuté heslo</h3>
                 <form action="#" method="POST">
@@ -341,7 +390,40 @@
                 <p>Návrat na <a href="#" onclick="showSignInForm()">prihlásenie</a></p>
             </div>
         </div>
-    </dialog>
+    </div>
+    <!-- Skript na automatické otvorenie pri chybách registrácie -->
+    @if ($errors->any() && !$errors->has('email'))
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const popup = document.getElementById('auth-popup');
+                const signinForm = document.getElementById('signin-form');
+                const registerForm = document.getElementById('register-form');
+                const forgotForm = document.getElementById('forgot-password-form');
+                
+                popup.showModal();
+                signinForm.style.display = 'none';
+                registerForm.style.display = 'block';
+                forgotForm.style.display = 'none';
+            });
+        </script>
+    @endif
+
+    <!-- Skript na automatické otvorenie pri chybách prihlásenia -->
+    @if ($errors->has('email'))
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const popup = document.getElementById('auth-popup');
+                const signinForm = document.getElementById('signin-form');
+                const registerForm = document.getElementById('register-form');
+                const forgotForm = document.getElementById('forgot-password-form');
+                
+                popup.showModal();
+                signinForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                forgotForm.style.display = 'none';
+            });
+        </script>
+    @endif
 
     
     <!-- RECOMMENDED PRODUCTS -->
