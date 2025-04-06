@@ -242,7 +242,7 @@
                 </div>
                 <div class="quantity-selector">
                     <button class="quantity-btn" id="decrease">-</button>
-                    <input type="number" id="quantity-detail" min="1" value="1">
+                    <input type="number" id="quantity" min="1" value="1">
                     <button class="quantity-btn" id="increase">+</button>
                 </div>
                 <p class="availability">Skladom >10ks</p>

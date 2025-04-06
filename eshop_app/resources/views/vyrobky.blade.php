@@ -195,7 +195,6 @@
         </div>
     </aside>
 
-    <!-- OPENING HOURS-->
     <div class="opened-info">
         <div class="info-circle" id="status-icon">
             <i class="fa fa-shop" id="open-icon"></i>
@@ -205,7 +204,7 @@
                 <p id="closed-text">Kamenné predajne zatvorené</p>
                 <p id="text-to-open-popup"><u>Otváracie hodiny</u></p>
             </div>
-            <i class="fa fa-chevron-up" id="toggle-arrow"></i> 
+            <i class="fa fa-chevron-up" id="toggle-arrow"></i> <!-- Šípka pre zbalenie -->
         </div>
         <div id="popup" class="popup">
             <div class="popup-content">
@@ -223,7 +222,7 @@
         </div>
     </div>
     
-    <!-- SIGN IN/REGISTER/FORGOTTEN PSWD POPUP-->
+    <!-- Popup for Sign In / Register -->
     <dialog id="auth-popup" class="popup-container">
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">&times;</span>     
@@ -277,7 +276,7 @@
         <!-- Products -->
         <div class="products-filter">
             <div class="products">
-                <div class="product sale product-shop">
+                <div class="product product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
                         <img src="../images/logo_final.png" alt="Produkt 1">
                         <div class="labels">
@@ -288,24 +287,24 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
-                    </a>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <div class="shop-product">
-                        <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <div class="info-of-product">
-                            <p class="availability">Skladom >5ks</p>
-                            <div class="product-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="product sale product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -318,24 +317,24 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
-                    </a>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <div class="shop-product">
-                        <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <div class="info-of-product">
-                            <p class="availability">Skladom >5ks</p>
-                            <div class="product-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="product new sale product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -348,24 +347,24 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
-                    </a>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <div class="shop-product">
-                        <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <div class="info-of-product">
-                            <p class="availability">Skladom >5ks</p>
-                            <div class="product-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="product new recommended product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -378,24 +377,24 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
-                    </a>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <div class="shop-product">
-                        <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <div class="info-of-product">
-                            <p class="availability">Skladom >5ks</p>
-                            <div class="product-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="product sale product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -408,24 +407,24 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
-                    </a>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <div class="shop-product">
-                        <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <div class="info-of-product">
-                            <p class="availability">Skladom >5ks</p>
-                            <div class="product-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="product new product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -438,24 +437,24 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
-                    </a>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <div class="shop-product">
-                        <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <div class="info-of-product">
-                            <p class="availability">Skladom >5ks</p>
-                            <div class="product-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="product sale recommended product-shop">
                     <a href="<?php echo url('product_detail') ?>" class="product-link">
@@ -468,33 +467,31 @@
                         <p class="name-of-product">Názov</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
-                    </a>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <div class="shop-product">
-                        <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <div class="info-of-product">
-                            <p class="availability">Skladom >5ks</p>
-                            <div class="product-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
-    
+            
+            <!-- Filter -->
             <aside class="filter">
-                <!-- Filter -->
                 <h2>Filter</h2>
                 <div class="filter-options">
-
-                    <!-- Cenové rozpätie -->
                     <div class="filter-option">
                         <h3>Cenové rozpätie</h3>
                         <div class="price-range">
@@ -503,8 +500,6 @@
                             <input type="number" id="max-price" placeholder="Max (€)" min="0" step="0.5">
                         </div>
                     </div>
-        
-                    <!-- Výrobca -->
                     <div class="filter-option">
                         <h3>Výrobca</h3>
                         <ul>
@@ -514,8 +509,6 @@
                             <li><input type="checkbox" name="manufacturer" value="beeplus"> BeePlus</li>
                         </ul>
                     </div>
-        
-                    <!-- Štítky -->
                     <div class="filter-option">
                         <h3>Štítky</h3>
                         <ul>
@@ -530,7 +523,6 @@
                 <button class="apply-filter-btn">Aplikovať filter</button>
             </aside>
         </div>
-    
         <div class="pagination">
             <button id="prevPage">&laquo; Predošlá</button>
             <span id="pageIndicator">1</span>
@@ -543,7 +535,6 @@
         <!-- Filter -->
         <h2>Filter</h2>
         <div class="filter-options">
-
             <!-- Cenové rozpätie -->
             <div class="filter-option">
                 <h3>Cenové rozpätie</h3>
@@ -553,7 +544,6 @@
                     <input type="number" id="max-price" placeholder="Max (€)" min="0" step="0.5">
                 </div>
             </div>
-
             <!-- Výrobca -->
             <div class="filter-option">
                 <h3>Výrobca</h3>
@@ -564,7 +554,6 @@
                     <li><input type="checkbox" name="manufacturer" value="beeplus"> BeePlus</li>
                 </ul>
             </div>
-
             <!-- Štítky -->
             <div class="filter-option">
                 <h3>Štítky</h3>
@@ -579,7 +568,6 @@
         </div>
         <button class="apply-filter-btn">Aplikovať filter</button>
     </aside>
-    
 
     <!-- Footer -->
     <footer>
@@ -614,6 +602,7 @@
         </div>
         <p class="copyright">&copy; 2025 WTECH Tuptová, Žiarovská</p>
     </footer>
+    
     <script src="../javascript/script.js"></script>
 </body>
 </html>

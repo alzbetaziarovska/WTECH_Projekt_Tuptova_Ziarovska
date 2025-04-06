@@ -288,24 +288,24 @@
                         <p class="name-of-product">{{$product->name}}</p>
                         <p class="price-of-product">Cena X€</p>
                         <p class="price-of-product-sale">Cena Y€</p>
-                    </a>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" min="1" value="1">
-                        <button class="quantity-btn" id="increase">+</button>
-                    </div>
-                    <div class="shop-product">
-                        <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <div class="info-of-product">
-                            <p class="availability">Skladom >5ks</p>
-                            <div class="product-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="decrease">-</button>
+                            <input type="number" id="quantity" min="1" value="1">
+                            <button class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <div class="shop-product">
+                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <div class="info-of-product">
+                                <p class="availability">Skladom >5ks</p>
+                                <div class="product-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 @endforeach
                 <!-- <div class="product sale product-shop">
@@ -487,8 +487,8 @@
                             </div>
                         </div>
                     </a>
-                </div>-->
-            </div> 
+                </div>
+            </div> -->
             
             <!-- Filter -->
             <aside class="filter">
