@@ -31,7 +31,11 @@
                     </div>
                 </div>
                 <div class="user-actions">
-                    <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
+                    @if (auth()->check())
+                        <a href="{{ route('profile.index') }}"><i class="fa-solid fa-circle-user user-icon"></i></a>
+                    @else
+                        <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
+                    @endif
                     <a href="<?php echo url('shopping_cart1') ?>" class="bag">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="bag-count">3</div>
@@ -311,7 +315,6 @@
                         </div>
                     @endif
                     <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
-                    <a href="{{ url('admin_profile') }}">Admin</a>
                     <button type="submit">Prihlásiť sa</button>
                 </form>                
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>

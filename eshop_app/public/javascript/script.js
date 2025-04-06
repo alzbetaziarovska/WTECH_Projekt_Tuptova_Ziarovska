@@ -233,7 +233,13 @@ window.addEventListener('click', function(event) {
     }
 });
 
-document.querySelector('.user-icon').addEventListener('click', toggleAuthPopup);
+// Pridanie listenera iba pre neprihlásených
+document.addEventListener('DOMContentLoaded', () => {
+    const userIcon = document.querySelector('.user-icon');
+    if (userIcon && userIcon.parentElement.getAttribute('href') === '#') {
+        userIcon.addEventListener('click', toggleAuthPopup);
+    }
+});
 
 // choosing the quantity of the product in the category page
 document.addEventListener("DOMContentLoaded", function () {

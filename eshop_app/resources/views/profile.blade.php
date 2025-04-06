@@ -31,12 +31,16 @@
                         </div>
                     </div>
                     <div class="user-actions">
+                    @if (auth()->check())
+                        <a href="{{ route('profile.index') }}"><i class="fa-solid fa-circle-user user-icon"></i></a>
+                    @else
                         <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
-                        <a href="<?php echo url('shopping_cart1') ?>" class="bag">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <div class="bag-count">3</div>
-                        </a>
-                    </div>
+                    @endif
+                    <a href="<?php echo url('shopping_cart1') ?>" class="bag">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="bag-count">3</div>
+                    </a>
+                </div>
                 </div>
                 <div class="bottom-nav">
                     <div class="categories">
@@ -339,6 +343,7 @@
                     </form>
                 </div>
             </div>
+        </div>
         </div>
         <div class="orders-section">
             <h2>História objednávok</h2>
