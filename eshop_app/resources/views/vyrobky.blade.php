@@ -222,13 +222,9 @@
         </div>
     </div>
     
-<<<<<<< Updated upstream
-    <!-- Popup for Sign In / Register -->
-    <dialog id="auth-popup" class="popup-container">
-=======
+
     <!-- SIGN IN/REGISTER/FORGOTTEN PSWD POPUP -->
     <div id="auth-popup" class="popup-container">
->>>>>>> Stashed changes
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">×</span>     
             <div id="signin-form" class="form-content">

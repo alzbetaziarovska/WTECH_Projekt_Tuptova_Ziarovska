@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
-use App\Http\Controllers\AuthController;
 
 Route::get('/register', [UserController::class, 'create'])->name('register.form');
 Route::post('/register', [UserController::class, 'store'])->name('register.store');
@@ -12,21 +11,7 @@ Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [UserController::class, 'login'])->name('login.store');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout'); // Nová routa
 Route::resource('profile', UserController::class);
-<<<<<<< Updated upstream
-/* Route::get('/profile', function () {
-    return view('profile');
-})->middleware('auth')->name('profile');
-=======
->>>>>>> Stashed changes
 Route::resource('admin_profile', UserController::class);
- */
-
-// Autentifikačné routy
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', fn() => view('homepage'));
 Route::get('/homepage', fn() => view('homepage'));

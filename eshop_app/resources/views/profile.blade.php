@@ -326,7 +326,6 @@
                     @else
                         <p>Nie ste prihlásení.</p>
                     @endif
-<<<<<<< Updated upstream
                 </div>
                 <div class="profile-actions">
                     <a href="#"><button>Zmeniť heslo</button></a>
@@ -334,17 +333,6 @@
                         @csrf
                         <button type="submit">Odhlásiť sa</button>
                     </form>
-                </div>
-=======
-                    </div>
-                    <div class="profile-actions">
-                        <a href="#"><button>Zmeniť heslo</button></a>
-                        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-                            @csrf
-                            <button type="submit">Odhlásiť sa</button>
-                        </form>
-                    </div>
->>>>>>> Stashed changes
                 </div>
             </div>
         </div>

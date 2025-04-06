@@ -31,23 +31,9 @@
                     </div>
                 </div>
                 <div class="user-actions">
-<<<<<<< Updated upstream
-                    @if(Auth::check()) <!-- Ak je užívateľ prihlásený -->
-                        <a href="{{ route('profile') }}">
-                            <i class="fa-solid fa-circle-user user-icon"></i>
-                        </a>
-                    @else <!-- Ak nie je prihlásený -->
-                        <a href="#" onclick="openLoginPopup()">
-                            <i class="fa-solid fa-circle-user user-icon"></i>
-                        </a>
-                    @endif
-
-                    <a href="{{ url('shopping_cart1') }}" class="bag">
-=======
                     <p>Prihlásený ako: {{ auth()->user()->email ?? 'Neprihlásený' }}</p>
                     <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
                     <a href="<?php echo url('shopping_cart1') ?>" class="bag">
->>>>>>> Stashed changes
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="bag-count">3</div>
                     </a>
@@ -304,24 +290,12 @@
 
     
     
-<<<<<<< Updated upstream
-    <dialog id="auth-popup" class="popup-container">
-=======
     <!-- SIGN IN/REGISTER/FORGOTTEN PSWD POPUP -->
     <div id="auth-popup" class="popup-container">
->>>>>>> Stashed changes
         <div class="popup-form">
             <span class="close-btn-auth" onclick="toggleAuthPopup()">×</span>     
             <div id="signin-form" class="form-content">
                 <h3>Prihlásenie</h3>
-<<<<<<< Updated upstream
-                <form action="{{ route('login') }}" method="POST">
-                    @csrf
-                    <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required>
-                    @error('email') <span class="error">{{ $message }}</span> @enderror
-                    <input type="password" name="password" placeholder="Heslo" required>
-                    @error('password') <span class="error">{{ $message }}</span> @enderror
-=======
                 <form action="{{ route('login.store') }}" method="POST">
                     @csrf
                     <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required><br>
@@ -331,26 +305,13 @@
                             <p>{{ $errors->first('email') }}</p>
                         </div>
                     @endif
->>>>>>> Stashed changes
                     <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
                     <a href="{{ url('admin_profile') }}">Admin</a>
                     <button type="submit">Prihlásiť sa</button>
                 </form>                
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>
             </div>
-<<<<<<< Updated upstream
-        
-            <div id="register-form" class="form-content" style="display:none;">
-                <h3>Registrácia</h3>
-                <form action="{{ route('register') }}" method="POST">
-                    @csrf
-                    <input type="text" name="full_name" placeholder="Meno a Priezvisko" value="{{ old('full_name') }}" required>
-                    @error('full_name') <span class="error">{{ $message }}</span> @enderror
-                    <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required>
-                    @error('email') <span class="error">{{ $message }}</span> @enderror
-                    <input type="password" name="password" placeholder="Heslo" required>
-                    @error('password') <span class="error">{{ $message }}</span> @enderror
-=======
+
 
             <div id="register-form" class="form-content" style="display:none;">
                 <h3>Registrácia</h3>
@@ -361,7 +322,7 @@
                     <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required><br>
                     <input type="password" name="password" placeholder="Heslo" required><br>
                     <input type="password" name="password_confirmation" placeholder="Potvrďte heslo" required><br>
->>>>>>> Stashed changes
+
                     <button type="submit">Registrovať sa</button>
                 </form>
                 @if ($errors->any() && !$errors->has('email'))
@@ -375,11 +336,8 @@
                 @endif
                 <p>Máte už účet? <a href="#" onclick="toggleRegisterForm()">Prihláste sa!</a></p>
             </div>
-<<<<<<< Updated upstream
-        
-=======
 
->>>>>>> Stashed changes
+
             <div id="forgot-password-form" class="form-content" style="display:none;">
                 <h3>Zabudnuté heslo</h3>
                 <form action="#" method="POST">
