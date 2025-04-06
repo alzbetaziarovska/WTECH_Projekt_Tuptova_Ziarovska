@@ -31,7 +31,6 @@
                     </div>
                 </div>
                 <div class="user-actions">
-                    <p>Prihlásený ako: {{ auth()->user()->email ?? 'Neprihlásený' }}</p>
                     <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
                     <a href="<?php echo url('shopping_cart1') ?>" class="bag">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -140,6 +139,10 @@
                 <p>Prejsť radšej do <a class="eshop-link" href="<?php echo url('shop') ?>">E-shopu</a></p>
             </div>
         </div>
+    </div>
+
+    <div class="user-info-popup">
+        <p>Prihlásený ako: {{ auth()->user()->email ?? '-' }}</p>
     </div>
 
     <!-- SIGN IN/REGISTER/FORGOTTEN PSWD POPUP -->

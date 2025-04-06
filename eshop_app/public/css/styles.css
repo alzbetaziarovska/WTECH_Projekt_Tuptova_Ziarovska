@@ -223,6 +223,20 @@ header {
     outline: none;
 }
 
+.user-info-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: auto;
+    background: #f6c90e;
+    color:rgb(74, 42, 200);
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    font-size: 12px;
+}
+
 /* Sidebar Menu */
 .sidebar {
     position: fixed;
@@ -469,7 +483,7 @@ header {
     color: #ffb027;
 }
 
-.shop-but {
+.shop-but, .shop-but-main {
     padding: 20px 30px;
     background: linear-gradient(170deg, #ffb027, #ffcc33, #ffb027);
     border-radius: 8px;

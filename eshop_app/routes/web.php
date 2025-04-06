@@ -9,7 +9,7 @@ Route::get('/register', [UserController::class, 'create'])->name('register.form'
 Route::post('/register', [UserController::class, 'store'])->name('register.store');
 Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [UserController::class, 'login'])->name('login.store');
-Route::post('/logout', [UserController::class, 'logout'])->name('logout'); // Nová routa
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 Route::resource('profile', UserController::class);
 Route::resource('admin_profile', UserController::class);
 

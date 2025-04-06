@@ -31,7 +31,6 @@
                     </div>
                 </div>
                 <div class="user-actions">
-                    <p>Prihlásený ako: {{ auth()->user()->email ?? 'Neprihlásený' }}</p>
                     <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
                     <a href="<?php echo url('shopping_cart1') ?>" class="bag">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -86,6 +85,10 @@
             </div>
         </div>
     </aside>
+
+    <div class="user-info-popup">
+        <p>Prihlásený ako: {{ auth()->user()->email ?? '-' }}</p>
+    </div>
 
     <!-- PRODUCT ADDED TO CART -->
     <aside class="added-to-cart">
@@ -250,7 +253,7 @@
                     <p>Ponúkame overené produkty, rýchle dodanie a odborné poradenstvo, aby váš úľ prekypoval zdravím a medom.</p>
                 </div>
                 <div class="button-container">
-                    <a class="shop-but" href = '<?php echo url('shop') ?>'>NAKUPOVAŤ</a>
+                    <a class="shop-but-main" href = '<?php echo url('shop') ?>'>NAKUPOVAŤ</a>
                 </div>
             </div>
         </div>
@@ -288,7 +291,9 @@
         </div>
     </main>
 
-    
+    <div class="user-info-popup">
+        <p>Prihlásený ako: {{ auth()->user()->email ?? '-' }}</p>
+    </div>
     
     <!-- SIGN IN/REGISTER/FORGOTTEN PSWD POPUP -->
     <div id="auth-popup" class="popup-container">

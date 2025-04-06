@@ -219,6 +219,9 @@
         </div>
     </div>
     
+    <div class="user-info-popup">
+        <p>Prihlásený ako: {{ auth()->user()->email ?? '-' }}</p>
+    </div>
 
     <!-- SIGN IN/REGISTER/FORGOTTEN PSWD POPUP -->
     <div id="auth-popup" class="popup-container">

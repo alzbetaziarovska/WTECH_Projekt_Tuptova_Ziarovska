@@ -222,6 +222,10 @@
         </div>
     </div>
     
+    <div class="user-info-popup">
+        <p>Prihlásený ako: {{ auth()->user()->email ?? '-' }}</p>
+    </div>
+
     <!-- SIGN IN/REGISTER/FORGOTTEN PSWD POPUP -->
     <div id="auth-popup" class="popup-container">
         <div class="popup-form">
@@ -1095,7 +1099,7 @@
         </section>
 
         <section class="category" id="category-new-hor">
-            <a href = ""><h2>Novinky ➜</h2></a> <!--TODO: novinky stranka -->
+            <h2>Novinky</h2>
             <p class="cat-description">Buďte vždy informovaní o najnovších trendoch vo včelárstve! V tejto sekcii nájdete najnovšie produkty, inovácie a sezónne špeciality, ktoré vám pomôžu zlepšiť starostlivosť o vaše včely a spracovanie včelích produktov.</p>
             <div class="carousel-wrapper">
                 <button id="prevBtn" class="carousel-btn left">&#10094;</button>

@@ -88,6 +88,10 @@
         </div>
     </aside>
 
+    <div class="user-info-popup">
+        <p>Prihlásený ako: {{ auth()->user()->email ?? '-' }}</p>
+    </div>
+
     <!-- PRODUCT ADDED TO CART -->
     <aside class="added-to-cart">
         <button class="close-btn-cart">&times;</button>
