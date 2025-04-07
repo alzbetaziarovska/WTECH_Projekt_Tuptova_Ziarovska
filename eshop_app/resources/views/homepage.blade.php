@@ -32,11 +32,15 @@
                 </div>
                 <div class="user-actions">
                     @if (auth()->check())
-                        <a href="{{ route('profile.index') }}"><i class="fa-solid fa-circle-user user-icon"></i></a>
+                        @if (auth()->user()->is_admin)
+                            <a href="{{ route('admin_profile.index') }}"><i class="fa-solid fa-circle-user user-icon"></i></a>
+                        @else
+                            <a href="{{ route('profile.index') }}"><i class="fa-solid fa-circle-user user-icon"></i></a>
+                        @endif
                     @else
                         <a href="#"><i class="fa-solid fa-circle-user user-icon"></i></a>
                     @endif
-                    <a href="<?php echo url('shopping_cart1') ?>" class="bag">
+                    <a href="{{ url('shopping_cart1') }}" class="bag">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <div class="bag-count">3</div>
                     </a>

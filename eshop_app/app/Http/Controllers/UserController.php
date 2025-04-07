@@ -70,19 +70,21 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            // Presmerovanie podľa is_admin
+            if (Auth::user()->is_admin) {
+                return redirect()->route('admin_profile.index')->with('success', 'Prihlásenie bolo úspešné!');
+            }
             return redirect()->route('profile.index')->with('success', 'Prihlásenie bolo úspešné!');
         }
 
         return redirect()->back()->withErrors(['email' => 'Nesprávny e-mail alebo heslo.'])->withInput();
     }
 
-    // Nová metóda: Odhlásenie
     public function logout(Request $request)
     {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
         return redirect('/')->with('success', 'Boli ste odhlásení.');
     }
 

@@ -11,13 +11,13 @@ CONSTRAINT users_pkey PRIMARY KEY (id)
 );
 
 INSERT INTO users (f_name, l_name, email, password, is_admin, newsletter)
-values ('Alžbeta', 'Žiarovská', 'alzbetaziarovska@gmail.com', md5('12345'), true, false);
+values ('Alžbeta', 'Žiarovská', 'alzbetaziarovska@gmail.com', '$2y$10$qF/oQAuJ6V8OPwBKBvgUS.HT.GMOeAWPp.923mMQALKOk8DhUQatK', true, false);
 
 INSERT INTO users (f_name, l_name, email, password, is_admin, newsletter)
-values ('Ema', 'Tuptová', 'ema.tuptova@gmail.com', '$2y$10$X8lzTETNp76iiL7JY4vXeevs3LWvSRz5SHBXvh93Rdq8JuqQc11aW', true, false);
+values ('Ema', 'Tuptová', 'ema.tuptova@gmail.com', '$2y$10$qF/oQAuJ6V8OPwBKBvgUS.HT.GMOeAWPp.923mMQALKOk8DhUQatK', true, false);
 
 INSERT INTO users (f_name, l_name, email, password, is_admin, newsletter)
-values ('Janko', 'Hraško', 'janko.hrasko@gmail.com', md5('12345'), false, false);
+values ('Janko', 'Hraško', 'janko.hrasko@gmail.com', '$2y$10$qF/oQAuJ6V8OPwBKBvgUS.HT.GMOeAWPp.923mMQALKOk8DhUQatK', false, false);
 
 CREATE TYPE order_state AS ENUM ('processing', 'shipped', 'delivered', 'canceled');
 CREATE TYPE country_enum AS ENUM ('SK', 'CZ', 'PL', 'HU', 'AU'); -- Add relevant countries
@@ -111,4 +111,3 @@ CREATE TABLE products_in_order (
     CONSTRAINT fk_products_in_order_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
     PRIMARY KEY (order_id, product_id) -- Ensures each order can have only one of each product
 );
-
