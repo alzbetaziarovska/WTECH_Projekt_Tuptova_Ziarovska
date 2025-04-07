@@ -101,7 +101,7 @@
     <div class="cart-container">
         <h2>Váš nákupný košík</h2>
         <div class="cart-items">
-            @forelse ($cart as $id => $item)
+            @forelse ($products as $product)
                 <div class="product-in-cart">
                     <form action="{{ route('cart.remove', $id) }}" method="POST" style="display:inline;">
                         @csrf
@@ -112,8 +112,8 @@
                         <a href="{{ url('product_detail/' . $id) }}">
                             <img src="../images/logo_final.png" alt="{{ $item['name'] }}">
                         </a>
-                        <p>{{ $item['name'] }}</p>
-                        <p>Cena {{ $item['price'] }}€</p>
+                        <p>{{ $product->name }}</p>
+                        <p>Cena {{ $product->price }}€</p>
                         <div class="quantity-selector">
                             <form action="{{ route('cart.update', $id) }}" method="POST" style="display:inline;">
                                 @csrf
@@ -146,6 +146,9 @@
             <div class="price-info">
                 <div>
                 <div>
+                        @php
+                            $cart = session('cart', []);
+                        @endphp
                     <span class="big-price">Cena: {{ array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart)) }}€</span>
                 </div>
                 </div>

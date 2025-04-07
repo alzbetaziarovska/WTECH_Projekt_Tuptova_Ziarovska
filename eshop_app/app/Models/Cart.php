@@ -23,7 +23,15 @@ class Cart extends Model
      * Define relationship: A Cart belongs to a User.
      */
     public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
+{
+    return $this->belongsTo(User::class); // A cart belongs to one user
 }
+
+    public function items()
+{
+    return $this->hasMany(CartItem::class);
+}
+
+}
+
+

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,8 +42,10 @@ class UserController extends Controller
             'newsletter' => $request->has('newsletter') ? true : false,
         ]);
 
-        // Vytvorenie košíka v databáze
-        DB::table('carts')->insert(['user_id' => $user->id]);
+        $cart = Cart::create([
+            'user_id' => $user->id,
+        ]);
+        $user->cart()->associate($cart);
 
         // Prihlásenie používateľa
         auth()->login($user);

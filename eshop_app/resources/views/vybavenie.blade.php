@@ -38,7 +38,11 @@
                     @endif
                     <a href="<?php echo url('shopping_cart1') ?>" class="bag">
                         <i class="fa-solid fa-cart-shopping"></i>
-                        <div class="bag-count">3</div>
+                        <!-- @php
+                            $cart = session('cart', []);
+                            $cartCount = count($cart); // distinct products
+                        @endphp -->
+                        <div class="bag-count">{{ $cartCount }}</div>
                     </a>
                 </div>
             </div>
@@ -337,24 +341,32 @@
             <div class="products">
                 @foreach ($products as $product)
                 <div class="product product-shop">
-                    <a href="<?php echo url('product_detail/' . $product->id) ?>" class="product-link">
-                        <img src="../images/logo_final.png" alt="Produkt 1">
-                        <div class="labels">
-                            <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
-                            <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
-                            <span class="label new-l"><i class="fa-regular fa-star"></i></span>
-                        </div>
-                        <p class="name-of-product">{{$product->name}}</p>
-                        <p class="price-of-product">Cena X€</p>
-                        <p class="price-of-product-sale">Cena Y€</p>
-                    </a>
+                    
+                        
+                        <a href="{{ url('product_detail/' . $product->id) }}" class="product-link">
+                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <div class="labels">
+                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                            </div>
+                            <p class="name-of-product">{{ $product->name }}</p>
+                            <p class="price-of-product">Cena {{$product->price}}€</p>
+                            <p class="price-of-product-sale">Cena Y€</p>
+                        </a>
+                        <form method="POST" action="{{ route('cart.addToCart') }}">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <div class="quantity-selector">
-                            <button class="quantity-btn" id="decrease">-</button>
-                            <input type="number" id="quantity" min="1" value="1">
-                            <button class="quantity-btn" id="increase">+</button>
+                            <button type="button" class="quantity-btn">-</button>
+                            <input type="number" name="quantity" min="1" value="1" class="quantity-input">
+                            <button type="button" class="quantity-btn">+</button>
                         </div>
+
                         <div class="shop-product">
-                            <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <button type="submit" class="shop-but">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
                             <div class="info-of-product">
                                 <p class="availability">Skladom >5ks</p>
                                 <div class="product-stars">
@@ -365,7 +377,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+                    </form>
                 </div>
                 @endforeach
                 <!-- <div class="product sale product-shop">
