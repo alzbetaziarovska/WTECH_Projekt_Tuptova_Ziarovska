@@ -306,7 +306,16 @@
                 </div>
                 <p class="availability">Skladom >10ks</p>
                 <div class="button-container">
-                    <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i>Do košíka</a>
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id ?? 1 }}"> <!-- Použije ID produktu -->
+                        <div class="quantity-selector">
+                            <button type="button" class="quantity-btn" id="decrease">-</button>
+                            <input type="number" name="quantity" id="quantity-detail" min="1" value="1">
+                            <button type="button" class="quantity-btn" id="increase">+</button>
+                        </div>
+                        <button type="submit" class="shop-but"><i class="fa-solid fa-cart-shopping"></i> Do košíka</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -101,46 +101,33 @@
     <div class="cart-container">
         <h2>Váš nákupný košík</h2>
         <div class="cart-items">
-
-            <div class="product-in-cart">
-                <p>&times</p>
-                <div class = "product-item-media">
-                    <a href = "<?php echo url('product_detail') ?>"><img src="../images/logo_final.png" alt="Produkt 2"></a>
-                        <p>Produkt 1</p>
-                        <p>Cena 1€</p>
+            @forelse ($cart as $id => $item)
+                <div class="product-in-cart">
+                    <form action="{{ route('cart.remove', $id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="remove-btn">×</button>
+                    </form>
+                    <div class="product-item-media">
+                        <a href="{{ url('product_detail/' . $id) }}">
+                            <img src="../images/logo_final.png" alt="{{ $item['name'] }}">
+                        </a>
+                        <p>{{ $item['name'] }}</p>
+                        <p>Cena {{ $item['price'] }}€</p>
                         <div class="quantity-selector">
-                            <button class="quantity-btn" id="decrease">-</button>
-                            <input type="number" id="quantity" min="1" value="1">
-                            <button class="quantity-btn" id="increase">+</button>
+                            <form action="{{ route('cart.update', $id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit" name="change" value="decrease" class="quantity-btn">-</button>
+                                <input type="number" name="quantity" min="1" value="{{ $item['quantity'] }}" onchange="this.form.submit()">
+                                <button type="submit" name="change" value="increase" class="quantity-btn">+</button>
+                            </form>
                         </div>
+                    </div>
                 </div>
-            </div>
-            <div class="product-in-cart">
-                <p>&times</p>
-                <div class="product-item-media">
-                    <a href = "<?php echo url('product_detail') ?>"><img src="../images/logo_final.png" alt="Produkt 2"></a>
-                        <p>Produkt 2</p>
-                        <p>Cena 2€</p>
-                        <div class="quantity-selector">
-                            <button class="quantity-btn" id="decrease">-</button>
-                            <input type="number" id="quantity" min="1" value="1">
-                            <button class="quantity-btn" id="increase">+</button>
-                        </div>
-                </div>
-            </div>
-            <div class="product-in-cart">
-                <p>&times</p>
-                <div class="product-item-media">
-                    <a href = "<?php echo url('product_detail') ?>"><img src="../images/logo_final.png" alt="Produkt 2"></a>
-                        <p>Produkt 3</p>
-                        <p>Cena 3€</p>
-                        <div class="quantity-selector">
-                            <button class="quantity-btn" id="decrease">-</button>
-                            <input type="number" id="quantity" min="1" value="1">
-                            <button class="quantity-btn" id="increase">+</button>
-                        </div>
-                </div>
-            </div>
+            @empty
+                <p>Váš košík je prázdny.</p>
+            @endforelse
         </div>
         
         <div class="cart-total">
@@ -158,7 +145,9 @@
             </div>
             <div class="price-info">
                 <div>
-                    <span class="big-price">Cena: XXX$</span>
+                <div>
+                    <span class="big-price">Cena: {{ array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart)) }}€</span>
+                </div>
                 </div>
                 <div>
                     <a href="#" class="toggle-coupon"><u>Mám zľavový kupón</u></a>

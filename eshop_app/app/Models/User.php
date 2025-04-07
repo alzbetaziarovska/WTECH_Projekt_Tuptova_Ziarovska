@@ -31,4 +31,9 @@ class User extends Authenticatable
 
     // Vypnutie timestampov
     public $timestamps = false;
+
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
 }

@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         $request->validate([
             'f_name' => 'required|string|max:512',
-            'l_name' => 'required|string|max:512',
+            'l_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
@@ -41,7 +41,22 @@ class UserController extends Controller
             'newsletter' => $request->has('newsletter') ? true : false,
         ]);
 
+        // Vytvorenie košíka v databáze
+        DB::table('carts')->insert(['user_id' => $user->id]);
+
+        // Prihlásenie používateľa
         auth()->login($user);
+
+        // Presun session košíka do databázy
+        $sessionCart = session('cart', []);
+        foreach ($sessionCart as $productId => $item) {
+            DB::table('products_in_cart')->updateOrInsert(
+                ['cart_id' => $user->cart->id, 'product_id' => $productId],
+                ['pcs' => $item['quantity']]
+            );
+        }
+        session()->forget('cart'); // Vyprázdni session
+
         return redirect()->route('profile.index')->with('success', 'Registrácia bola úspešná!');
     }
 

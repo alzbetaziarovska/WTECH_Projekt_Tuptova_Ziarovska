@@ -339,7 +339,10 @@
                     </div>
                     <div class="profile-actions">
                         <a href="#"><button>Zmeniť heslo</button></a>
-                        <a href="<?php echo url('homepage') ?>"><button>Odhlásiť sa</button></a>
+                        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                            @csrf
+                            <button type="submit">Odhlásiť sa</button>
+                        </form>
                     </div>
                 </div>
             </div>

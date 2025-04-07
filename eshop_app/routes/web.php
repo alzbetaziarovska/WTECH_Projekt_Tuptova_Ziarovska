@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
+use App\Http\Controllers\CartController;
 
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/register', [UserController::class, 'create'])->name('register.form');
 Route::post('/register', [UserController::class, 'store'])->name('register.store');
 Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
