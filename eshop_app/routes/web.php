@@ -28,7 +28,7 @@ Route::get('/shopping_cart2', fn() => view('shopping_cart2'));
 Route::get('/shopping_cart3', fn() => view('shopping_cart3'));
 Route::get('/stores', fn() => view('stores'));
 Route::get('/thanks_for_purchase', fn() => view('thanks_for_purchase'));
-Route::get('/vybavenie', fn() => view('vybavenie')->with('products', Product::where('category_id', 1)->get()));
+//Route::get('/vybavenie', fn() => view('vybavenie')->with('products', Product::where('category_id', 1)->get()));
 Route::get('/vyrobky', fn() => view('vyrobky')->with('products', Product::where('category_id', 4)->get()));
 Route::get('/zdravie', fn() => view('zdravie')->with('products', Product::where('category_id', 3)->get()));
 Route::get('product_detail/{id}', [ProductController::class, 'show'])->name('product.detail');
@@ -38,5 +38,7 @@ Route::get('product_detail/{id}', [ProductController::class, 'show'])->name('pro
 Route::get('/shopping_cart1', fn() => view('shopping_cart1')->with('products', CartItem::where('user_id', auth()->user()->id)->get()));
 
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.addToCart');
+
+Route::get('/products/{category}', [ProductController::class, 'index'])->name('products.index');
 
 
