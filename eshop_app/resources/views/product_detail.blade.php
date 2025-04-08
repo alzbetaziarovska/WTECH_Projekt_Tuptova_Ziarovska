@@ -35,11 +35,11 @@
             </div>            
             <div class="product-text">
                 <div class="text-container">
-                    @if ($product)
+                    <!-- @if ($product) -->
                     <h1>{{$product->name}}</h1>
                     <p id="product_description" class="collapsed">{{$product->description}}</p>
                     <h1>Cena: {{$product->price}}€</h1>
-                    @else
+                    <!-- @else
                     <h1>Sviečka z včelieho vosku</h1>
                     <p id="product_description" class="collapsed">Doprajte si kúzlo prírody s ručne vyrábanou sviečkou z čistého včelieho vosku. 
                         Táto sviečka je 100 % prírodná, bez pridaných chemikálií a umelých vôní, vďaka čomu je 
@@ -53,8 +53,8 @@
                         🌿 Zloženie: 100 % prírodný včelí vosk, bavlnený knôt <br>
                         💛 Prinesie do vášho domova harmóniu a prírodnú vôňu včelieho úľa!</p>
                     <button id="toggle-btn" class="toggle-button">Viac...</button>
-                    <h1>Cena: 10,99€</h1>
-                    @endif
+                    <h1>Cena: 10,99€</h1> -->
+                    <!-- @endif -->
                     <div class = "product-stars">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -62,12 +62,12 @@
                         <i class="fa-solid fa-star"></i>
                     </div>
                 </div>
-                <div class="quantity-selector">
+                <!-- <div class="quantity-selector">
                     <button class="quantity-btn" id="decrease">-</button>
                     <input type="number" id="quantity-detail" min="1" value="1">
                     <button class="quantity-btn" id="increase">+</button>
-                </div>
-                <p class="availability">Skladom >10ks</p>
+                </div> -->
+                <p class="availability">Skladom {{ $product->in_storage < 10 ? (string) $product->in_storage : '>10' }}ks</p>
                 <div class="button-container">
                     <form action="" method="POST">
                         @csrf

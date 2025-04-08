@@ -12,7 +12,7 @@ class Order extends Model
     protected $table = 'orders'; // Explicitly defining the table name (optional)
 
     protected $primaryKey = 'id'; // Defining primary key (optional)
-    
+
     public $timestamps = false; // Disable timestamps if not included in the table
 
     protected $fillable = [
@@ -35,8 +35,13 @@ class Order extends Model
     /**
      * Define relationship: Order belongs to a User.
      */
-    public function user()
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function products(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Product::class, 'order_id');
     }
 }

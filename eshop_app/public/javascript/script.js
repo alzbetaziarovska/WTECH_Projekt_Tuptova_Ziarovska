@@ -284,13 +284,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function changeQuantity(button, delta) {
-    const input = button.parentElement.querySelector('.quantity-input');
-    let value = parseInt(input.value);
-    value = isNaN(value) ? 1 : value + delta;
-    input.value = Math.max(1, value);
-}
-
 // for each product shop but it should open addded-to-cart side bar
 document.addEventListener("DOMContentLoaded", function() {
     const addToCartButtons = document.querySelectorAll(".shop-but"); // choose all buttons

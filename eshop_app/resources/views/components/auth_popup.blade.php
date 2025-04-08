@@ -14,7 +14,7 @@
                         </div>
                     @endif
                     <a href="#" class="forgot-password" onclick="toggleForgotPasswordForm()">Zabudnuté heslo?</a>
-                    <a href="{{ url('admin_profile') }}">Admin</a>
+                    <!-- <a href="{{ url('admin_profile') }}">Admin</a> -->
                     <button type="submit">Prihlásiť sa</button>
                 </form>                
                 <p>Nemáte účet? <a href="#" onclick="toggleRegisterForm()">Zaregistrujte sa!</a></p>

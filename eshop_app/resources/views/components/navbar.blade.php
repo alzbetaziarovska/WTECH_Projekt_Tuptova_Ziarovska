@@ -32,8 +32,8 @@
                     <a href="{{ url('shopping_cart1') }}" class="bag">
                         <i class="fa-solid fa-cart-shopping"></i>
                         @php
-                            $cart = session('cart', []);
-                            $cartCount = count($cart); // distinct products
+                            use App\Http\Controllers\CartController;
+                            $cartCount = CartController::productsCount();
                         @endphp
                         <div class="bag-count">{{ $cartCount }}</div>
                     </a>

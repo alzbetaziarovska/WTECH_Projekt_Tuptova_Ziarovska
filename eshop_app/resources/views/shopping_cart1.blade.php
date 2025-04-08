@@ -1,59 +1,61 @@
 @extends('layouts.base')
 
 @section('main')
+
+    <div class="cart-sections-bar">
+        <a><i class="fa-solid fa-bag-shopping"></i><b>Nákupný košík</b></a>
+        <i class="fa-solid fa-arrow-right arrows"></i>
+        <a><i class="fa-solid fa-truck"></i>Doprava a platba</a>
+        <i class="fa-solid fa-arrow-right arrows"></i>
+        <a><i class="fa-solid fa-circle-info"></i>Informácie o Vás</a>
+    </div>
+
+
     <div class="cart-container">
         <h2>Váš nákupný košík</h2>
         <div class="cart-items">
-            @forelse ($products as $product)
+            @foreach($productsInCart as $productInCart) <?php $product = $productInCart->product ?>
                 <div class="product-in-cart">
-                    <form action="{{ route('cart.remove', $id) }}" method="POST" style="display:inline;">
+                    <form method="POST" action="{{route("cart.removeProduct")}}">
                         @csrf
-                        @method('DELETE')
-                        <button type="submit" class="remove-btn">×</button>
+                        <!--<input type="hidden" name="_method" value="DELETE">-->
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <button type="submit" class="delete-btn" >&times</button>
                     </form>
-                    <div class="product-item-media">
-                        <a href="{{ url('product_detail/' . $id) }}">
-                            <img src="../images/logo_final.png" alt="{{ $item['name'] }}">
-                        </a>
+                    <!-- <p><a href="{{route("cart.removeProduct")}}">&times</p> -->
+                    <div class = "product-item-media">
+                        <a href = "{{ url('product_detail/' . $product->id) }}"><img src="../images/logo_final.png" alt="{{ $product->name }} image"></a>
                         <p>{{ $product->name }}</p>
-                        <p>Cena {{ $product->price }}€</p>
+                        <p>Cena {{ number_format($product->salePrice(), 2) }}€</p>
                         <div class="quantity-selector">
-                            <form action="{{ route('cart.update', $id) }}" method="POST" style="display:inline;">
+                            <form method="POST" action="{{route("cart.changeProductPcs")}}">
                                 @csrf
-                                @method('PATCH')
-                                <button type="submit" name="change" value="decrease" class="quantity-btn">-</button>
-                                <input type="number" name="quantity" min="1" value="{{ $item['quantity'] }}" onchange="this.form.submit()">
-                                <button type="submit" name="change" value="increase" class="quantity-btn">+</button>
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <input type="number" name="pcs" id="quantity" min="1" value="{{ $productInCart->pcs }}">
+                                <button type="submit" class="quantity-btn" id="increase">	&#10003;</button>
                             </form>
                         </div>
                     </div>
                 </div>
-            @empty
-                <p>Váš košík je prázdny.</p>
-            @endforelse
+            @endforeach
         </div>
-        
+
         <div class="cart-total">
             <div class="cart-pannel">
-                <p>Objednajte ešte za <b>Y$</b> a máte dopravu <b>ZADARMO</b></bZADARMO>.</p>
+                <p>Objednajte ešte za <b>Y€</b> a máte dopravu <b>ZADARMO</b></bZADARMO>.</p>
                 <div class="shipping-loader">
                     <div class="shipping-progress"></div>
                 </div>
-                <p>Objednajte ešte za <b>Z$</b> a získate <b>DARČEK</b> .</p>
+                <p>Objednajte ešte za <b>Z€</b> a získate <b>DARČEK</b> .</p>
                 <div class="gift-loader">
                     <div class="gift-progress"></div>
                 </div>
-                <p>Doručenie možné do: <i class="fa-solid fa-circle-question"></i></p> 
+                <p>Doručenie možné do: <i class="fa-solid fa-circle-question"></i></p>
                 <p class="delivery-time"><i class="fa-solid fa-box-open"></i>DD.MM.RRRR</p>
             </div>
             <div class="price-info">
                 <div>
-                <div>
-                        @php
-                            $cart = session('cart', []);
-                        @endphp
-                    <span class="big-price">Cena: {{ array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart)) }}€</span>
-                </div>
+                    <span class="big-price">Cena: {{ $cartPrice }}€</span>
                 </div>
                 <div>
                     <a href="#" class="toggle-coupon"><u>Mám zľavový kupón</u></a>
@@ -70,4 +72,5 @@
             <a href="<?php echo url('shopping_cart2') ?>" class="next-button" type="submit">Pokračovať na dopravu a platbu <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </div>
+
 @endsection

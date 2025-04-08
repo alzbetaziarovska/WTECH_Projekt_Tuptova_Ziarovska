@@ -24,6 +24,7 @@ Route::get('/krmivo', fn() => view('krmivo')->with('products', Product::where('c
 Route::get('/product_detail', fn() => view('product_detail')->with('product', Product::find(0)));
 Route::get('/shop', fn() => view('shop'));
 //Route::get('/shopping_cart1', fn() => view('shopping_cart1'));
+Route::get('/shopping_cart1', [CartController::class, 'show'])->name('shopping_cart1');
 Route::get('/shopping_cart2', fn() => view('shopping_cart2'));
 Route::get('/shopping_cart3', fn() => view('shopping_cart3'));
 Route::get('/stores', fn() => view('stores'));
@@ -35,10 +36,18 @@ Route::get('product_detail/{id}', [ProductController::class, 'show'])->name('pro
 
 //Route::post('/cart/add', [CartController::class, 'add'])->name('cart.addToCart');
 //Route::resource('shopping_cart1', CartController::class);
-Route::get('/shopping_cart1', fn() => view('shopping_cart1')->with('products', CartItem::where('user_id', auth()->user()->id)->get()));
+//Route::get('/shopping_cart1', fn() => view('shopping_cart1')->with('products', CartItem::where('user_id', auth()->user()->id)->get()));
 
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.addToCart');
 
 Route::get('/products/{category}', [ProductController::class, 'index'])->name('products.index');
+
+Route::get('product_detail/{id}', [ProductController::class, 'show'])->name('product.detail');
+
+Route::post('add_to_cart', [CartController::class, 'addProduct'])->name('cart.addProduct');
+
+Route::post('change_cart', [CartController::class, 'setProduct'])->name('cart.changeProductPcs');
+
+Route::post('remove_from_cart', [CartController::class, 'removeProduct'])->name('cart.removeProduct');
 
 

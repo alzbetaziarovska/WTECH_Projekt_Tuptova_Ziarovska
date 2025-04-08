@@ -1412,7 +1412,7 @@ p.cat-description {
     padding: 8px 12px;
     cursor: pointer;
     font-size: 18px;
-    border-radius: 5px;
+    border-radius: 100%;
 }
 
 
@@ -2767,6 +2767,16 @@ iframe {
     width: 100%;
     max-width: 200px;
     object-fit: cover;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: var(--dark);
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s;
 }
 
 .shipping-loader, .gift-loader {
