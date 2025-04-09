@@ -31,7 +31,7 @@
                             <form method="POST" action="{{route("cart.changeProductPcs")}}">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                <input type="number" name="pcs" id="quantity" min="1" value="{{ $productInCart->pcs }}">
+                                <input type="number" name="quantity" id="quantity" min="1" value="{{ $productInCart->quantity }}">
                                 <button type="submit" class="quantity-btn" id="increase">	&#10003;</button>
                             </form>
                         </div>

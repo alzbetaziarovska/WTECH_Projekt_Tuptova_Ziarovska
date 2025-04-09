@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Product;
-use App\Models\ProductInCart;
+use App\Models\CartItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -16,21 +16,21 @@ class CartController extends Controller
     public function addProduct(Request $request): \Illuminate\Http\RedirectResponse
     {
         $productID = $request->input('product_id');
-        $pcs = $request->input('pcs');
+        $quantity = $request->input('quantity');
 
         if (Auth::check())
         {
-            $cart = Cart::where('user_id', Auth::id());
-            $productInCart = ProductInCart::where('cart_id', $cart->id)->where('product_id', $productID)->first();
+            $cart = Cart::firstOrCreate(['user_id' => Auth::id()]);
+            $cartItem = CartItem::where('cart_id', $cart->id)->where('product_id', $productID)->first();
 
             // Already in cart, adding more
-            if ($productInCart) $productInCart->increment('quantity', $pcs);
+            if ($cartItem) $cartItem->increment('quantity', $quantity);
 
             // New to cart
-            else ProductInCart::create([
+            else CartItem::create([
                 'cart_id' => $cart->id,
                 'product_id' => $productID,
-                'quantity' => $pcs,
+                'quantity' => $quantity,
             ]);
             return redirect()->back(); // fuck session if logged in
         }
@@ -40,9 +40,9 @@ class CartController extends Controller
         $productCartIndex = array_search($productID, array_column($cart, 'product_id'));
 
         if ($productCartIndex === false) {
-            $cart[] = ['product_id' => $productID, 'pcs' => $pcs];
+            $cart[] = ['product_id' => $productID, 'quantity' => $quantity];
         } else {
-            $cart[$productCartIndex]['pcs'] += $pcs;
+            $cart[$productCartIndex]['quantity'] += $quantity;
         }
         Session::put('shopping_cart', $cart);
         return redirect()->back();
@@ -51,37 +51,54 @@ class CartController extends Controller
     public function setProduct(Request $request): \Illuminate\Http\RedirectResponse
     {
         $productID = $request->input('product_id');
-        $pcs = $request->input('pcs');
+        $quantity = $request->input('quantity');
 
+        // Check if the user is logged in
         if (Auth::check())
         {
-            $cart = Cart::where('user_id', Auth::id());
-            $productInCart = ProductInCart::where('cart_id', $cart->id)->where('product_id', $productID)->first();
+            // Retrieve or create the cart for the authenticated user
+            $cart = Cart::firstOrCreate(['user_id' => Auth::id()]); // Ensures the cart is available for the user
 
-            // Already in cart, adding more
-            if ($productInCart) $productInCart->update('quantity', $pcs);
+            // Find the cart item for the product in the user's cart
+            $cartItem = CartItem::where('cart_id', $cart->id)->where('product_id', $productID)->first();
 
-            // New to cart
-            else ProductInCart::create([
-                'cart_id' => $cart->id,
-                'product_id' => $productID,
-                'quantity' => $pcs,
-            ]);
-            return redirect()->back(); // fuck session if logged in
+            // If the product is already in the cart, update the quantity
+            if ($cartItem) {
+                $cartItem->update(['quantity' => $quantity]); // Update the quantity of the existing cart item
+            }
+            // If the product is not in the cart, create a new cart item
+            else {
+                CartItem::create([
+                    'cart_id' => $cart->id,
+                    'product_id' => $productID,
+                    'quantity' => $quantity,
+                ]);
+            }
+
+            // Redirect back to the previous page
+            return redirect()->back();
         }
 
-        // For users not logged in
+        // If the user is not logged in, handle the session-based cart
         $cart = Session::get('shopping_cart', []);
         $productCartIndex = array_search($productID, array_column($cart, 'product_id'));
 
+        // If the product is not in the session cart, add it
         if ($productCartIndex === false) {
-            $cart[] = ['product_id' => $productID, 'pcs' => $pcs];
-        } else {
-            $cart[$productCartIndex]['pcs'] = $pcs;
+            $cart[] = ['product_id' => $productID, 'quantity' => $quantity];
         }
+        // If the product is already in the session cart, update the quantity
+        else {
+            $cart[$productCartIndex]['quantity'] = $quantity;
+        }
+
+        // Save the updated cart to the session
         Session::put('shopping_cart', $cart);
+
+        // Redirect back to the previous page
         return redirect()->back();
     }
+
 
     public function removeProduct(Request $request)
     {
@@ -89,31 +106,49 @@ class CartController extends Controller
 
         if (Auth::check())
         {
-            $cart = Cart::where('user_id', Auth::id());
-            ProductInCart::where('cart_id', $cart->id)->where('product_id', $productID)->delete();
+            // Retrieve the cart of the authenticated user
+            $cart = Cart::where('user_id', Auth::id())->first(); // Use first() to get the actual cart object
+
+            // If the cart exists, delete the cart item
+            if ($cart) {
+                CartItem::where('cart_id', $cart->id)->where('product_id', $productID)->delete();
+            }
         }
 
+        // Handle the session-based cart for users who are not logged in
         $cart = Session::get('shopping_cart', []);
-        unset($cart[$productID]);
+        
+        // Find the product by its index and remove it from the session cart
+        foreach ($cart as $key => $item) {
+            if ($item['product_id'] == $productID) {
+                unset($cart[$key]);
+                break;
+            }
+        }
+
+        // Save the updated cart to the session
         Session::put('shopping_cart', $cart);
+
+        // Redirect back to the previous page
         return redirect()->back();
     }
+
 
     public function productsInCart()
     {
         if (Auth::check())
         {
             $cart = Cart::where('user_id', Auth::id())->first();
-            return ProductInCart::with('product')->where('cart_id', $cart->id)->get();
+            return CartItem::with('product')->where('cart_id', $cart->id)->get();
         }
         $cart = Session::get('shopping_cart', []);
         $productsInCart = collect();
-        foreach ($cart as $productInCart) {
-            $product = Product::find($productInCart['product_id']);
+        foreach ($cart as $cartItem) {
+            $product = Product::find($cartItem['product_id']);
             $productsInCart->push((object)[
                 'product' => $product,
-                'pcs' => $productInCart['pcs'],
-                'product_id' => $productInCart['product_id']
+                'quantity' => $cartItem['quantity'],
+                'product_id' => $cartItem['product_id']
             ]);
         }
         return $productsInCart;
@@ -121,14 +156,19 @@ class CartController extends Controller
 
     public function productsCount()
     {
-        if (Auth::check())
-        {
-            $cart = Cart::where('user_id', Auth::id())->first();
-            return ProductInCart::where('cart_id', $cart->id)->count();
-        }
-        $cart = Session::get('shopping_cart', []);
-        return count($cart);
+    if (Auth::check()) {
+        // Automatically create a cart if it doesn't exist
+        $cart = Cart::firstOrCreate(['user_id' => Auth::id()]);
+
+        return CartItem::where('cart_id', $cart->id)->count();
     }
+
+    // For guest users using session-based cart
+    $cart = Session::get('shopping_cart', []);
+
+    return count($cart);
+    }
+
 
     public function show()
     {
@@ -141,8 +181,8 @@ class CartController extends Controller
         $productsInCart = $this->productsInCart();
         $totalPrice = 0;
 
-        foreach ($productsInCart as $productInCart) {
-            $totalPrice += $productInCart->pcs * $productInCart->product->price;
+        foreach ($productsInCart as $cartItem) {
+            $totalPrice += $cartItem->quantity * $cartItem->product->price;
         }
 
         return round($totalPrice, 2);

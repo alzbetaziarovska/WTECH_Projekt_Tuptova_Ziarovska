@@ -33,7 +33,7 @@ class ProductController extends Controller
         }
 
         if ($request->filled('maker[]')) {
-            $query->whereIn('make', $request->input('maker[]'));
+            $query->whereIn('maker', $request->input('maker[]'));
         }
 
         // sticker thingies

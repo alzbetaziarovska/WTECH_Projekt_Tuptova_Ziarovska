@@ -45,7 +45,7 @@ class UserController extends Controller
         $cart = Cart::create([
             'user_id' => $user->id,
         ]);
-        $user->cart()->associate($cart);
+        $user->cart()->create($cart);
 
         // Prihlásenie používateľa
         auth()->login($user);

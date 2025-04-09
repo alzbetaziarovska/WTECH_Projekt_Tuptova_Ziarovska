@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // for each product shop but it should open addded-to-cart side bar
-document.addEventListener("DOMContentLoaded", function() {
+/* document.addEventListener("DOMContentLoaded", function() {
     const addToCartButtons = document.querySelectorAll(".shop-but"); // choose all buttons
     const addedToCartPopup = document.querySelector(".added-to-cart");
     const closeCartButton = document.querySelector(".close-btn-cart");
@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
             closeCartButton
         });
     }
-});
+}); */
 
 // pagination for the product list in the category page
   document.addEventListener("DOMContentLoaded", function () {

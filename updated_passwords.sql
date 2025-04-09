@@ -73,7 +73,7 @@ price DECIMAL(10,2) NOT NULL CHECK (price >= 0),
 CONSTRAINT fk_category_products FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
 );
 
-INSERT into products (category_id, name, description, make, in_storage, price) values (1, 'test1', 'toto je testovaci produkt chichi', 'test', 10, 10.99);
+INSERT into products (category_id, name, description, maker, in_storage, price) values (1, 'test1', 'toto je testovaci produkt chichi', 'test', 10, 10.99);
 
 CREATE TABLE product_photos (
     id BIGSERIAL PRIMARY KEY,

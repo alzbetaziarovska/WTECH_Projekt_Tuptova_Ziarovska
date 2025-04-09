@@ -33,7 +33,16 @@
                         <i class="fa-solid fa-cart-shopping"></i>
                         @php
                             use App\Http\Controllers\CartController;
-                            $cartCount = CartController::productsCount();
+
+                            $cartCount = 0;
+
+                            if (auth()->check()) {
+                                $cartCount = app(CartController::class)->productsCount();
+                            }
+                            else {
+                                $cart = Session::get('shopping_cart', []);
+                                $cartCount = count($cart);
+                            }
                         @endphp
                         <div class="bag-count">{{ $cartCount }}</div>
                     </a>

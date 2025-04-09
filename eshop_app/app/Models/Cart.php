@@ -27,6 +27,6 @@ class Cart extends Model
 
     public function productsInCart(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(ProductInCart::class, 'cart_id');
+        return $this->hasMany(CartItem::class, 'cart_id');
     }
 }

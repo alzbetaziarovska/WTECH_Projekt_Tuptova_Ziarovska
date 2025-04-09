@@ -39,7 +39,7 @@
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                             <div class="quantity-selector">
                                 <button class="quantity-btn" type="button" id="decrease">-</button>
-                                <input type="number" name="pcs" id="quantity" min="1" max="{{ $product->in_storage }}" value="1">
+                                <input type="number" name="quantity" id="quantity" min="1" max="{{ $product->in_storage }}" value="1">
                                 <button class="quantity-btn" type="button" id="increase">+</button>
                             </div>
                             <div class="shop-product">
