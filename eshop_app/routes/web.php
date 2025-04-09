@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
 use App\Models\CartItem;
+use App\Models\Category;
 use App\Http\Controllers\CartController;
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -22,7 +23,7 @@ Route::get('/homepage', fn() => view('homepage'));
 Route::get('/about', fn() => view('about'));
 Route::get('/krmivo', fn() => view('krmivo')->with('products', Product::where('category_id', 2)->get()));
 Route::get('/product_detail', fn() => view('product_detail')->with('product', Product::find(0)));
-Route::get('/shop', fn() => view('shop'));
+Route::get('/shop', fn() => view('shop')->with('categories', Category::all()));
 //Route::get('/shopping_cart1', fn() => view('shopping_cart1'));
 Route::get('/shopping_cart1', [CartController::class, 'show'])->name('shopping_cart1');
 Route::get('/shopping_cart2', fn() => view('shopping_cart2'));

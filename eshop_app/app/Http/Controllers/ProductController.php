@@ -32,14 +32,14 @@ class ProductController extends Controller
             $query->where('price', '<=', $request->input('max_price'));
         }
 
-        if ($request->filled('maker[]')) {
-            $query->whereIn('maker', $request->input('maker[]'));
+        if ($request->filled('maker')) {
+            $query->whereIn('maker', $request->input('maker'));
         }
 
         // sticker thingies
 
-        if ($request->has('on_sale')) {
-            $query->where('on_sale', true);
+        if ($request->has('sale')) {
+            $query->where('sale', true);
         }
 
         if ($request->has('in_storage')) {

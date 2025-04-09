@@ -242,10 +242,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // choosing the quantity of the product in the category page
-document.addEventListener("DOMContentLoaded", function () {
+/* document.addEventListener("DOMContentLoaded", function () {
     if (!document.querySelectorAll(".product-shop")) {
         return;
     }
+    console.log("Quantity selector initialized.");
     const products = document.querySelectorAll(".product-shop");
     products.forEach(product => {
         const quantityInput = product.querySelector(".quantity-selector input");
@@ -262,7 +263,38 @@ document.addEventListener("DOMContentLoaded", function () {
             quantityInput.value = currentValue + 1;
         });
     });
-}); 
+}); */
+
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Quantity selector initialized.");
+    
+    // Find all forms containing the quantity selector
+    const quantitySelectors = document.querySelectorAll(".quantity-selector");
+
+    quantitySelectors.forEach(selector => {
+        const quantityInput = selector.querySelector("input[name='quantity']");
+        const decreaseBtn = selector.querySelector("#decrease");
+        const increaseBtn = selector.querySelector("#increase");
+
+        // Decrease button
+        decreaseBtn.addEventListener("click", function () {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+
+        // Increase button
+        increaseBtn.addEventListener("click", function () {
+            let currentValue = parseInt(quantityInput.value);
+            const maxQuantity = parseInt(quantityInput.getAttribute("max"));
+            if (currentValue < maxQuantity) {
+                quantityInput.value = currentValue + 1;
+            }
+        });
+    });
+});
+
 
 // quantity selector in the product detail page
 document.addEventListener("DOMContentLoaded", function () {
@@ -549,15 +581,39 @@ if (document.querySelector(".delete-product-form")) {
  }
 
  // every product needs at least 2 imgs
- document.getElementById("add-submit-btn").addEventListener("click", function (event) {
-    const fileInput = document.getElementById("product-image-add");
-    const errorMessage = document.getElementById("error-message");
-    if (fileInput.files.length < 2) {
-        event.preventDefault();
-        errorMessage.style.display = "block";
-    } else {
-        errorMessage.style.display = "none";
+if (document.querySelector(".add-product-form")) {
+    document.getElementById("add-submit-btn").addEventListener("click", function (event) {
+        const fileInput = document.getElementById("product-image-add");
+        const errorMessage = document.getElementById("error-message");
+        if (fileInput.files.length < 2) {
+            event.preventDefault();
+            errorMessage.style.display = "block";
+        } else {
+            errorMessage.style.display = "none";
+        }
+    })
+}
+
+document.getElementById('reset-filters').addEventListener('click', function() {
+    if (!document.getElementById('reset-filters')) {
+        return;
     }
+    // Clear all form fields
+    let form = document.querySelector('form');
+    form.reset();
+
+    const currentUrl = window.location.href;
+    const categoryMatch = currentUrl.match(/\/products\/(\d+)/);
+    const categoryId = categoryMatch ? categoryMatch[1] : '';
+
+    // Redirect to the reset page with the category ID
+    if (categoryId) {
+        window.location.replace(`/products/${categoryId}`);
+    } else {
+        // If no category ID is found, reload the page without filters
+        window.location.replace('/products');
+    }
+
 });
 
 // references:

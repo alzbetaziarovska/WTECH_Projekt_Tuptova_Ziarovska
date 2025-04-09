@@ -1346,11 +1346,6 @@ footer {
     background: var(--background);
 }
 
-p.cat-description {
-    margin: 20px;
-    text-align: justify;
-}
-
 .category:nth-child(even) {
     background: var(--light);
 }
@@ -1406,6 +1401,16 @@ p.cat-description {
 }
 
 .product-shop .quantity-btn {
+    background: linear-gradient(170deg, #ffb027, #ffcc33, #ffb027);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 100%;
+}
+
+form .quantity-btn {
     background: linear-gradient(170deg, #ffb027, #ffcc33, #ffb027);
     color: white;
     border: none;
@@ -1537,7 +1542,8 @@ p.cat-description {
     color: #333;
 }
 
-.apply-filter-btn {
+.apply-filter-btn,
+.reset-filter-btn {
     background-color: #ff9800;
     color: white;
     padding: 10px 15px;
@@ -1548,8 +1554,13 @@ p.cat-description {
     width: 100%;
 }
 
-.apply-filter-btn:hover {
+.apply-filter-btn:hover,
+.reset-filter-btn:hover {
     background-color: #ffb300; 
+}
+
+.apply-filter-btn {
+    margin-bottom: 10px;
 }
 
 
@@ -2781,7 +2792,7 @@ iframe {
 
 .shipping-loader, .gift-loader {
     margin: 10px 0 20px 0;
-    width: 100%;
+    width: 30vw;
     height: 10px;
     background-color: var(--light);
     border-radius: 5px;
@@ -2789,7 +2800,7 @@ iframe {
 
 .shipping-loader, .gift-loader {
     margin: 10px 0 20px 0;
-    width: 100%;
+    width: 30vw;
     height: 10px;
     background-color: var(--light);
     border-radius: 5px;
@@ -2799,7 +2810,7 @@ iframe {
 
 .shipping-progress {
     height: 100%;
-    width: 40%; 
+    width: 80%; 
     background-color: rgb(63, 65, 63); 
     border-radius: 0 5px 5px 0;
     transition: width 0.3s ease-in-out;
@@ -2807,7 +2818,7 @@ iframe {
 
 .gift-progress {
     height: 100%;
-    width: 60%; 
+    width: 80%; 
     background-color: rgb(63, 65, 63); 
     border-radius: 0 5px 5px 0;
     transition: width 0.3s ease-in-out;

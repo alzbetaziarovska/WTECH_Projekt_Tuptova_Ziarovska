@@ -3,7 +3,7 @@
         <button class="close-btn-side"><span>&times;</span></button>
         <a href="<?php echo url('about') ?>" class="topper">O nás</a>
         <a href="<?php echo url('shop') ?>" class="topper">E-shop</a>
-        <a href="<?php echo url('vybavenie') ?>">VYBAVENIE</a>
+        <a href="<?php echo url('products/1') ?>">VYBAVENIE</a>
         <a href="<?php echo url('krmivo') ?>">KRMIVO A DOPLNKY</a>
         <a href="<?php echo url('zadravie') ?>">ZDRAVIE VČIEL</a>
         <a href="<?php echo url('vyrobky') ?>">VÝROBKY</a>

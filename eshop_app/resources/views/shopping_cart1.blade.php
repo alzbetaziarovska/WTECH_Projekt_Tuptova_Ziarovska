@@ -42,13 +42,27 @@
 
         <div class="cart-total">
             <div class="cart-pannel">
-                <p>Objednajte ešte za <b>Y€</b> a máte dopravu <b>ZADARMO</b></bZADARMO>.</p>
+                @php
+                    $freeShipping = 50 - $cartPrice;
+                    $gift = 20 - $cartPrice;
+                    $shippingProgressPercentage = min(100, ($cartPrice / 50) * 100);
+                    $giftProgressPercentage = min(100, ($cartPrice / 20) * 100);
+                @endphp
+                @if (@freeShipping < 0)
+                    <p class="free-shipping"><i class="fa-solid fa-truck"></i>Získali ste dopravu<b>ZADARMO</b></p>
+                @else
+                    <p class="free-shipping">Objednajte ešte za <b>{{ $freeShipping }}€</b> a máte dopravu <b>ZADARMO</b></bZADARMO>.</p>
+                @endif
                 <div class="shipping-loader">
-                    <div class="shipping-progress"></div>
+                    <div class="shipping-progress" style="width: {{ $shippingProgressPercentage }}%;"></div>
                 </div>
-                <p>Objednajte ešte za <b>Z€</b> a získate <b>DARČEK</b> .</p>
+                @if ($gift < 0)
+                    <p class="free-gift"><i class="fa-solid fa-gift"></i> Získali ste <b>DARČEK</b></p>
+                @else
+                    <p>Objednajte ešte za <b>{{ $gift }} €</b> a získate <b>DARČEK</b> .</p>
+                @endif
                 <div class="gift-loader">
-                    <div class="gift-progress"></div>
+                    <div class="gift-progress" style="width: {{ $giftProgressPercentage }}%;"></div>
                 </div>
                 <p>Doručenie možné do: <i class="fa-solid fa-circle-question"></i></p>
                 <p class="delivery-time"><i class="fa-solid fa-box-open"></i>DD.MM.RRRR</p>

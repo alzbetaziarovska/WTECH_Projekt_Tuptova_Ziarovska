@@ -38,7 +38,7 @@
                     <!-- @if ($product) -->
                     <h1>{{$product->name}}</h1>
                     <p id="product_description" class="collapsed">{{$product->description}}</p>
-                    <h1>Cena: {{$product->price}}€</h1>
+                    <h1>Cena: {{ number_format($product->price, 2) }}€</h1>
                     <!-- @else
                     <h1>Sviečka z včelieho vosku</h1>
                     <p id="product_description" class="collapsed">Doprajte si kúzlo prírody s ručne vyrábanou sviečkou z čistého včelieho vosku. 
