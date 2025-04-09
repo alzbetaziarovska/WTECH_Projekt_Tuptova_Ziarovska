@@ -13,9 +13,12 @@
             <div class="products">
                 {{-- @var \App\Models\Product $product --}}
                 @foreach ($products as $product)
-                <div class="product {{ $product->on_sale > 0 ? 'sale' : '' }} {{ $product->recommended ? 'recommended' : '' }} {{ $product->new_in ? 'new' : '' }}">
+                @php
+                    $photo = $product->photos->first();
+                @endphp
+                <div class="product {{ $product->sale > 0 ? 'sale' : '' }} {{ $product->recommended ? 'recommended' : '' }} {{ $product->new_in ? 'new' : '' }}">
                         <a href="{{ url('product_detail/' . $product->id) }}" class="product-link">
-                            <img src="../images/logo_final.png" alt="Produkt 1">
+                            <img src="{{ $photo->file }}" class="product-photo" alt="Produkt {{ $product->name }}">
                         </a>
                         <div class="labels">
                             <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
@@ -104,7 +107,7 @@
                                 <li><input type="checkbox" name="on_sale" value="akcia" {{ request()->input('on_sale') === 'akcia' ? 'checked' : '' }}> Akcia</li>
                                 <li><input type="checkbox" name="in_storage" value="na-sklade" {{ request()->input('in_storage') === 'na-sklade' ? 'checked' : '' }}> Na sklade</li>
                                 <li><input type="checkbox" name="new_in" value="novinka" {{ request()->input('new_in') === 'novinka' ? 'checked' : '' }}> Novinka</li>
-                                <li><input type="checkbox" name="recommended" value="odporucame" {{ request()->input('recommended') === 'odporucame' ? 'checked' : '' }}> Odporúčame</li>
+                                <li><input type="checkbox" name="recommend" value="odporucame" {{ request()->input('recommend') === 'odporucame' ? 'checked' : '' }}> Odporúčame</li>
                                 <li><input type="checkbox" name="favorite" value="oblubene" {{ request()->input('favorite') === 'oblubene' ? 'checked' : '' }}> Obľúbené</li>
                             </ul>
                         </div>

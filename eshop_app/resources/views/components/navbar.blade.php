@@ -56,9 +56,9 @@
                     </button>
                     
                     <a href="<?php echo url('products/1') ?>">VYBAVENIE</a>
-                    <a href="<?php echo url('krmivo') ?>">KRMIVO A DOPLNKY</a>
-                    <a href="<?php echo url('zdravie') ?>">ZDRAVIE VČIEL</a>
-                    <a href="<?php echo url('vyrobky') ?>">VÝROBKY</a>
+                    <a href="<?php echo url('products/2') ?>">KRMIVO A DOPLNKY</a>
+                    <a href="<?php echo url('products/3') ?>">ZDRAVIE VČIEL</a>
+                    <a href="<?php echo url('products/4') ?>">VÝROBKY</a>
                     <div class="search-contact-mobile">
                         <div class="contact-section tablet">
                             <div class="contact-info">

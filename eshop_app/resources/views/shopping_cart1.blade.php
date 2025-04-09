@@ -15,6 +15,9 @@
         <h2>Váš nákupný košík</h2>
         <div class="cart-items">
             @foreach($productsInCart as $productInCart) <?php $product = $productInCart->product ?>
+                @php
+                    $photo = $product->photos->first();
+                @endphp
                 <div class="product-in-cart">
                     <form method="POST" action="{{route("cart.removeProduct")}}">
                         @csrf
@@ -24,15 +27,22 @@
                     </form>
                     <!-- <p><a href="{{route("cart.removeProduct")}}">&times</p> -->
                     <div class = "product-item-media">
-                        <a href = "{{ url('product_detail/' . $product->id) }}"><img src="../images/logo_final.png" alt="{{ $product->name }} image"></a>
+                        <a href = "{{ url('product_detail/' . $product->id) }}"><img src="{{ $photo->file }}" class="cart-photo" alt="{{ $product->name }} image"></a>
                         <p>{{ $product->name }}</p>
-                        <p>Cena {{ number_format($product->salePrice(), 2) }}€</p>
+                        @php
+                            $price = $product->price - $product->sale;
+                        @endphp
+                        <p>Cena {{ number_format($price, 2) }}€</p>
                         <div class="quantity-selector">
-                            <form method="POST" action="{{route("cart.changeProductPcs")}}">
+                            <form method="POST" class="change-quantity-form" action="{{route("cart.changeProductPcs")}}">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                <input type="number" name="quantity" id="quantity" min="1" value="{{ $productInCart->quantity }}">
-                                <button type="submit" class="quantity-btn" id="increase">	&#10003;</button>
+                                <div class="quantity-selector-cart">
+                                    <button class="quantity-btn" name="quantity" type="button" id="decrease-cart">-</button>
+                                    <input type="number" name="quantity" id="quantity-cart" min="1" value="{{ $productInCart->quantity }}">
+                                    <button class="quantity-btn" name="quantity" type="button" id="increase-cart">+</button>
+                                </div>
+                                <button type="submit" class="quantity-btn">&#10003;</button>
                             </form>
                         </div>
                     </div>

@@ -266,8 +266,9 @@ document.addEventListener('DOMContentLoaded', () => {
 }); */
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Quantity selector initialized.");
-    
+    if (!document.querySelectorAll(".quantity-selector")) {
+        return;
+    }
     // Find all forms containing the quantity selector
     const quantitySelectors = document.querySelectorAll(".quantity-selector");
 
@@ -316,6 +317,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    if (!document.getElementById("quantity-cart")) {
+        return;
+    }
+    const quantityInput = document.getElementById("quantity-cart"); // Target the input with id "quantity"
+    const decreaseBtn = document.getElementById("decrease-cart"); // Target the decrease button
+    const increaseBtn = document.getElementById("increase-cart"); // Target the increase button
+
+    // Decrease quantity when the decrease button is clicked
+    decreaseBtn.addEventListener("click", function () {
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    });
+
+    // Increase quantity when the increase button is clicked
+    increaseBtn.addEventListener("click", function () {
+        let currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+    });
+});
+
+
 // for each product shop but it should open addded-to-cart side bar
 /* document.addEventListener("DOMContentLoaded", function() {
     const addToCartButtons = document.querySelectorAll(".shop-but"); // choose all buttons
@@ -352,7 +377,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!document.querySelectorAll(".product-shop") || !document.getElementById("prevPage") || !document.getElementById("nextPage")) {
         return;
     }
-    const products = document.querySelectorAll(".product-shop");
+    const products = document.querySelectorAll(".product");
     const perPage = 6; // per page
     let currentPage = 1;
     function showPage(page) {

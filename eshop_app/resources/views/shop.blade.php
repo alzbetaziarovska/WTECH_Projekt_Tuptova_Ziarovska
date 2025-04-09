@@ -13,9 +13,12 @@
                 <div class="carousel-container">
                     <div class="product-carousel">
                         @foreach ($products as $product)
+                        @php
+                            $photo = $product->photos()->first();
+                        @endphp
                         <div class="product {{ $product->on_sale > 0 ? 'sale' : '' }} {{ $product->recommended ? 'recommended' : '' }} {{ $product->new_in ? 'new' : '' }}">
                             <a href="{{ url('product_detail/' . $product->id) }}" class="product-link">
-                                <img src="../images/logo_final.png" alt="Produkt 1">
+                                <img src="{{ $photo->file }}" alt="Produkt 1">
                                 <div class="labels">
                                     <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                                     @if ($product->recommend)
@@ -43,10 +46,9 @@
                                     <div class="info-of-product">
                                         <p class="availability">Skladom {{ $product->in_storage < 10 ? (string) $product->in_storage : '>10' }}ks</p>
                                         <div class="product-stars">
+                                        @foreach (range(1, $product->stars) as $star)
                                             <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
+                                         @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -71,9 +73,12 @@
                 <div class="carousel-container">
                     <div class="product-carousel">
                         @foreach ($products as $product)
+                        @php
+                            $photo = $product->photos()->first();
+                        @endphp
                             <div class="product {{ $product->on_sale > 0 ? 'sale' : '' }} {{ $product->recommended ? 'recommended' : '' }} {{ $product->new_in ? 'new' : '' }}">
                                 <a href="{{ url('product_detail/' . $product->id) }}" class="product-link">
-                                    <img src="../images/logo_final.png" alt="Produkt 1">
+                                    <img src="{{ $photo->file }}" class="product-photo" alt="Produkt 1">
                                     <div class="labels">
                                         <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                                         @if ($product->recommend)
@@ -95,10 +100,9 @@
                                         <div class="info-of-product">
                                             <p class="availability">Skladom {{ $product->in_storage < 10 ? (string) $product->in_storage : '>10' }}ks</p>
                                             <div class="product-stars">
+                                            @foreach (range(1, $product->stars) as $star)
                                                 <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
+                                            @endforeach
                                             </div>
                                         </div>
                                     </div>

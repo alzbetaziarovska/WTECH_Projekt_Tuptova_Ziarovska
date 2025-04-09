@@ -8,6 +8,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Photo;
+use App\Models\Review;
 use Illuminate\Http\Response;
 
 
@@ -110,9 +112,22 @@ class ProductController extends Controller
     {
         // Find the product by ID
         $product = Product::findOrFail($id);
+        $photos = Photo::where('product_id', $id)->get();
+        $reviews = Review::where('product_id', $id)->get();
 
         // Return the product detail view with the product data
-        return view('product_detail', compact('product'));
+        return view('product_detail', [
+            'product' => $product,
+            'photos' => $photos,
+            'reviews' => $reviews,
+        ]);
+        
+    }
+
+    public function showRecommendProducts()
+    {
+        $products = Product::where('recommend', true)->get();
+        return view('homepage', compact('products'));
     }
 
     /**

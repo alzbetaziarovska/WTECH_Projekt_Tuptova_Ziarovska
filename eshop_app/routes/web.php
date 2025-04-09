@@ -18,8 +18,8 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 Route::resource('profile', UserController::class);
 Route::resource('admin_profile', UserController::class);
 
-Route::get('/', fn() => view('homepage'));
-Route::get('/homepage', fn() => view('homepage'));
+Route::get('/', [ProductController::class, 'showRecommendProducts'])->name('homepage');
+Route::get('/homepage', [ProductController::class, 'showRecommendProducts'])->name('homepage');
 Route::get('/about', fn() => view('about'));
 Route::get('/krmivo', fn() => view('krmivo')->with('products', Product::where('category_id', 2)->get()));
 Route::get('/product_detail', fn() => view('product_detail')->with('product', Product::find(0)));
@@ -33,11 +33,6 @@ Route::get('/thanks_for_purchase', fn() => view('thanks_for_purchase'));
 //Route::get('/vybavenie', fn() => view('vybavenie')->with('products', Product::where('category_id', 1)->get()));
 Route::get('/vyrobky', fn() => view('vyrobky')->with('products', Product::where('category_id', 4)->get()));
 Route::get('/zdravie', fn() => view('zdravie')->with('products', Product::where('category_id', 3)->get()));
-Route::get('product_detail/{id}', [ProductController::class, 'show'])->name('product.detail');
-
-//Route::post('/cart/add', [CartController::class, 'add'])->name('cart.addToCart');
-//Route::resource('shopping_cart1', CartController::class);
-//Route::get('/shopping_cart1', fn() => view('shopping_cart1')->with('products', CartItem::where('user_id', auth()->user()->id)->get()));
 
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.addToCart');
 

@@ -3,33 +3,21 @@
 @section('main')
     <!-- Product Details -->
     <section class="product-detail">
-        <h1 class="mobile-heading">Sviečka z včelieho vosku</h1>
+        <h1 class="mobile-heading">{{ $product->name }}</h1>
         <div class="product-detail-upper">
             <div class="product-banner">
                 <div class="together">
                     <div class="place4img-product">
-                        <img src="../images/product_detail1.png" alt="Banner" class="banner-img" id="img-1">
-                        <img src="../images/product_detail2.png" alt="Banner" class="banner-img" id="img-2">
-                        <img src="../images/product_detail3.png" alt="Banner" class="banner-img" id="img-3">
-                        <img src="../images/product_detail4.webp" alt="Banner" class="banner-img" id="img-4">
-                        <img src="../images/product_detail5.jpg" alt="Banner" class="banner-img" id="img-5">
+                        @foreach ($photos as $photo)
+                            <img src="{{ $photo->file }}" alt="Banner" class="banner-img" id="img-{{ $loop->index + 1 }}">
+                        @endforeach
                     </div>
                     <div class="place4links-product">
-                        <div class="link-shop" data-target="img-1">
-                            <a href=""><img src="../images/product_detail1.png" class="link-img" alt="Thumbnail"></a>
-                        </div>
-                        <div class="link-shop" data-target="img-2">
-                            <a href=""><img src="../images/product_detail2.png" class="link-img" alt="Thumbnail"></a>
-                        </div>
-                        <div class="link-shop" data-target="img-3">
-                            <a href=""><img src="../images/product_detail3.png" class="link-img" alt="Thumbnail"></a>
-                        </div>
-                        <div class="link-shop" data-target="img-4">
-                            <a href=""><img src="../images/product_detail4.webp" class="link-img" alt="Thumbnail"></a>
-                        </div>
-                        <div class="link-shop" data-target="img-5">
-                            <a href=""><img src="../images/product_detail5.jpg" class="link-img" alt="Thumbnail"></a>
-                        </div>
+                        @foreach ($photos as $photo)
+                            <div class="link-shop" data-target="img-{{ $loop->index + 1 }}">
+                                <a href=""><img src="{{ $photo->file }}" class="link-img" alt="Thumbnail"></a>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>            
@@ -38,6 +26,7 @@
                     <!-- @if ($product) -->
                     <h1>{{$product->name}}</h1>
                     <p id="product_description" class="collapsed">{{$product->description}}</p>
+                    <button id="toggle-btn" class="toggle-button">Viac...</button>
                     <h1>Cena: {{ number_format($product->price, 2) }}€</h1>
                     <!-- @else
                     <h1>Sviečka z včelieho vosku</h1>
@@ -52,32 +41,35 @@
                         🕯️ Doba horenia: závisí od veľkosti sviečky <br>
                         🌿 Zloženie: 100 % prírodný včelí vosk, bavlnený knôt <br>
                         💛 Prinesie do vášho domova harmóniu a prírodnú vôňu včelieho úľa!</p>
-                    <button id="toggle-btn" class="toggle-button">Viac...</button>
+                    
                     <h1>Cena: 10,99€</h1> -->
                     <!-- @endif -->
                     <div class = "product-stars">
+                        @if ($product->stars == 0)
+                         <p class="no-rating">Žiadne hodnotenie</p>
+                        @else
+                            @foreach (range(1, $product->stars) as $star)
+                                <i class="fa-solid fa-star"></i>
+                            @endforeach
+                        @endif
+                        <!-- <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i> -->
                     </div>
                 </div>
-                <!-- <div class="quantity-selector">
-                    <button class="quantity-btn" id="decrease">-</button>
-                    <input type="number" id="quantity-detail" min="1" value="1">
-                    <button class="quantity-btn" id="increase">+</button>
-                </div> -->
                 <p class="availability">Skladom {{ $product->in_storage < 10 ? (string) $product->in_storage : '>10' }}ks</p>
                 <div class="button-container">
-                    <form action="" method="POST">
+                    <form method="POST" action="{{ route('cart.addProduct') }}">
+                        {{-- laravel somehow generates a token against cross site request forgery attacks--}}
                         @csrf
-                        <input type="hidden" name="product_id" value="{{ $product->id ?? 1 }}"> <!-- Použije ID produktu -->
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <div class="quantity-selector">
-                            <button type="button" class="quantity-btn" id="decrease">-</button>
-                            <input type="number" name="quantity" id="quantity-detail" min="1" value="1">
-                            <button type="button" class="quantity-btn" id="increase">+</button>
+                            <button class="quantity-btn" type="button" id="decrease">-</button>
+                            <input type="number" name="quantity" id="quantity" min="1" max="{{ $product->in_storage }}" value="1">
+                            <button class="quantity-btn" type="button" id="increase">+</button>
                         </div>
-                        <button type="submit" class="shop-but"><i class="fa-solid fa-cart-shopping"></i> Do košíka</button>
+                        <button type="submit" class="shop-but"><i class="fa-solid fa-cart-shopping"></i>Do košíku</button>
                     </form>
                 </div>
             </div>
@@ -88,22 +80,34 @@
         <div class="reviews-container">
             <h2>Recenzie</h2>
             <div class = "reviews">
-                <div class="review">
-                    <div class="reviewer">
-                        <i class="fa-solid fa-circle-user user-icon"></i>
-                        <p>John Doe</p>
+                @foreach ($reviews as $review)
+                    @php
+                        $f_name = $review->user->f_name;
+                        $l_name = $review->user->l_name;
+                        $full_name = $f_name . ' ' . $l_name;
+                        $stars = $review->stars;
+                        $text = $review->text;
+                    @endphp
+                    <div class="review">
+                        <div class="reviewer">
+                            <i class="fa-solid fa-circle-user user-icon"></i>
+                            <p>{{ $full_name }}</p>
+                        </div>
+                        <div class = "review-stars">
+                            @for ($i = 0; $i < $stars; $i++)
+                                <i class="fa-solid fa-star"></i>
+                            @endfor
+                            <!-- <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i> -->
+                        </div>    
+                        <div class = "review-text">
+                            <p>{{ $text }}</p>
+                        </div>
                     </div>
-                    <div class = "review-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>    
-                    <div class = "review-text">
-                        <p>Produkt je skvelý, vrelo odporúčam!</p>
-                    </div>
-                </div>
-                <div class="review">
+                @endforeach
+                <!-- <div class="review">
                     <div class="reviewer">
                         <i class="fa-solid fa-circle-user user-icon"></i>
                         <p>Jožko Mrkvička</p>
@@ -158,7 +162,7 @@
                         <p>Pridajte recenziu</p>
                     </div>
                     
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

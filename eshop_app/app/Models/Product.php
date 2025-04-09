@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Review;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -41,14 +42,19 @@ class Product extends Model
      * @var mixed
      */
 
-    public function variants(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function variants()
     {
         return $this->hasMany(Variant::class, 'product_id');
     }
 
-    public function reviews(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function reviews()
     {
         return $this->hasMany(Review::class, 'product_id');
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
     }
 
     public function salePrice(): float

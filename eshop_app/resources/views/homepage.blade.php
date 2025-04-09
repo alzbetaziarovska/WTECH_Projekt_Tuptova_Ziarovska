@@ -66,192 +66,69 @@
 
     
     <!-- RECOMMENDED PRODUCTS -->
-    <section class="recommended" id="recommended">
-        <h2>Odporúčame</h2>
-        <div class="carousel-wrapper">
-            <button id="prevBtn" class="carousel-btn left">&#10094;</button>
-            <div class="carousel-container">
-                <div class="product-carousel">
-                    <div class="product sale recommended">
-                        <a href="<?php echo url('product_detail') ?>" class="product-link">
-                            <img src="../images/logo_final.png" alt="Produkt 1">
-                            <div class="labels">
-                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
-                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
-                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
-                            </div>
-                            <p class="name-of-product">Názov</p>
-                            <p class="price-of-product">Cena X€</p>
-                            <p class="price-of-product-sale">Cena Y€</p>
-                            <div class="shop-product">
-                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <div class="info-of-product">
-                                    <p class="availability">Skladom >5ks</p>
-                                    <div class="product-stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
+     @if (!$products->isEmpty())
+        <section class="recommended" id="recommended">
+            <h2>Odporúčame</h2>
+            <div class="carousel-wrapper">
+                <button id="prevBtn" class="carousel-btn left">&#10094;</button>
+                <div class="carousel-container">
+                    <div class="product-carousel">
+                        {{-- @var \App\Models\Product $product --}}
+                        @foreach ($products as $product)
+                        @php
+                            $photo = $product->photos->first();
+                        @endphp
+                            <div class="product {{ $product->on_sale > 0 ? 'sale' : '' }} {{ $product->recommended ? 'recommended' : '' }} {{ $product->new_in ? 'new' : '' }}">
+                                <a href="{{ url('product_detail/' . $product->id) }}" class="product-link">
+                                    <img src="{{ $photo->file }}" class="product-photo" alt="Produkt {{ $product->name }}">
+                                </a>
+                                <div class="labels">
+                                        <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
+                                        @if ($product->recommend)
+                                            <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
+                                        @elseif ($product->sale > 0)
+                                            <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
+                                        @elseif ($product->new_in)
+                                            <span class="label new-l"><i class="fa-regular fa-star"></i></span>
+                                        @endif
                                     </div>
+                                    <p class="name-of-product">{{$product->name}}</p>
+                                    <p class="price-of-product">Cena {{ number_format($product->price, 2) }}€</p>
+                                    @php
+                                        $salePrice = $product->price - $product->sale;
+                                    @endphp
+                                    <p class="price-of-product-sale">Cena {{ number_format($salePrice, 2)}}€</p>
+                                    <form method="POST" action="{{ route('cart.addProduct') }}">
+                                        {{-- laravel somehow generates a token against cross site request forgery attacks--}}
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <div class="quantity-selector">
+                                            <button class="quantity-btn" type="button" id="decrease">-</button>
+                                            <input type="number" name="quantity" id="quantity" min="1" max="{{ $product->in_storage }}" value="1">
+                                            <button class="quantity-btn" type="button" id="increase">+</button>
+                                        </div>
+                                        <div class="shop-product">
+                                            <button type="submit" class="shop-but"><i class="fa-solid fa-cart-shopping"></i></button>
+                                            <div class="info-of-product">
+                                                <p class="availability">Skladom {{ $product->in_storage < 10 ? (string) $product->in_storage : '>10' }}ks</p>
+                                                <div class="product-stars">
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="product recommended">
-                        <a href="<?php echo url('product_detail') ?>" class="product-link">
-                            <img src="../images/logo_final.png" alt="Produkt 1">
-                            <div class="labels">
-                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
-                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
-                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
-                            </div>
-                            <p class="name-of-product">Názov</p>
-                            <p class="price-of-product">Cena X€</p>
-                            <p class="price-of-product-sale">Cena Y€</p>
-                            <div class="shop-product">
-                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <div class="info-of-product">
-                                    <p class="availability">Skladom >5ks</p>
-                                    <div class="product-stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="product recommended new">
-                        <a href="<?php echo url('product_detail') ?>" class="product-link">
-                            <img src="../images/logo_final.png" alt="Produkt 1">
-                            <div class="labels">
-                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
-                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
-                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
-                            </div>
-                            <p class="name-of-product">Názov</p>
-                            <p class="price-of-product">Cena X€</p>
-                            <p class="price-of-product-sale">Cena Y€</p>
-                            <div class="shop-product">
-                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <div class="info-of-product">
-                                    <p class="availability">Skladom >5ks</p>
-                                    <div class="product-stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="product recommended">
-                        <a href="<?php echo url('product_detail') ?>" class="product-link">
-                            <img src="../images/logo_final.png" alt="Produkt 1">
-                            <div class="labels">
-                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
-                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
-                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
-                            </div>
-                            <p class="name-of-product">Názov</p>
-                            <p class="price-of-product">Cena X€</p>
-                            <p class="price-of-product-sale">Cena Y€</p>
-                            <div class="shop-product">
-                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <div class="info-of-product">
-                                    <p class="availability">Skladom >5ks</p>
-                                    <div class="product-stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="product recommended">
-                        <a href="<?php echo url('product_detail') ?>" class="product-link">
-                            <img src="../images/logo_final.png" alt="Produkt 1">
-                            <div class="labels">
-                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
-                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
-                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
-                            </div>
-                            <p class="name-of-product">Názov</p>
-                            <p class="price-of-product">Cena X€</p>
-                            <p class="price-of-product-sale">Cena Y€</p>
-                            <div class="shop-product">
-                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <div class="info-of-product">
-                                    <p class="availability">Skladom >5ks</p>
-                                    <div class="product-stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="product sale recommended">
-                        <a href="<?php echo url('product_detail') ?>" class="product-link">
-                            <img src="../images/logo_final.png" alt="Produkt 1">
-                            <div class="labels">
-                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
-                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
-                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
-                            </div>
-                            <p class="name-of-product">Názov</p>
-                            <p class="price-of-product">Cena X€</p>
-                            <p class="price-of-product-sale">Cena Y€</p>
-                            <div class="shop-product">
-                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <div class="info-of-product">
-                                    <p class="availability">Skladom >5ks</p>
-                                    <div class="product-stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="product sale recommended new">
-                        <a href="<?php echo url('product_detail') ?>" class="product-link">
-                            <img src="../images/logo_final.png" alt="Produkt 1">
-                            <div class="labels">
-                                <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
-                                <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
-                                <span class="label new-l"><i class="fa-regular fa-star"></i></span>
-                            </div>
-                            <p class="name-of-product">Názov</p>
-                            <p class="price-of-product">Cena X€</p>
-                            <p class="price-of-product-sale">Cena Y€</p>
-                            <div class="shop-product">
-                                <a class="shop-but"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <div class="info-of-product">
-                                    <p class="availability">Skladom >5ks</p>
-                                    <div class="product-stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                        @endforeach
                     </div>
                 </div>
+                <button id="nextBtn" class="carousel-btn right">&#10095;</button>
             </div>
-            <button id="nextBtn" class="carousel-btn right">&#10095;</button>
-        </div>
-    </section>
+        </section>
+    @endif
     
 
     <!-- ABOUT US -->
