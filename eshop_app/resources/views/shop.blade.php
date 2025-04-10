@@ -18,14 +18,19 @@
                         @endphp
                         <div class="product {{ $product->on_sale > 0 ? 'sale' : '' }} {{ $product->recommended ? 'recommended' : '' }} {{ $product->new_in ? 'new' : '' }}">
                             <a href="{{ url('product_detail/' . $product->id) }}" class="product-link">
-                                <img src="{{ $photo->file }}" alt="Produkt 1">
+                                <img src="{{ $photo->file }}" class="photo-shop" alt="Produkt 1">
                                 <div class="labels">
                                     <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                                     @if ($product->recommend)
                                         <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
-                                    @elseif ($product->sale > 0)
+                                    @endif
+                                    @if ($product->stars > 4.5)
+                                        <span class="label recommended-l"><i class="fa-regular fa-heart"></i></span>
+                                    @endif
+                                    @if ($product->sale > 0)
                                         <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
-                                    @elseif ($product->new_in)
+                                    @endif
+                                    @if ($product->new_in)
                                         <span class="label new-l"><i class="fa-regular fa-star"></i></span>
                                     @endif
                                 </div>
@@ -78,14 +83,19 @@
                         @endphp
                             <div class="product {{ $product->on_sale > 0 ? 'sale' : '' }} {{ $product->recommended ? 'recommended' : '' }} {{ $product->new_in ? 'new' : '' }}">
                                 <a href="{{ url('product_detail/' . $product->id) }}" class="product-link">
-                                    <img src="{{ $photo->file }}" class="product-photo" alt="Produkt 1">
+                                    <img src="{{ $photo->file }}" class="photo-shop" alt="Produkt 1">
                                     <div class="labels">
                                         <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                                         @if ($product->recommend)
                                             <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
-                                        @elseif ($product->sale > 0)
+                                        @endif
+                                        @if ($product->stars > 4.5)
+                                            <span class="label favorite-l"><i class="fa-regular fa-heart"></i></span>
+                                        @endif
+                                        @if ($product->sale > 0)
                                             <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
-                                        @elseif ($product->new_in)
+                                        @endif
+                                        @if ($product->new_in)
                                             <span class="label new-l"><i class="fa-regular fa-star"></i></span>
                                         @endif
                                     </div>

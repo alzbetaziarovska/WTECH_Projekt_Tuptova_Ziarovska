@@ -1,3 +1,17 @@
+INSERT INTO users (f_name, l_name, email, password, is_admin, newsletter)
+values ('Alžbeta', 'Žiarovská', 'alzbetaziarovska@gmail.com', '$2y$10$qF/oQAuJ6V8OPwBKBvgUS.HT.GMOeAWPp.923mMQALKOk8DhUQatK', true, false);
+
+INSERT INTO users (f_name, l_name, email, password, is_admin, newsletter)
+values ('Ema', 'Tuptová', 'ema.tuptova@gmail.com', '$2y$10$qF/oQAuJ6V8OPwBKBvgUS.HT.GMOeAWPp.923mMQALKOk8DhUQatK', true, false);
+
+INSERT INTO users (f_name, l_name, email, password, is_admin, newsletter)
+values ('Janko', 'Hraško', 'janko.hrasko@gmail.com', '$2y$10$qF/oQAuJ6V8OPwBKBvgUS.HT.GMOeAWPp.923mMQALKOk8DhUQatK', false, false);
+
+INSERT INTO categories (name) values ('Vybavenie'), ('Krmivo a doplnky'), ('Zdravie včiel'), ('Výrobky');
+insert into categories (name) values ('Výsledky vyhľadávania');
+
+INSERT into products (category_id, name, description, maker, in_storage, price) values (1, 'test1', 'toto je testovaci produkt chichi', 'test', 10, 10.99);
+
 insert into photos (product_id, file) values (1, '../images/product_detail1.png');
 insert into photos (product_id, file) values (1, '../images/product_detail4.webp');
 insert into photos (product_id, file) values (1, '../images/product_detail5.jpg');

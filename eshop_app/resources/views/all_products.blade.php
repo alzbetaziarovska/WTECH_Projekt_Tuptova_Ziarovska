@@ -24,9 +24,14 @@
                             <!-- Štítky sa zobrazia iba ak má produkt príslušnú triedu -->
                             @if ($product->recommend)
                                 <span class="label recommended-l"><i class="fa-regular fa-thumbs-up"></i></span>
-                            @elseif ($product->sale > 0)
+                            @endif
+                            @if ($product->favorite > 4.5)
+                                <span class="label favorite-l"><i class="fa-solid fa-heart"></i></span>
+                            @endif
+                            @if ($product->sale > 0)
                                 <span class="label sale-l"><i class="fa-solid fa-percent"></i></span>
-                            @elseif ($product->new_in)
+                            @endif
+                            @if ($product->new_in)
                                 <span class="label new-l"><i class="fa-regular fa-star"></i></span>
                             @endif
                         </div>

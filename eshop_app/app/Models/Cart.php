@@ -11,8 +11,6 @@ class Cart extends Model
 
     protected $primaryKey = 'id'; // Define the primary key (optional)
 
-    public $timestamps = false; // Disable timestamps since they are not in the table
-
     protected $fillable = [
         'user_id',
     ];

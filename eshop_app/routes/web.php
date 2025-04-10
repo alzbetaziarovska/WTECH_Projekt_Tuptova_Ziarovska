@@ -9,7 +9,7 @@ use App\Models\Category;
 use App\Http\Controllers\CartController;
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-//Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+
 Route::get('/register', [UserController::class, 'create'])->name('register.form');
 Route::post('/register', [UserController::class, 'store'])->name('register.store');
 Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
@@ -24,13 +24,11 @@ Route::get('/about', fn() => view('about'));
 Route::get('/krmivo', fn() => view('krmivo')->with('products', Product::where('category_id', 2)->get()));
 Route::get('/product_detail', fn() => view('product_detail')->with('product', Product::find(0)));
 Route::get('/shop', fn() => view('shop')->with('categories', Category::all()));
-//Route::get('/shopping_cart1', fn() => view('shopping_cart1'));
 Route::get('/shopping_cart1', [CartController::class, 'show'])->name('shopping_cart1');
 Route::get('/shopping_cart2', fn() => view('shopping_cart2'));
 Route::get('/shopping_cart3', fn() => view('shopping_cart3'));
 Route::get('/stores', fn() => view('stores'));
 Route::get('/thanks_for_purchase', fn() => view('thanks_for_purchase'));
-//Route::get('/vybavenie', fn() => view('vybavenie')->with('products', Product::where('category_id', 1)->get()));
 Route::get('/vyrobky', fn() => view('vyrobky')->with('products', Product::where('category_id', 4)->get()));
 Route::get('/zdravie', fn() => view('zdravie')->with('products', Product::where('category_id', 3)->get()));
 
@@ -45,5 +43,7 @@ Route::post('add_to_cart', [CartController::class, 'addProduct'])->name('cart.ad
 Route::post('change_cart', [CartController::class, 'setProduct'])->name('cart.changeProductPcs');
 
 Route::post('remove_from_cart', [CartController::class, 'removeProduct'])->name('cart.removeProduct');
+
+Route::get('products/5', [ProductController::class, 'index'])->name('product.search');
 
 

@@ -24,7 +24,19 @@ class ProductController extends Controller
     {
         $query = Product::query();
 
-        $query->where('category_id', $category);
+        if ($category != 5)
+        {
+            $query->where('category_id', $category);
+        }
+
+        if ($request->filled('search_term')) {
+            $query->where(function ($q) use ($request) {
+                $search = strtolower($request->input('search_term'));
+                $q->whereRaw('LOWER(name) LIKE ?', ["%{$search}%"])
+                  ->orWhereRaw('LOWER(maker) LIKE ?', ["%{$search}%"]);
+            });
+            
+        }
 
         if ($request->filled('min_price')) {
             $query->where('price', '>=', $request->input('min_price'));
@@ -167,7 +179,16 @@ class ProductController extends Controller
 
     public function getProductsByCategory($categoryId)
     {
-    $products = Product::where('category_id', $categoryId)->get();
-    return view('products.index', compact('products'));
+        $products = Product::where('category_id', $categoryId)->get();
+        return view('products.index', compact('products'));
+    }
+
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search_term');
+
+        $products = Product::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
+        $category = Category::where('id', 4)->first();
+        return view('all_products', ['categoryName' => $category->name, 'category' => $category->id], compact('products'));
     }
 }

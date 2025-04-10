@@ -67,8 +67,10 @@
                             </div>
                         </div>
                         <div class="search-container">
-                            <input type="text" placeholder="Hľadať..." class="searchbar">
-                            <i class="search-icon fa fa-magnifying-glass"></i>
+                            <form action="{{ route('product.search') }}" method="GET" class="search_form">
+                                <input type="text" placeholder="Hľadať..." class="searchbar" name="search_term">
+                                <button type="submit"><i class="search-icon fa fa-magnifying-glass"></i></button>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -9,11 +9,9 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $table = 'orders'; // Explicitly defining the table name (optional)
+    protected $table = 'orders';
 
-    protected $primaryKey = 'id'; // Defining primary key (optional)
-
-    public $timestamps = false; // Disable timestamps if not included in the table
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'user_id',

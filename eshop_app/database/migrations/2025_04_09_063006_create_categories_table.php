@@ -13,7 +13,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name'); // Názov kategórie, napr. "Včelárske pomôcky"
             
             // timestamps nie sú potrebné, lebo model má timestamps = false
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 

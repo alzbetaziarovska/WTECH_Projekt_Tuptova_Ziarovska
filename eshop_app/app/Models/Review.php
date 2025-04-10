@@ -12,9 +12,6 @@ class Review extends Model
     // Define the primary key if it's not 'id'
     protected $primaryKey = 'id';
 
-    // Disable the timestamps if not using created_at/updated_at columns
-    public $timestamps = false;
-
     // Fillable attributes for mass assignment
     protected $fillable = [
         'product_id', 

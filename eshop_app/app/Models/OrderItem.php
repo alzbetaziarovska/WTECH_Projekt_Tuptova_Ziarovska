@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductInOrder extends Model
 {
 
-    protected $table = 'products_in_order';
+    protected $table = 'order_items';
 
     protected $primaryKey = 'id';
 
@@ -16,7 +16,7 @@ class ProductInOrder extends Model
     protected $fillable = [
         'order_id',
         'product_id',
-        'pcs'
+        'quantity'
     ];
 
     public function order(): \Illuminate\Database\Eloquent\Relations\BelongsTo

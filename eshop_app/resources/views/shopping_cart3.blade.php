@@ -26,8 +26,14 @@
                 <label for="phone">Telefónne číslo: *</label>
                 <input type="tel" id="phone" name="phone" required>
 
-                <label for="address">Ulica a číslo popisné: *</label>
+                <label for="address">Ulica: *</label>
                 <input type="text" id="street" name="street" required>
+
+                <label for="address">Číslo popisné: *</label>
+                <input type="number" id="house_num" name="street" required>
+
+                <label for="address">PSČ: *</label>
+                <input type="number" id="zip" name="zip" required>
 
                 <label for="address">Mesto: *</label>
                 <input type="text" id="city" name="city" required>

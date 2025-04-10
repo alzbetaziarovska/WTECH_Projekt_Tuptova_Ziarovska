@@ -15,8 +15,6 @@ class Product extends Model
 
     protected $primaryKey = 'id'; // Primary key
 
-    public $timestamps = false; // Set to true if you have `created_at` and `updated_at` columns
-
     protected $fillable = [
         'category_id',
         'name',
@@ -41,11 +39,6 @@ class Product extends Model
     /**
      * @var mixed
      */
-
-    public function variants()
-    {
-        return $this->hasMany(Variant::class, 'product_id');
-    }
 
     public function reviews()
     {

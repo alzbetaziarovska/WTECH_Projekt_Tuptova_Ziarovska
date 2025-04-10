@@ -18,7 +18,7 @@ class CreateCartsTable extends Migration
             // Foreign key constraint
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            // No timestamps since your model has public $timestamps = false;
+            $table->timestamps();
         });
     }
 

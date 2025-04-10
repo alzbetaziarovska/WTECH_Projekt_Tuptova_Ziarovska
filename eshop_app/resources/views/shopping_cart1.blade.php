@@ -58,8 +58,8 @@
                     $shippingProgressPercentage = min(100, ($cartPrice / 50) * 100);
                     $giftProgressPercentage = min(100, ($cartPrice / 20) * 100);
                 @endphp
-                @if (@freeShipping < 0)
-                    <p class="free-shipping"><i class="fa-solid fa-truck"></i>Získali ste dopravu<b>ZADARMO</b></p>
+                @if ($freeShipping < 0)
+                    <p class="free-shipping"><i class="fa-solid fa-truck"></i> Získali ste dopravu <b>ZADARMO</b></p>
                 @else
                     <p class="free-shipping">Objednajte ešte za <b>{{ $freeShipping }}€</b> a máte dopravu <b>ZADARMO</b></bZADARMO>.</p>
                 @endif

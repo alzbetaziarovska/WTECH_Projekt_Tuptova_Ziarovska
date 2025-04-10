@@ -212,6 +212,18 @@ header {
     cursor: pointer;
 }
 
+.search-container form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-container button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
 .searchbar {
     width: 100%;
     min-width: 120px;
@@ -1378,9 +1390,9 @@ footer {
     }
 }
 
-.product-link img {
+.product-link img.photo-shop{
     border-radius: 50%;
-    width: 75%;
+    width: 70%;
 }
 
 .product-link .product-photo {

@@ -25,6 +25,8 @@ class CreateReviewsTable extends Migration
             $table->tinyInteger('stars');       // number of stars (1–5)
             $table->date('date');               // review date
 
+            $table->timestamps();
+
             // Foreign key constraints
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

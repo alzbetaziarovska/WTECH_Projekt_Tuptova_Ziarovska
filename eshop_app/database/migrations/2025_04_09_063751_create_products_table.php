@@ -26,8 +26,7 @@ class CreateProductsTable extends Migration
             // Foreign key constraint
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
-            // timestamps (iba ak ich neskôr plánuješ použiť)
-            // $table->timestamps(); ← zatiaľ vynechané, model má timestamps = false
+            $table->timestamps();
         });
     }
 
